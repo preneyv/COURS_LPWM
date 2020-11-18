@@ -49,7 +49,7 @@ abstract public class Player extends Entity implements isMovable {
             
             clearConsole();
             sleepOneTime();
-            System.out.println( "Nom : "+super.name+"\n"+
+            System.out.println( "INFOS : \n############\nNom : "+super.name+"\n"+
                 "Argent : "+this.money+"\n"+
                 "XP : "+this.xp+"\n"+
                 "Mana : "+this.mana+"\n"+
@@ -125,11 +125,7 @@ abstract public class Player extends Entity implements isMovable {
         {
             mana++;
             System.out.println("Regain mana en cours... \r");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Paladin.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            sleepOneTime();
         }
     }
     

@@ -1,5 +1,6 @@
 
 package RPG;
+import static RPG.RpgMain.sleepOneTime;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -135,11 +136,7 @@ public class Battle {
                                             if(this.monster.getLife() >0)
                                             {
                                                 System.out.println(this.monster.getName()+" essaie de frapper !");
-                                                try {
-                                                        TimeUnit.SECONDS.sleep(2);
-                                                    } catch (InterruptedException ex) {
-                                                        Logger.getLogger(Paladin.class.getName()).log(Level.SEVERE, null, ex);
-                                                    }
+                                                sleepOneTime();
                                                 int chanceOfTouch = 1 + (int)(Math.random() * ((2 - 1) + 1));
                                                 if(chanceOfTouch == 2){
                                                     this.monster.attackPlayer(this.gamer);
