@@ -6,6 +6,9 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,7 +17,12 @@ import java.util.Scanner;
 public class RpgMain {
     public static void main(String[] args) throws IOException, InterruptedException, AWTException {
         
-        
+        /**
+         * Ask the player to enter some required information before the game begins
+         * The Size of the map.
+         * Wich class will he play
+         * And finally a name.
+         */
         
         System.out.println("Bienvenue sur ce nouveau jeu !!");
         System.out.println("Il nous faut quelques informations avant de pouvoir démarrer");
@@ -75,7 +83,10 @@ public class RpgMain {
                      break;
         }
         
-        
+        /**
+         * END OF ASKED REQUIRED INFORMATIONS
+         * THE GAME BEGINS
+         */
         Scanner scanner4 = new Scanner(System.in);
         if(p1 != null){
             
@@ -83,7 +94,7 @@ public class RpgMain {
                 String choiceMenu = null;
                 while(!"x".equals(choiceMenu))
                 {
-                    fonctionJeu();
+                    gameOperation();
                     System.out.print(mapGame.drawMap());
                     
                     try{
@@ -96,30 +107,27 @@ public class RpgMain {
                     switch(choiceMenu)
                     {
                         case "q" : p1.moveLeft(mapGame);
-                                    ClearConsole();
                                     break;
                         case "z" : p1.moveTop(mapGame);
-                                   ClearConsole();
                                    break;
                         case "d" : p1.moveRight(mapGame);
-                                   ClearConsole();
                                    break;
                         case "s" : p1.moveBottom(mapGame);
-                                   ClearConsole();
                                    break;
                         case "m" : storeInstance.goToTheMall(p1);
                                    break;
                         case "b" : p1.showBag();
                                    break;
-                        case "i" : System.out.println(p1.showInfoPlayer());
+                        case "i" : p1.showInfoPlayer();
                                    break;
                     }
+                    clearConsole();
                 }
         }
           
     }
 
-    public static void fonctionJeu(){
+    public static void gameOperation(){
         System.out.println("################################################################");
         System.out.println("# Voici les différentes touches utilisable pendant la partie : #");
         System.out.println("# - z pour se déplacer en haut.                                #");
@@ -132,12 +140,26 @@ public class RpgMain {
         System.out.println("################################################################");
     }
         
-    public static void ClearConsole() throws AWTException {
+    /**
+     * Use to simulate a fluid player movement in the map. Unfortunately, it creates sometimes display issues. But it can be solve by adding a 1 seconds sleep after 
+     * clearConsole
+     * @throws AWTException 
+     */
+    public static void clearConsole() throws AWTException {
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_L);
             robot.keyRelease(KeyEvent.VK_L);
             robot.keyRelease(KeyEvent.VK_CONTROL);
+    }
+    
+    public static void sleepOneTime()
+    {
+        try {
+                  TimeUnit.SECONDS.sleep(1);
+              } catch (InterruptedException ex) {
+                  Logger.getLogger(Paladin.class.getName()).log(Level.SEVERE, null, ex);
+              }
     }
     
 }

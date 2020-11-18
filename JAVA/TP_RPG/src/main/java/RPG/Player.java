@@ -1,5 +1,6 @@
 package RPG;
-import static RPG.RpgMain.ClearConsole;
+import static RPG.RpgMain.clearConsole;
+import static RPG.RpgMain.sleepOneTime;
 import java.awt.AWTException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -39,32 +40,53 @@ abstract public class Player extends Entity implements isMovable {
      * 
      * @return all the important properties of the player
      */
-    public String showInfoPlayer(){
-        return "Nom : "+super.name+"\n"+
+    public void showInfoPlayer() throws AWTException{
+        
+        
+        String leaveShowInfo=null;
+        while(!"x".equals(leaveShowInfo))
+        {
+            
+            clearConsole();
+            sleepOneTime();
+            System.out.println( "Nom : "+super.name+"\n"+
                 "Argent : "+this.money+"\n"+
                 "XP : "+this.xp+"\n"+
                 "Mana : "+this.mana+"\n"+
-                "Arme en main : "+(this.usedWeapon == null ? "Aucune" : this.usedWeapon.getName())+"\n";
+                "Arme en main : "+(this.usedWeapon == null ? "Aucune" : this.usedWeapon.getName())+"\n");
+            
+            System.out.println("tapez x pour sortir");
+            Scanner scan = new Scanner(System.in);
+            leaveShowInfo = scan.next();
+        }
                 
     }
     
     /**
      * Show the contained of the bag
      */
-    public void showBag()
+    public void showBag() throws AWTException
     {
-        if(this.bag.isEmpty())
-        {
-            System.out.println("Votre sac est vide.");
-        }else{
-            
-            System.out.println("Voici ce que contient votre sac : ");
-            for( Weapon a : this.bag)
+        String leaveShowBag=null;
+        while(!"x".equals(leaveShowBag)){
+            clearConsole();
+            sleepOneTime();
+            if(this.bag.isEmpty())
             {
-                System.out.println("- "+a.getName());
+                System.out.println("Votre sac est vide.");
+            }else{
+
+                System.out.println("Voici ce que contient votre sac : ");
+                for( Weapon a : this.bag)
+                {
+                    System.out.println("- "+a.getName());
+                }
             }
+            System.out.println("tapez x pour sortir");
+            Scanner scan = new Scanner(System.in);
+            leaveShowBag = scan.next();
         }
-        
+
     }
     
     /**
@@ -202,7 +224,7 @@ abstract public class Player extends Entity implements isMovable {
             if(m.mapToDrawXAxe.get(super.posX).get(super.posY-1) != null)
             {
                 try {
-                    ClearConsole();
+                    clearConsole();
                 } catch (AWTException ex) {
                     Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -242,7 +264,7 @@ abstract public class Player extends Entity implements isMovable {
             if(m.mapToDrawXAxe.get(super.posX).get(super.posY+1) != null)
             {
                 try {
-                    ClearConsole();
+                    clearConsole();
                 } catch (AWTException ex) {
                     Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -282,7 +304,7 @@ abstract public class Player extends Entity implements isMovable {
             if(m.mapToDrawXAxe.get(super.posX-1).get(super.posY) != null)
             {
                 try {
-                    ClearConsole();
+                    clearConsole();
                 } catch (AWTException ex) {
                     Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -321,7 +343,7 @@ abstract public class Player extends Entity implements isMovable {
             if(m.mapToDrawXAxe.get(super.posX+1).get(super.posY) != null)
             {
                 try {
-                    ClearConsole();
+                    clearConsole();
                 } catch (AWTException ex) {
                     Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
                 }

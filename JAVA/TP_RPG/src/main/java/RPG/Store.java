@@ -1,7 +1,11 @@
 package RPG;
-import static RPG.RpgMain.ClearConsole;
+import static RPG.RpgMain.clearConsole;
+import static RPG.RpgMain.sleepOneTime;
 import java.awt.AWTException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -45,7 +49,8 @@ public class Store {
        */
       public void goToTheMall(Player j) throws AWTException
       {
-          ClearConsole();
+          clearConsole();
+          sleepOneTime();
           System.out.println("Bienvenue dans mon atelier !! Je fabrique les meilleurs armes !");
           System.out.println("###############################################################");
           
@@ -93,6 +98,7 @@ public class Store {
                 
              
           }
+           sleepOneTime();
           
       }
       
