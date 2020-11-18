@@ -1,0 +1,19 @@
+Les appels de méthodes sont résolus à l’exécution (late-binding), en effet
+on ne peut pas deviner à la compilation le type dynamique de l’objet.
+Pourquoi ? Car il peut varier à l’exécution suivant les inputs d’un
+utilisateur
+Signature override-equivalent
+Deux signatures de méthodes sont override-equivalent si elles ont
+exactement le même nom et les mêmes types d’arguments et de retour. Le
+type de retour peut être co-variant (voir la partie sur Object).
+Overriding
+Pour toutes classes T = Weapon, si une méthode T.m est
+override-equivalent à Weapon.m, alors la méthode appelée sera celle de la
+plus petite sous-classe dont m est override-equivalent.
+Signature override-equivalent
+Deux signatures de méthodes sont override-equivalent si elles ont
+exactement le même nom et les mêmes types d’arguments et de retour. Le
+type de retour peut être co-variant (voir la partie sur Object).
+Pour toutes classes T = Weapon, si une méthode T.m est
+override-equivalent à Weapon.m, alors la méthode appelée sera celle de la
+plus petite sous-classe dont m est override-equivalent.
