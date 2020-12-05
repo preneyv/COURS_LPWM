@@ -10,6 +10,7 @@ import com.tarot.observer.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
@@ -19,76 +20,139 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 
 public class VueTest extends JFrame implements Observer{
 
+    //Other properties
     private final AbstractControllerPlayer controller;
+
+    //Components
+    //Main panel (Is a CardLayout so the user can switch with the panelFirstPage once he his name is set)
     private JPanel contentPane;
-    private JPanel panelInscription;
-    private JPanel panelFormWelcome;
-    private JTextField prenomTextField;
-    private JButton validerFormWelcomeButton;
-    private final ButtonGroup buttonGroupChooseSex = new ButtonGroup();
-    private JRadioButton radioButtonBoy;
-    private JRadioButton radioButtonGirl;
-    private JLabel errorLabel;
-    private JPanel panelFirstPage;
-    private JPanel sideBar;
-    private JLabel iconPlayer;
-    private JLabel playerName;
-    private JPanel rightMain;
-    private JPanel menuTop;
-    private JButton searchCardBtn;
-    private JButton addCardBtn;
-    private JPanel mainRightContentPanel;
-    private JButton sauvegarderVotreProfilButton;
-    private JPanel infoPlayerPanel;
-    private JPanel panelSeeCard;
-    private JPanel panelOtherAction;
-    private JScrollPane scrollPanelSeeCard;
-    private JPanel panelDetailCard;
-    private JPanel panelTitleCardInCharge;
-    private JPanel panelAddCard;
-    private JPanel panelTittleAddCard;
-    private JLabel titleAddCardPanelLabel;
-    private JPanel panelAddCardAndChooseCard;
-    private JPanel panelForList;
-    private JLabel sexLabel;
-    private JPanel panelTextFieldToAdd;
-    private JComboBox comboBoxArcaneChoice;
-    private JLabel labelTypeCarte;
-    private JPanel panelFormAddCard;
-    private JPanel panelArcanesChoice;
-    private JPanel formForTheChoosenType;
-    private JPanel formForMajeurType;
-    private JLabel labelElement;
-    private JComboBox comboBoxElementCardToAdd;
-    private JLabel labelSexuality;
-    private JComboBox comboBoxSexuality;
-    private JPanel mainFormAddCard;
-    private JTextField fieldNameCardToAdd;
-    private JLabel labelNameCardToAdd;
-    private JLabel numberCardToAdd;
-    private JTextField fieldNumberCardToAdd;
-    private JPanel formForMineurType;
-    private JLabel jLabelDomaineCardToAdd;
-    private JComboBox listDomaineCardToAdd;
-    private JLabel jLabelNumberCardToAdd;
-    private JComboBox listeNumeroCarteToAdd;
-    private JPanel formForOtherType;
-    private JLabel planetLabelCardToAdd;
-    private JComboBox listPlaneteCardToAdd;
-    private JLabel labelChooseFile;
-    private JTextField textFieldNameFileChoosen;
-    private JButton btnOpenFileChoose;
-    private JLabel errorFileChoosen;
-    private JButton btnValidFormAddCard;
-    private JLabel errorFormField;
-    private JButton btnRestForm;
-    private JComboBox listWithCardToAdd;
+        //All the usefull components for Sign Up or start with his saved profile
+         private JPanel panelInscription;
+             //Contains each required components for the form
+             private JPanel panelFormWelcome;
+                //
+                private JLabel sexLabel;
+                private JPanel panelTextFieldToAdd;
+                private JTextField prenomTextField;
+                private final ButtonGroup buttonGroupChooseSex = new ButtonGroup();
+                    //
+                    private JRadioButton radioButtonBoy;
+                    private JRadioButton radioButtonGirl;
+                //
+                private JButton validerFormWelcomeButton;
+                private JLabel errorLabel;
+
+        //this panel is set once the user is logged in
+        private JPanel panelFirstPage;
+            //left side of the panel
+            private JPanel sideBar;
+                //top of the sidebar
+                private JPanel infoPlayerPanel;
+                    //
+                    private JLabel iconPlayer;
+                    private JLabel playerName;
+                //this bottom is in the bottom of SideBar
+                private JButton sauvegarderVotreProfilButton;
+            //right side of the panel
+            private JPanel rightMain;
+                //Right Panel of the RightMainPanel
+                private JPanel panelOtherAction;
+
+                    //Panel giving detail of the currently observed card
+                    private JPanel detailCard;
+                        //Panel used to center the title
+                        private JPanel panelTitleCardInCharge;
+                            //Title Label
+                            private JLabel titlePanelDetailCard;
+                        //This panel will get the Card the user wants to watch - This happens when the user click
+                        //on one of his Card from his deck(see detailOfCard below l-525)
+                        private JPanel panelDetailCard;
+
+                    //Panel use for adding a new card to his deck
+                    private JPanel formAddCard;
+                        //Panel used to center the title
+                        private JPanel panelTittleAddCard;
+                            //Title Label
+                            private JLabel titleAddCardPanelLabel;
+                        //Panel with the usefull component for the form
+                        private JPanel panelAddCardAndChooseCard;
+                            //This panel will be filled by a list of Card the user shall select so he adds it to his deck
+                            //(see the method fillComboBoxCard l-431)
+                            private JPanel panelForList;
+                                //
+                                private JComboBox listWithCardToAdd;
+
+                            //Staying components for the form but first....another JPanel
+                            private JPanel panelFormAddCard;
+                                //Panel that contains a ComboBox so the user choose a type.
+                                private JPanel panelArcanesChoice;
+                                    //
+                                    private JLabel labelTypeCarte;
+                                    private JComboBox comboBoxArcaneChoice;
+                                //this Panel change depending on whether it's Majeure, Mineur or Majestueuse
+                                private JPanel formForTheChoosenType;
+                                    //
+                                    private JPanel formForMajeurType;
+                                        //
+                                        private JLabel labelElement;
+                                        private JComboBox comboBoxElementCardToAdd;
+                                        private JLabel labelSexuality;
+                                        private JComboBox comboBoxSexuality;
+                                    //
+                                    private JPanel formForMineurType;
+                                        //
+                                        private JLabel jLabelDomaineCardToAdd;
+                                        private JComboBox listDomaineCardToAdd;
+                                        private JLabel jLabelNumberCardToAdd;
+                                        private JComboBox listeNumeroCarteToAdd;
+                                    //
+                                    private JPanel formForOtherType;
+                                        //
+                                        private JLabel planetLabelCardToAdd;
+                                        private JComboBox listPlaneteCardToAdd;
+                                //Panel for Last required Compononents
+                                private JPanel mainFormAddCard;
+                                    //
+                                    private JLabel labelNameCardToAdd;
+                                    private JTextField fieldNameCardToAdd;
+                                    private JLabel numberCardToAdd;
+                                    private JTextField fieldNumberCardToAdd;
+                                    private JLabel errorFileChoosen;
+                                    private JLabel labelChooseFile;
+                                    private JTextField textFieldNameFileChoosen;
+                                    private JButton btnOpenFileChoose;
+                                //
+                                private JButton btnValidFormAddCard;
+                                private JLabel errorFormField;
+                                private JButton btnRestForm;
+
+
+
+
+
+                //Left Panel of the RightMain Panel
+                private JPanel mainActionRightPanel;
+                    //Panel To center the search Textfield
+                    private JTextField searchTextField;
+                        //
+                        private JPanel panelSearch;
+                    //
+                    private JScrollPane scrollPanelSeeCard;
+                        //This panel will contains the deck of the user. Each card is added once the form is complete
+                        //and valid (see btnValidFormAddCard.addActionListener l-270)
+                        private JPanel panelSeeCard;
+
+
+
+
+
+
+
 
     public VueTest(AbstractControllerPlayer absCtl)
     {
@@ -106,7 +170,7 @@ public class VueTest extends JFrame implements Observer{
 
         validerFormWelcomeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                    System.out.println(prenomTextField.getText()+" "+radioButtonBoy.isSelected() +" "+ radioButtonGirl.isSelected());
+
                     if(!("").equals(prenomTextField.getText()) && (radioButtonBoy.isSelected() || radioButtonGirl.isSelected()))
                     {
                         String sexuality = buttonGroupChooseSex.getSelection().getActionCommand();
@@ -130,35 +194,8 @@ public class VueTest extends JFrame implements Observer{
         });
 
 
-        searchCardBtn.addMouseListener(new MouseAdapter() {
 
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                searchCardBtn.setBackground(new Color(114, 45, 239));
-                super.mouseEntered(e);
-            }
 
-            @Override
-            public void mouseExited(MouseEvent e) {
-                searchCardBtn.setBackground(new Color(60,136,186));
-                super.mouseExited(e);
-            }
-        });
-
-        addCardBtn.addMouseListener(new MouseAdapter() {
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                addCardBtn.setBackground(new Color(114, 45, 239));
-                super.mouseEntered(e);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                addCardBtn.setBackground(new Color(60,136,186));
-                super.mouseExited(e);
-            }
-        });
 
         btnOpenFileChoose.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -187,6 +224,7 @@ public class VueTest extends JFrame implements Observer{
 
             }
         });
+
         comboBoxArcaneChoice.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
@@ -199,91 +237,10 @@ public class VueTest extends JFrame implements Observer{
         btnValidFormAddCard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String infoErreur ="<html>Il y a différentes erreurs de saisie : <br>";
-                Card cToAdd=null;
-                String nameFilToAdd="";
-                Boolean readyToAdd = false;
-
-                System.out.println(listWithCardToAdd.getSelectedIndex());
-                if(listWithCardToAdd.getSelectedIndex() == 0)
-                {
-                    File fToAdd = new File(textFieldNameFileChoosen.getText());
-                    try {
-                        BufferedImage bfI = ImageIO.read(fToAdd);
-                        String ext = fToAdd.getName().substring(fToAdd.getName().lastIndexOf('.')+1);
-
-                        ImageIO.write(bfI,ext, new File(getClass().getResource("/images/").getPath(),fToAdd.getName()));
-                        nameFilToAdd = fToAdd.getName();
-
-                    } catch (IOException ioException) {
-                        infoErreur += "- Une erreur à eu lieu avec le téléchargement de l'image<br>";
-
-                    }
-
-                }else{
-                        nameFilToAdd = ((Card) listWithCardToAdd.getSelectedItem()).getPicture();
-                }
-
-                        if((("").equals(textFieldNameFileChoosen.getText())==false) && (("").equals(fieldNameCardToAdd.getText())==false) && (("").equals(fieldNumberCardToAdd.getText())==false) && comboBoxArcaneChoice.getSelectedIndex()>0)
-                        {
-
-
-                            if(("Arcanes Majeure").equals(comboBoxArcaneChoice.getSelectedItem()))
-                            {
-                                if((comboBoxElementCardToAdd.getSelectedIndex()>0 ) && (comboBoxSexuality.getSelectedIndex() > 0))
-                                {
-
-                                    cToAdd = new ArcanesMajeures(fieldNumberCardToAdd.getText(), nameFilToAdd,fieldNameCardToAdd.getText(), (String)comboBoxElementCardToAdd.getSelectedItem(), (String)comboBoxSexuality.getSelectedItem());
-                                    readyToAdd = true;
-                                }else{
-                                    infoErreur += "- Element ou Genre de la carte <br>";
-                                }
-
-                            }else if(("Arcanes Mineure").equals(comboBoxArcaneChoice.getSelectedItem()))
-                            {
-                                if((listDomaineCardToAdd.getSelectedIndex()>0 ) && (listeNumeroCarteToAdd.getSelectedIndex()>0))
-                                {
-                                    fieldNameCardToAdd.setText(listeNumeroCarteToAdd.getSelectedItem() + " "+ listDomaineCardToAdd.getSelectedItem());
-                                    cToAdd = new ArcanesMineures((String)listeNumeroCarteToAdd.getSelectedItem(), nameFilToAdd, fieldNameCardToAdd.getText(), (String)listDomaineCardToAdd.getSelectedItem());
-                                    readyToAdd = true;
-                                }else{
-                                    infoErreur += "- Domaine ou Numéro de la carte <br>";
-                                }
-                            }else if(("Arcanes Majestueuse").equals(comboBoxArcaneChoice.getSelectedItem()))
-                            {
-                                if(listPlaneteCardToAdd.getSelectedIndex()>0 )
-                                {
-                                    cToAdd = new ArcanesMajestueuses(fieldNameCardToAdd.getText(), nameFilToAdd, fieldNumberCardToAdd.getText(), (String)listPlaneteCardToAdd.getSelectedItem());
-                                    readyToAdd = true;
-                                }else{
-                                    infoErreur += "- Planète de la carte <br>";
-                                }
-                            }else{
-                                infoErreur += "- Type de la carte <br>";
-                            }
-                        }else{
-                            readyToAdd = false;
-                            infoErreur += "- Nom ou numéro de la carte<br>";
-                        }
-
-                errorFormField.setVisible(true);
-                if(!readyToAdd)
-                {
-
-                    errorFormField.setText(infoErreur+"<html>");
-                    errorFormField.setForeground(Color.red);
-
-                }else{
-                    controller.addCollectionCardPlayer(cToAdd);
-                    errorFormField.setText("Carte ajoutée");
-                    errorFormField.setForeground(Color.green);
-                    resetStateForm(true);
-
-                }
-
-
+                validAddCardForm();
             }
         });
+
         btnRestForm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -296,46 +253,28 @@ public class VueTest extends JFrame implements Observer{
 
         panelInscription.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
         panelInscription.setMaximumSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
-
         panelFormWelcome.setPreferredSize(new Dimension(panelFormWelcome.getParent().getPreferredSize().width/6, panelFormWelcome.getParent().getPreferredSize().height/6));
         panelFormWelcome.setMaximumSize(new Dimension(panelFormWelcome.getParent().getMaximumSize().width/6, panelFormWelcome.getParent().getMaximumSize().height/6));
         panelFormWelcome.setSize(new Dimension(panelFormWelcome.getParent().getPreferredSize().width/6, panelFormWelcome.getParent().getPreferredSize().height/6));
-
         panelFirstPage.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
         panelFirstPage.setMaximumSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
-
-        
         this.scrollPanelSeeCard.setPreferredSize(new Dimension(this.scrollPanelSeeCard.getParent().getPreferredSize().width/2, 1080));
         this.scrollPanelSeeCard.setMaximumSize(new Dimension(this.scrollPanelSeeCard.getParent().getMaximumSize().width/2, 1080));
-
-
         this.panelSeeCard.setPreferredSize(new Dimension(this.panelSeeCard.getParent().getPreferredSize().width, -1));
         this.panelSeeCard.setMaximumSize(new Dimension(this.panelSeeCard.getParent().getMaximumSize().width,-1 ));
-
-
         this.panelOtherAction.setPreferredSize(new Dimension(this.panelOtherAction.getParent().getPreferredSize().width/2, -1));
         this.panelOtherAction.setMaximumSize(new Dimension(this.panelOtherAction.getParent().getMaximumSize().width/2, -1));
-
-        this.panelAddCard.setPreferredSize(new Dimension(this.panelAddCard.getParent().getPreferredSize().width, -1));
-        this.panelAddCard.setMaximumSize(new Dimension(this.panelAddCard.getParent().getMaximumSize().width, -1));
-
         this.panelAddCardAndChooseCard.setPreferredSize(new Dimension(this.panelAddCardAndChooseCard.getParent().getPreferredSize().width, -1));
         this.panelAddCardAndChooseCard.setMaximumSize(new Dimension(this.panelAddCardAndChooseCard.getParent().getMaximumSize().width, -1));
-
-
         this.radioButtonBoy.setActionCommand("Homme");
         this.radioButtonGirl.setActionCommand("Femme");
         this.buttonGroupChooseSex.add(radioButtonBoy);
         this.buttonGroupChooseSex.add(radioButtonGirl);
         prenomTextField = new RoundedJTextField(40);
-
-
         this.panelTextFieldToAdd.add(prenomTextField);
-
         this.scrollPanelSeeCard.setBorder(null);
         this.panelDetailCard.setPreferredSize(new Dimension(-1, this.panelDetailCard.getParent().getMaximumSize().height));
         this.panelDetailCard.setMaximumSize(new Dimension(-1, this.panelDetailCard.getParent().getMaximumSize().height));
-
 
         this.fillComboBoxCard();
 
@@ -373,7 +312,7 @@ public class VueTest extends JFrame implements Observer{
                     btnOpenFileChoose.setEnabled(false);
 
                 }
-                System.out.println(e.getItemSelectable());
+
                if(indexChoice == 0){resetStateForm(false);}
 
 
@@ -383,6 +322,24 @@ public class VueTest extends JFrame implements Observer{
 
         panelForList.setBorder(new EmptyBorder(10,10,10,10));
         panelForList.add(listWithCardToAdd,BorderLayout.CENTER);
+
+        searchTextField.setBorder(new LineBorder(Color.BLACK,2));
+
+        searchTextField.addFocusListener(new FocusListener() {
+
+            @Override
+            public void focusGained(FocusEvent e) {
+                String textDefaultSearchField = (!(("Rechercher une carte").equals(((JTextField)e.getSource()).getText())) ) ? ((JTextField)e.getSource()).getText() : "";
+                ((JTextField)e.getSource()).setText(textDefaultSearchField);
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                String textDefaultSearchField = ((("").equals(((JTextField)e.getSource()).getText())) ) ? "Rechercher une carte" : ((JTextField)e.getSource()).getText() ;
+                ((JTextField)e.getSource()).setText(textDefaultSearchField);
+                
+            }
+        });
 
 
 
@@ -439,6 +396,92 @@ public class VueTest extends JFrame implements Observer{
 
     }
 
+    public void validAddCardForm(){
+
+        String infoErreur ="<html>Il y a différentes erreurs de saisie : <br>";
+        Card cToAdd=null;
+        String nameFilToAdd="";
+        Boolean readyToAdd = false;
+
+        System.out.println(listWithCardToAdd.getSelectedIndex());
+        if(listWithCardToAdd.getSelectedIndex() == 0)
+        {
+            File fToAdd = new File(textFieldNameFileChoosen.getText());
+            try {
+                BufferedImage bfI = ImageIO.read(fToAdd);
+                String ext = fToAdd.getName().substring(fToAdd.getName().lastIndexOf('.')+1);
+
+                ImageIO.write(bfI,ext, new File(getClass().getResource("/images/").getPath(),fToAdd.getName()));
+                nameFilToAdd = fToAdd.getName();
+
+            } catch (IOException ioException) {
+                infoErreur += "- Une erreur à eu lieu avec le téléchargement de l'image<br>";
+
+            }
+
+        }else{
+            nameFilToAdd = ((Card) listWithCardToAdd.getSelectedItem()).getPicture();
+        }
+
+        if((("").equals(textFieldNameFileChoosen.getText())==false) && (("").equals(fieldNameCardToAdd.getText())==false) && (("").equals(fieldNumberCardToAdd.getText())==false) && comboBoxArcaneChoice.getSelectedIndex()>0)
+        {
+
+
+            if(("Arcanes Majeure").equals(comboBoxArcaneChoice.getSelectedItem()))
+            {
+                if((comboBoxElementCardToAdd.getSelectedIndex()>0 ) && (comboBoxSexuality.getSelectedIndex() > 0))
+                {
+
+                    cToAdd = new ArcanesMajeures(fieldNumberCardToAdd.getText(), nameFilToAdd,fieldNameCardToAdd.getText(), (String)comboBoxElementCardToAdd.getSelectedItem(), (String)comboBoxSexuality.getSelectedItem());
+                    readyToAdd = true;
+                }else{
+                    infoErreur += "- Element ou Genre de la carte <br>";
+                }
+
+            }else if(("Arcanes Mineure").equals(comboBoxArcaneChoice.getSelectedItem()))
+            {
+                if((listDomaineCardToAdd.getSelectedIndex()>0 ) && (listeNumeroCarteToAdd.getSelectedIndex()>0))
+                {
+                    fieldNameCardToAdd.setText(listeNumeroCarteToAdd.getSelectedItem() + " "+ listDomaineCardToAdd.getSelectedItem());
+                    cToAdd = new ArcanesMineures((String)listeNumeroCarteToAdd.getSelectedItem(), nameFilToAdd, fieldNameCardToAdd.getText(), (String)listDomaineCardToAdd.getSelectedItem());
+                    readyToAdd = true;
+                }else{
+                    infoErreur += "- Domaine ou Numéro de la carte <br>";
+                }
+            }else if(("Arcanes Majestueuse").equals(comboBoxArcaneChoice.getSelectedItem()))
+            {
+                if(listPlaneteCardToAdd.getSelectedIndex()>0 )
+                {
+                    cToAdd = new ArcanesMajestueuses(fieldNameCardToAdd.getText(), nameFilToAdd, fieldNumberCardToAdd.getText(), (String)listPlaneteCardToAdd.getSelectedItem());
+                    readyToAdd = true;
+                }else{
+                    infoErreur += "- Planète de la carte <br>";
+                }
+            }else{
+                infoErreur += "- Type de la carte <br>";
+            }
+        }else{
+            readyToAdd = false;
+            infoErreur += "- Nom ou numéro de la carte<br>";
+        }
+
+        errorFormField.setVisible(true);
+        if(!readyToAdd)
+        {
+
+            errorFormField.setText(infoErreur+"<html>");
+            errorFormField.setForeground(Color.red);
+
+        }else{
+            controller.addCollectionCardPlayer(cToAdd);
+            errorFormField.setText("Carte ajoutée");
+            errorFormField.setForeground(Color.green);
+            resetStateForm(true);
+
+        }
+
+    }
+
     public void update(Player p) {
 
         this.playerName.setText(p.getFirstname());
@@ -460,9 +503,11 @@ public class VueTest extends JFrame implements Observer{
                 btnDel.setBorderPainted(false);
                 btnDel.setSize(20,20);
                 btnDel.setVerticalAlignment(SwingConstants.TOP);
-                btnDel.addActionListener(new ActionListener() {
+                btnDel.setMargin(new Insets(-2,0,0,0));
+                btnDel.setVisible(false);
+                btnDel.addMouseListener(new MouseAdapter() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
+                    public void mouseClicked(MouseEvent e) {
 
                         JButton src = (JButton) e.getSource();
                         JPanel parent = (JPanel)src.getParent();
@@ -470,6 +515,18 @@ public class VueTest extends JFrame implements Observer{
                         controller.removeCollectionCardPlayer(toRm.getCard());
                         parent.removeAll();
                         parent.getParent().remove(parent);
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        super.mouseEntered(e);
+                        ((JButton)e.getSource()).setVisible(true);
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        super.mouseExited(e);
+                        ((JButton)e.getSource()).setVisible(false);
                     }
                 });
                 final CardIsJButton cardToAdd = new CardIsJButton(c);
@@ -481,6 +538,18 @@ public class VueTest extends JFrame implements Observer{
                         panelDetailCard.add(detailOfCard);
                         super.mouseClicked(e);
                         panelDetailCard.validate();
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        super.mouseEntered(e);
+                        btnDel.setVisible(true);
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        super.mouseExited(e);
+                        btnDel.setVisible(false);
                     }
                 });
 

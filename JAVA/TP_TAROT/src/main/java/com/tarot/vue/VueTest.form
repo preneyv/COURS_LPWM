@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.tarot.vue.VueTest">
   <grid id="27dc6" binding="contentPane" layout-manager="CardLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="1769" height="1302"/>
+      <xy x="20" y="20" width="1161" height="1016"/>
     </constraints>
     <properties>
       <maximumSize width="-1" height="-1"/>
@@ -204,88 +204,29 @@
             </properties>
             <border type="none"/>
             <children>
-              <grid id="28f4f" binding="menuTop" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="true" hgap="0" vgap="15">
-                <margin top="0" left="0" bottom="0" right="0"/>
+              <grid id="b8672" binding="panelOtherAction" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="5" left="5" bottom="5" right="5"/>
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="1" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="1" row-span="3" col-span="1" vsize-policy="3" hsize-policy="1" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-12810054"/>
+                  <background color="-13487310"/>
                 </properties>
                 <border type="none"/>
                 <children>
-                  <grid id="96afa" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="93287" binding="detailCard" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
-                    <border type="none"/>
-                    <children>
-                      <component id="1ecc5" class="javax.swing.JButton" binding="searchCardBtn">
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-12810054"/>
-                          <borderPainted value="false"/>
-                          <foreground color="-459265"/>
-                          <icon value="images/cartePlus.png"/>
-                          <margin top="7" left="7" bottom="7" right="7"/>
-                          <name value="searchCard"/>
-                          <text value="Rechercher une carte"/>
-                        </properties>
-                      </component>
-                    </children>
-                  </grid>
-                  <grid id="93f55" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true"/>
-                    </constraints>
-                    <properties/>
-                    <border type="none"/>
-                    <children>
-                      <component id="859eb" class="javax.swing.JButton" binding="addCardBtn">
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-12810054"/>
-                          <borderPainted value="false"/>
-                          <foreground color="-459265"/>
-                          <icon value="images/cartePlus.png"/>
-                          <margin top="7" left="7" bottom="7" right="7"/>
-                          <text value="Ajouter une carte"/>
-                        </properties>
-                      </component>
-                    </children>
-                  </grid>
-                </children>
-              </grid>
-              <grid id="c6cdb" binding="mainRightContentPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="true" same-size-vertically="true" hgap="-1" vgap="-1">
-                <margin top="0" left="0" bottom="0" right="0"/>
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-4520698"/>
-                </properties>
-                <border type="none"/>
-                <children>
-                  <grid id="b8672" binding="panelOtherAction" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="5" left="5" bottom="5" right="5"/>
-                    <constraints>
-                      <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="1" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                    </constraints>
                     <properties>
-                      <background color="-13487310"/>
+                      <background color="-8614411"/>
                     </properties>
                     <border type="none"/>
                     <children>
                       <grid id="d8aca" binding="panelDetailCard" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
                         <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
                             <preferred-size width="-1" height="200"/>
                             <maximum-size width="-1" height="200"/>
                           </grid>
@@ -299,463 +240,17 @@
                         </border>
                         <children/>
                       </grid>
-                      <grid id="b1a89" binding="panelAddCard" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-13487310"/>
-                        </properties>
-                        <border type="none"/>
-                        <children>
-                          <vspacer id="276a9">
-                            <constraints>
-                              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                          </vspacer>
-                          <component id="338ae" class="javax.swing.JSeparator">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="1" fill="1" indent="0" use-parent-layout="false">
-                                <preferred-size width="-1" height="20"/>
-                                <maximum-size width="-1" height="20"/>
-                              </grid>
-                            </constraints>
-                            <properties>
-                              <background color="-13487310"/>
-                              <foreground color="-13487310"/>
-                              <opaque value="false"/>
-                              <visible value="true"/>
-                            </properties>
-                          </component>
-                          <grid id="224ea" binding="panelTittleAddCard" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                            <margin top="5" left="5" bottom="5" right="5"/>
-                            <constraints>
-                              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <background color="-9299473"/>
-                            </properties>
-                            <border type="none"/>
-                            <children>
-                              <component id="f2f5b" class="javax.swing.JLabel" binding="titleAddCardPanelLabel">
-                                <constraints>
-                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                                </constraints>
-                                <properties>
-                                  <foreground color="-459265"/>
-                                  <text value="Ajouter des cartes à votre collection"/>
-                                </properties>
-                              </component>
-                            </children>
-                          </grid>
-                          <grid id="197ed" binding="panelAddCardAndChooseCard" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                            <margin top="0" left="0" bottom="0" right="0"/>
-                            <constraints>
-                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <background color="-8614411"/>
-                            </properties>
-                            <border type="none"/>
-                            <children>
-                              <grid id="1a0df" binding="panelForList" layout-manager="BorderLayout" hgap="0" vgap="0">
-                                <constraints>
-                                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                                </constraints>
-                                <properties>
-                                  <background color="-8614411"/>
-                                  <foreground color="-8614411"/>
-                                </properties>
-                                <border type="none"/>
-                                <children/>
-                              </grid>
-                              <vspacer id="3db25">
-                                <constraints>
-                                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                                </constraints>
-                              </vspacer>
-                              <grid id="bf45d" binding="panelFormAddCard" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="10">
-                                <margin top="10" left="10" bottom="10" right="10"/>
-                                <constraints>
-                                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                                </constraints>
-                                <properties>
-                                  <background color="-8614411"/>
-                                </properties>
-                                <border type="none"/>
-                                <children>
-                                  <grid id="34369" binding="panelArcanesChoice" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="21" vgap="-1">
-                                    <margin top="0" left="0" bottom="0" right="0"/>
-                                    <constraints>
-                                      <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                                    </constraints>
-                                    <properties>
-                                      <background color="-8614411"/>
-                                      <visible value="true"/>
-                                    </properties>
-                                    <border type="none"/>
-                                    <children>
-                                      <component id="76281" class="javax.swing.JLabel" binding="labelTypeCarte">
-                                        <constraints>
-                                          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                        <properties>
-                                          <font name="Assistant" size="14" style="1"/>
-                                          <foreground color="-459265"/>
-                                          <text value="Types d'arcane : "/>
-                                        </properties>
-                                      </component>
-                                      <component id="b5f44" class="javax.swing.JComboBox" binding="comboBoxArcaneChoice">
-                                        <constraints>
-                                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                        <properties>
-                                          <model>
-                                            <item value="Choisissez..."/>
-                                            <item value="Arcanes Majeure"/>
-                                            <item value="Arcanes Mineure"/>
-                                            <item value="Arcanes Majestueuse"/>
-                                          </model>
-                                        </properties>
-                                      </component>
-                                      <hspacer id="f7df3">
-                                        <constraints>
-                                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                      </hspacer>
-                                    </children>
-                                  </grid>
-                                  <grid id="c5ea0" binding="formForTheChoosenType" layout-manager="CardLayout" hgap="0" vgap="0">
-                                    <constraints>
-                                      <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                                    </constraints>
-                                    <properties>
-                                      <background color="-8614411"/>
-                                      <visible value="true"/>
-                                    </properties>
-                                    <border type="none"/>
-                                    <children>
-                                      <grid id="ae382" binding="formForMajeurType" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="62" vgap="10">
-                                        <margin top="0" left="0" bottom="0" right="0"/>
-                                        <constraints>
-                                          <card name="Card1"/>
-                                        </constraints>
-                                        <properties>
-                                          <background color="-8614411"/>
-                                          <visible value="false"/>
-                                        </properties>
-                                        <border type="none"/>
-                                        <children>
-                                          <component id="ec00d" class="javax.swing.JComboBox" binding="comboBoxElementCardToAdd">
-                                            <constraints>
-                                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <model>
-                                                <item value="Choisissez..."/>
-                                                <item value="Feu"/>
-                                                <item value="Eau"/>
-                                                <item value="Terre"/>
-                                                <item value="Air"/>
-                                                <item value="Aucun"/>
-                                              </model>
-                                            </properties>
-                                          </component>
-                                          <component id="c1aa7" class="javax.swing.JLabel" binding="labelElement">
-                                            <constraints>
-                                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <font name="Assistant" size="14" style="1"/>
-                                              <foreground color="-459265"/>
-                                              <text value="Element : "/>
-                                            </properties>
-                                          </component>
-                                          <component id="589ac" class="javax.swing.JLabel" binding="labelSexuality">
-                                            <constraints>
-                                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <font name="Assistant" size="14" style="1"/>
-                                              <foreground color="-459265"/>
-                                              <text value="Genre : "/>
-                                            </properties>
-                                          </component>
-                                          <component id="48a3b" class="javax.swing.JComboBox" binding="comboBoxSexuality">
-                                            <constraints>
-                                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <model>
-                                                <item value="Choisissez..."/>
-                                                <item value="Androgyne"/>
-                                                <item value="Masculin"/>
-                                                <item value="Féminin"/>
-                                                <item value="Neutre"/>
-                                              </model>
-                                            </properties>
-                                          </component>
-                                        </children>
-                                      </grid>
-                                      <grid id="38f4d" binding="formForMineurType" layout-manager="GridLayoutManager" row-count="2" column-count="26" same-size-horizontally="false" same-size-vertically="false" hgap="40" vgap="10">
-                                        <margin top="0" left="0" bottom="0" right="0"/>
-                                        <constraints>
-                                          <card name="Card2"/>
-                                        </constraints>
-                                        <properties>
-                                          <autoscrolls value="true"/>
-                                          <background color="-8614411"/>
-                                          <foreground color="-459265"/>
-                                          <visible value="true"/>
-                                        </properties>
-                                        <border type="none"/>
-                                        <children>
-                                          <component id="9d36d" class="javax.swing.JLabel" binding="jLabelDomaineCardToAdd">
-                                            <constraints>
-                                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <font name="Assistant" size="14" style="1"/>
-                                              <foreground color="-459265"/>
-                                              <text value="Le Domaine : "/>
-                                            </properties>
-                                          </component>
-                                          <component id="245e" class="javax.swing.JLabel" binding="jLabelNumberCardToAdd">
-                                            <constraints>
-                                              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <font name="Assistant" size="14" style="1"/>
-                                              <foreground color="-459265"/>
-                                              <text value="Numéro  : "/>
-                                            </properties>
-                                          </component>
-                                          <component id="b4a00" class="javax.swing.JComboBox" binding="listDomaineCardToAdd">
-                                            <constraints>
-                                              <grid row="0" column="1" row-span="1" col-span="25" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <model>
-                                                <item value="Choisissez..."/>
-                                                <item value="Coupes"/>
-                                                <item value="Epées"/>
-                                                <item value="Batons"/>
-                                                <item value="Deniers"/>
-                                              </model>
-                                            </properties>
-                                          </component>
-                                          <component id="57e75" class="javax.swing.JComboBox" binding="listeNumeroCarteToAdd">
-                                            <constraints>
-                                              <grid row="1" column="2" row-span="1" col-span="24" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <model>
-                                                <item value="Choisissez..."/>
-                                                <item value="As"/>
-                                                <item value="2"/>
-                                                <item value="3"/>
-                                                <item value="4"/>
-                                                <item value="5"/>
-                                                <item value="6"/>
-                                                <item value="7"/>
-                                                <item value="8"/>
-                                                <item value="9"/>
-                                                <item value="Valet"/>
-                                                <item value="Cavalier"/>
-                                                <item value="Reine"/>
-                                                <item value="Roi"/>
-                                              </model>
-                                            </properties>
-                                          </component>
-                                        </children>
-                                      </grid>
-                                      <grid id="ebac5" binding="formForOtherType" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="67" vgap="-1">
-                                        <margin top="0" left="0" bottom="0" right="0"/>
-                                        <constraints>
-                                          <card name="Card3"/>
-                                        </constraints>
-                                        <properties>
-                                          <background color="-8614411"/>
-                                          <font name="Assistant" size="14" style="1"/>
-                                          <visible value="false"/>
-                                        </properties>
-                                        <border type="none"/>
-                                        <children>
-                                          <component id="ba229" class="javax.swing.JLabel" binding="planetLabelCardToAdd">
-                                            <constraints>
-                                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <font name="Assistant" size="14" style="1"/>
-                                              <foreground color="-459265"/>
-                                              <text value="Planète : "/>
-                                            </properties>
-                                          </component>
-                                          <component id="ace4b" class="javax.swing.JComboBox" binding="listPlaneteCardToAdd">
-                                            <constraints>
-                                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                                            </constraints>
-                                            <properties>
-                                              <model>
-                                                <item value="Choisissez..."/>
-                                                <item value="Terre"/>
-                                                <item value="Mars"/>
-                                                <item value="Uranus"/>
-                                                <item value="Jupiter"/>
-                                                <item value="Mercure"/>
-                                                <item value="Venus"/>
-                                                <item value="Saturne"/>
-                                                <item value="Neptune"/>
-                                              </model>
-                                            </properties>
-                                          </component>
-                                        </children>
-                                      </grid>
-                                    </children>
-                                  </grid>
-                                  <grid id="6a31d" binding="mainFormAddCard" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="10">
-                                    <margin top="0" left="0" bottom="0" right="0"/>
-                                    <constraints>
-                                      <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                                    </constraints>
-                                    <properties>
-                                      <background color="-8614411"/>
-                                      <visible value="true"/>
-                                    </properties>
-                                    <border type="none"/>
-                                    <children>
-                                      <component id="6b637" class="javax.swing.JLabel" binding="numberCardToAdd">
-                                        <constraints>
-                                          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                        <properties>
-                                          <font name="Assistant" size="14" style="1"/>
-                                          <foreground color="-459265"/>
-                                          <text value="Numéro : "/>
-                                        </properties>
-                                      </component>
-                                      <component id="c7047" class="javax.swing.JLabel" binding="labelChooseFile">
-                                        <constraints>
-                                          <grid row="2" column="0" row-span="3" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                        <properties>
-                                          <font name="Assistant" size="14" style="1"/>
-                                          <foreground color="-459265"/>
-                                          <text value="Ajouter une image  : "/>
-                                        </properties>
-                                      </component>
-                                      <component id="eb80a" class="javax.swing.JLabel" binding="labelNameCardToAdd">
-                                        <constraints>
-                                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                        <properties>
-                                          <font name="Assistant" size="14" style="1"/>
-                                          <foreground color="-459265"/>
-                                          <horizontalAlignment value="4"/>
-                                          <horizontalTextPosition value="0"/>
-                                          <text value="Nom  : "/>
-                                        </properties>
-                                      </component>
-                                      <component id="27cab" class="javax.swing.JTextField" binding="fieldNameCardToAdd">
-                                        <constraints>
-                                          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                            <preferred-size width="150" height="-1"/>
-                                          </grid>
-                                        </constraints>
-                                        <properties/>
-                                      </component>
-                                      <component id="3b065" class="javax.swing.JTextField" binding="fieldNumberCardToAdd">
-                                        <constraints>
-                                          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                            <preferred-size width="150" height="-1"/>
-                                          </grid>
-                                        </constraints>
-                                        <properties/>
-                                      </component>
-                                      <component id="7e1cd" class="javax.swing.JTextField" binding="textFieldNameFileChoosen">
-                                        <constraints>
-                                          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                                            <preferred-size width="150" height="-1"/>
-                                          </grid>
-                                        </constraints>
-                                        <properties>
-                                          <editable value="false"/>
-                                          <enabled value="false"/>
-                                        </properties>
-                                      </component>
-                                      <component id="7bc81" class="javax.swing.JButton" binding="btnOpenFileChoose">
-                                        <constraints>
-                                          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                        <properties>
-                                          <text value="Ouvrir l'explorateur de fichier"/>
-                                        </properties>
-                                      </component>
-                                      <component id="37be0" class="javax.swing.JLabel" binding="errorFileChoosen">
-                                        <constraints>
-                                          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                        </constraints>
-                                        <properties>
-                                          <foreground color="-4520698"/>
-                                          <text value="Erreur de fichier. Extensions autorisées : JPG, PNG"/>
-                                          <visible value="false"/>
-                                        </properties>
-                                      </component>
-                                    </children>
-                                  </grid>
-                                  <vspacer id="eaf9a">
-                                    <constraints>
-                                      <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                                    </constraints>
-                                  </vspacer>
-                                  <component id="c4b38" class="javax.swing.JButton" binding="btnValidFormAddCard">
-                                    <constraints>
-                                      <grid row="3" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                    </constraints>
-                                    <properties>
-                                      <text value="Ajouter une carte"/>
-                                    </properties>
-                                  </component>
-                                  <component id="7949b" class="javax.swing.JLabel" binding="errorFormField">
-                                    <constraints>
-                                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                                    </constraints>
-                                    <properties>
-                                      <text value=""/>
-                                      <visible value="false"/>
-                                    </properties>
-                                  </component>
-                                  <component id="91600" class="javax.swing.JButton" binding="btnRestForm">
-                                    <constraints>
-                                      <grid row="4" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                                    </constraints>
-                                    <properties>
-                                      <text value="Vider le formulaire"/>
-                                    </properties>
-                                  </component>
-                                </children>
-                              </grid>
-                            </children>
-                          </grid>
-                        </children>
-                      </grid>
-                      <vspacer id="daffe">
-                        <constraints>
-                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                      </vspacer>
                       <grid id="4405c" binding="panelTitleCardInCharge" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="true" same-size-vertically="true" hgap="-1" vgap="-1">
                         <margin top="5" left="5" bottom="5" right="5"/>
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <background color="-9299473"/>
                         </properties>
                         <border type="none"/>
                         <children>
-                          <component id="c75c9" class="javax.swing.JLabel">
+                          <component id="c75c9" class="javax.swing.JLabel" binding="titlePanelDetailCard">
                             <constraints>
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
@@ -768,18 +263,459 @@
                           </component>
                         </children>
                       </grid>
+                      <vspacer id="f7424">
+                        <constraints>
+                          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
                     </children>
                   </grid>
+                  <grid id="4b533" binding="formAddCard" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                    <margin top="20" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-13487310"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="197ed" binding="panelAddCardAndChooseCard" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="10" left="10" bottom="10" right="10"/>
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-8614411"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <grid id="1a0df" binding="panelForList" layout-manager="BorderLayout" hgap="0" vgap="0">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-8614411"/>
+                              <foreground color="-8614411"/>
+                            </properties>
+                            <border type="none"/>
+                            <children/>
+                          </grid>
+                          <grid id="bf45d" binding="panelFormAddCard" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="10">
+                            <margin top="10" left="10" bottom="10" right="10"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <background color="-8614411"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <grid id="34369" binding="panelArcanesChoice" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="21" vgap="-1">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-8614411"/>
+                                  <visible value="true"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="76281" class="javax.swing.JLabel" binding="labelTypeCarte">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="Assistant" size="14" style="1"/>
+                                      <foreground color="-459265"/>
+                                      <text value="Types d'arcane : "/>
+                                    </properties>
+                                  </component>
+                                  <component id="b5f44" class="javax.swing.JComboBox" binding="comboBoxArcaneChoice">
+                                    <constraints>
+                                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <model>
+                                        <item value="Choisissez..."/>
+                                        <item value="Arcanes Majeure"/>
+                                        <item value="Arcanes Mineure"/>
+                                        <item value="Arcanes Majestueuse"/>
+                                      </model>
+                                    </properties>
+                                  </component>
+                                  <hspacer id="f7df3">
+                                    <constraints>
+                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                  </hspacer>
+                                </children>
+                              </grid>
+                              <grid id="c5ea0" binding="formForTheChoosenType" layout-manager="CardLayout" hgap="0" vgap="0">
+                                <constraints>
+                                  <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-8614411"/>
+                                  <visible value="true"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <grid id="ae382" binding="formForMajeurType" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="62" vgap="10">
+                                    <margin top="0" left="0" bottom="0" right="0"/>
+                                    <constraints>
+                                      <card name="Card1"/>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-8614411"/>
+                                      <visible value="false"/>
+                                    </properties>
+                                    <border type="none"/>
+                                    <children>
+                                      <component id="ec00d" class="javax.swing.JComboBox" binding="comboBoxElementCardToAdd">
+                                        <constraints>
+                                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <model>
+                                            <item value="Choisissez..."/>
+                                            <item value="Feu"/>
+                                            <item value="Eau"/>
+                                            <item value="Terre"/>
+                                            <item value="Air"/>
+                                            <item value="Aucun"/>
+                                          </model>
+                                        </properties>
+                                      </component>
+                                      <component id="c1aa7" class="javax.swing.JLabel" binding="labelElement">
+                                        <constraints>
+                                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <font name="Assistant" size="14" style="1"/>
+                                          <foreground color="-459265"/>
+                                          <text value="Element : "/>
+                                        </properties>
+                                      </component>
+                                      <component id="589ac" class="javax.swing.JLabel" binding="labelSexuality">
+                                        <constraints>
+                                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <font name="Assistant" size="14" style="1"/>
+                                          <foreground color="-459265"/>
+                                          <text value="Genre : "/>
+                                        </properties>
+                                      </component>
+                                      <component id="48a3b" class="javax.swing.JComboBox" binding="comboBoxSexuality">
+                                        <constraints>
+                                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <model>
+                                            <item value="Choisissez..."/>
+                                            <item value="Androgyne"/>
+                                            <item value="Masculin"/>
+                                            <item value="Féminin"/>
+                                            <item value="Neutre"/>
+                                          </model>
+                                        </properties>
+                                      </component>
+                                    </children>
+                                  </grid>
+                                  <grid id="38f4d" binding="formForMineurType" layout-manager="GridLayoutManager" row-count="2" column-count="26" same-size-horizontally="false" same-size-vertically="false" hgap="40" vgap="10">
+                                    <margin top="0" left="0" bottom="0" right="0"/>
+                                    <constraints>
+                                      <card name="Card2"/>
+                                    </constraints>
+                                    <properties>
+                                      <autoscrolls value="true"/>
+                                      <background color="-8614411"/>
+                                      <foreground color="-459265"/>
+                                      <visible value="true"/>
+                                    </properties>
+                                    <border type="none"/>
+                                    <children>
+                                      <component id="9d36d" class="javax.swing.JLabel" binding="jLabelDomaineCardToAdd">
+                                        <constraints>
+                                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <font name="Assistant" size="14" style="1"/>
+                                          <foreground color="-459265"/>
+                                          <text value="Le Domaine : "/>
+                                        </properties>
+                                      </component>
+                                      <component id="245e" class="javax.swing.JLabel" binding="jLabelNumberCardToAdd">
+                                        <constraints>
+                                          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <font name="Assistant" size="14" style="1"/>
+                                          <foreground color="-459265"/>
+                                          <text value="Numéro  : "/>
+                                        </properties>
+                                      </component>
+                                      <component id="b4a00" class="javax.swing.JComboBox" binding="listDomaineCardToAdd">
+                                        <constraints>
+                                          <grid row="0" column="1" row-span="1" col-span="25" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <model>
+                                            <item value="Choisissez..."/>
+                                            <item value="Coupes"/>
+                                            <item value="Epées"/>
+                                            <item value="Batons"/>
+                                            <item value="Deniers"/>
+                                          </model>
+                                        </properties>
+                                      </component>
+                                      <component id="57e75" class="javax.swing.JComboBox" binding="listeNumeroCarteToAdd">
+                                        <constraints>
+                                          <grid row="1" column="2" row-span="1" col-span="24" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <model>
+                                            <item value="Choisissez..."/>
+                                            <item value="As"/>
+                                            <item value="2"/>
+                                            <item value="3"/>
+                                            <item value="4"/>
+                                            <item value="5"/>
+                                            <item value="6"/>
+                                            <item value="7"/>
+                                            <item value="8"/>
+                                            <item value="9"/>
+                                            <item value="Valet"/>
+                                            <item value="Cavalier"/>
+                                            <item value="Reine"/>
+                                            <item value="Roi"/>
+                                          </model>
+                                        </properties>
+                                      </component>
+                                    </children>
+                                  </grid>
+                                  <grid id="ebac5" binding="formForOtherType" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="67" vgap="-1">
+                                    <margin top="0" left="0" bottom="0" right="0"/>
+                                    <constraints>
+                                      <card name="Card3"/>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-8614411"/>
+                                      <font name="Assistant" size="14" style="1"/>
+                                      <visible value="false"/>
+                                    </properties>
+                                    <border type="none"/>
+                                    <children>
+                                      <component id="ba229" class="javax.swing.JLabel" binding="planetLabelCardToAdd">
+                                        <constraints>
+                                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <font name="Assistant" size="14" style="1"/>
+                                          <foreground color="-459265"/>
+                                          <text value="Planète : "/>
+                                        </properties>
+                                      </component>
+                                      <component id="ace4b" class="javax.swing.JComboBox" binding="listPlaneteCardToAdd">
+                                        <constraints>
+                                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                        </constraints>
+                                        <properties>
+                                          <model>
+                                            <item value="Choisissez..."/>
+                                            <item value="Terre"/>
+                                            <item value="Mars"/>
+                                            <item value="Uranus"/>
+                                            <item value="Jupiter"/>
+                                            <item value="Mercure"/>
+                                            <item value="Venus"/>
+                                            <item value="Saturne"/>
+                                            <item value="Neptune"/>
+                                          </model>
+                                        </properties>
+                                      </component>
+                                    </children>
+                                  </grid>
+                                </children>
+                              </grid>
+                              <grid id="6a31d" binding="mainFormAddCard" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="10">
+                                <margin top="0" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <background color="-8614411"/>
+                                  <visible value="true"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="6b637" class="javax.swing.JLabel" binding="numberCardToAdd">
+                                    <constraints>
+                                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="Assistant" size="14" style="1"/>
+                                      <foreground color="-459265"/>
+                                      <text value="Numéro : "/>
+                                    </properties>
+                                  </component>
+                                  <component id="c7047" class="javax.swing.JLabel" binding="labelChooseFile">
+                                    <constraints>
+                                      <grid row="2" column="0" row-span="3" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="Assistant" size="14" style="1"/>
+                                      <foreground color="-459265"/>
+                                      <text value="Ajouter une image  : "/>
+                                    </properties>
+                                  </component>
+                                  <component id="eb80a" class="javax.swing.JLabel" binding="labelNameCardToAdd">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="Assistant" size="14" style="1"/>
+                                      <foreground color="-459265"/>
+                                      <horizontalAlignment value="4"/>
+                                      <horizontalTextPosition value="0"/>
+                                      <text value="Nom  : "/>
+                                    </properties>
+                                  </component>
+                                  <component id="27cab" class="javax.swing.JTextField" binding="fieldNameCardToAdd">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="3b065" class="javax.swing.JTextField" binding="fieldNumberCardToAdd">
+                                    <constraints>
+                                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="7" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="7e1cd" class="javax.swing.JTextField" binding="textFieldNameFileChoosen">
+                                    <constraints>
+                                      <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <editable value="false"/>
+                                      <enabled value="false"/>
+                                    </properties>
+                                  </component>
+                                  <component id="7bc81" class="javax.swing.JButton" binding="btnOpenFileChoose">
+                                    <constraints>
+                                      <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Ouvrir l'explorateur de fichier"/>
+                                    </properties>
+                                  </component>
+                                  <component id="37be0" class="javax.swing.JLabel" binding="errorFileChoosen">
+                                    <constraints>
+                                      <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <foreground color="-4520698"/>
+                                      <text value="Erreur de fichier. Extensions autorisées : JPG, PNG"/>
+                                      <visible value="false"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <component id="c4b38" class="javax.swing.JButton" binding="btnValidFormAddCard">
+                                <constraints>
+                                  <grid row="3" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Ajouter une carte"/>
+                                </properties>
+                              </component>
+                              <component id="7949b" class="javax.swing.JLabel" binding="errorFormField">
+                                <constraints>
+                                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value=""/>
+                                  <visible value="false"/>
+                                </properties>
+                              </component>
+                              <component id="91600" class="javax.swing.JButton" binding="btnRestForm">
+                                <constraints>
+                                  <grid row="4" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value="Vider le formulaire"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <vspacer id="a8e92">
+                            <constraints>
+                              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                      <grid id="224ea" binding="panelTittleAddCard" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="5" left="5" bottom="5" right="5"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-9299473"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="f2f5b" class="javax.swing.JLabel" binding="titleAddCardPanelLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <foreground color="-459265"/>
+                              <text value="Ajouter des cartes à votre collection"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <vspacer id="5e201">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="1260" binding="mainActionRightPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="5" left="5" bottom="5" right="5"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="3" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-13487310"/>
+                </properties>
+                <border type="none"/>
+                <children>
                   <scrollpane id="d2596" binding="scrollPanelSeeCard">
                     <constraints>
-                      <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <background color="-13487310"/>
                       <horizontalScrollBarPolicy value="30"/>
                       <verticalScrollBarPolicy value="20"/>
                     </properties>
-                    <border type="none"/>
+                    <border type="line">
+                      <color color="-16579808"/>
+                    </border>
                     <children>
                       <grid id="afb13" binding="panelSeeCard" layout-manager="FlowLayout" hgap="20" vgap="20" flow-align="0">
                         <constraints/>
@@ -792,18 +728,36 @@
                       </grid>
                     </children>
                   </scrollpane>
+                  <grid id="49040" binding="panelSearch" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-16579808"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="4ad47" class="javax.swing.JTextField" binding="searchTextField">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-14934756"/>
+                          <caretColor color="-13487310"/>
+                          <font name="Assistant SemiBold" size="16" style="1"/>
+                          <foreground color="-459265"/>
+                          <horizontalAlignment value="0"/>
+                          <margin top="2" left="6" bottom="2" right="6"/>
+                          <text value="Rechercher une carte"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
                 </children>
               </grid>
-              <vspacer id="88079">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <hspacer id="7cc7d">
-                <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </hspacer>
             </children>
           </grid>
         </children>
