@@ -83,12 +83,25 @@ There is different options :
 #### IGotTextFieldKeyListening
 ### b - The Classes
 * FormPanelWelcome
-** RoundedJTextField
-** RoundedBorderCorner
+  * RoundedJTextField
+  * RoundedBorderCorner
 * PanelMainPage
-** PanelSideBar
-** PanelCollectionCard
-** PanelDetailCard
+  * PanelSideBar
+  * PanelCollectionCard
+    * CardPanel
+    * CardIsJButton
+  * PanelDetailCard
+    * AsbtractPanelForArcanesType
+    * PanelForArcanesMajestueuseDetail
+    * PanelForArcanesMajeureDetail
+    * PanelForArcanesMineureDetail
+  * PanelFormAddCard
+    * ListRenderer
+* EventListenerClasses
+  * ButtonAction
+  * ComboBoxAction
+  * FocusAction
+  * KeyPressedAction
 
 ## 2 - The Controller - Package
 ### The Classes
