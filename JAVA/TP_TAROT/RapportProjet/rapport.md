@@ -73,4 +73,36 @@ There is different options :
 * You can add a card by choosing one of the default card. Once the choice done, the form will automaticaly be filled. Then you will be uncapable to modify the fields unless you click on the empty form button.
 * Otherwise you can create your own card by choosing the item you want in the combobox  components and typing the right word in the text fields components. But the first combobox, the default card proposal, must remained unchoosen. It means the first item ("choisissez une carte") must be selected.
 
+# The Project Structure
+## 1 - The View - Package
+### a - The Interfaces
+#### IGotBtnClickable
+#### IGotBtnHover
+#### IGotComboxChange
+#### IGotFocusComponent
+#### IGotTextFieldKeyListening
+### b - The Classes
+#### PanelWelcomForm
+#### PanelMainPage
 
+## 2 - The Controller - Package
+### The Classes
+#### AbstractControllerPlayer
+#### ControllerPlayer
+
+## 3 - The Model - Package
+### a - The Interfaces
+#### IsSustainable
+### b - The Classes
+#### AbstractModel
+#### Player
+#### Card
+#### ArcanesMajeures
+#### ArcanesMineures
+#### ArcanesMajestueuses
+
+
+## The Observer - Package
+### The Interfaces
+#### Observable
+#### Observer
