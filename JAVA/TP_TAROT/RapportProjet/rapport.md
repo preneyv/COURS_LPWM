@@ -35,4 +35,10 @@ radioButton couple. Then he press enter and go into in.
 Then, once it’s done, the user can see the program
 break down into segments.
 
-![Form Welcom Panel](./welcomeForm.PNG)
+![Main Page](./main Page.PNG)
+
+First you’ve got the side bar with a little icon, the name and at save
+profil button at the bottom.
+![Side Bar](./icoUser.png) ![Save Btn](./saveBtn.PNG)
+
+
