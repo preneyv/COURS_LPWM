@@ -22,7 +22,7 @@ components of the application (Also more details in the report below)
 
 # How to use it
 
-**a - Form Welcome Panel**
+## 1 - Form Welcome Panel
 
 Once the user has started the program, he has got to fill a welcome
 form. He must enter his name and choose betwin two choices of a two
@@ -30,19 +30,49 @@ radioButton couple. Then he press enter and go into in.
 
 ![Form Welcom Panel](./welcomeForm.PNG)
 
-**b - Main Window** 
+## 2 - Main Window 
 
 Then, once it’s done, the user can see the program
 break down into segments.
 
-![Main Page](./main Page.PNG)
+![Main Page](./mainPage.png)
 
+### a - The SideBar
 First you’ve got the side bar with a little icon, the name and at save
 profil button at the bottom.
 
 ![Side Bar](./icoUser.png) ![Save Btn](./saveBtn.PNG)
 
+### b - The central panel - collection card and search bar
 Then you can see a central panel. Here released a search bar and the card collection of the user.
 Each card will be set with a respective image and a name.
+
+![Collection Card](./collectionCard.PNG)
+
+By hovering one of these card, a dustbin icon will pop just on the left of the card image so you can remove the card from you're collection.
+
+![Dustbin Icon](./dustbinIcon.PNG)
+
+### c - The detail Panel
+
+By clicking on one of these card you set the top-right panel : detail Panel. Here you will see the detail of the card you've just clicked on before.
+
+![Empty Detail](./detailEmpty.PNG) ![Detail](./detail.PNG)
+
+By hovering each property value on the right of the image, a pen icon will pop so you can set the property that belong to the icon.
+JLabel will turn into JTextField or JComboBox. Depending on the nature of the property you're setting.
+
+![Edit Prop](./edit.png)
+
+### d - The adding form
+
+And finally the adding form there is. 
+With this, you will can add new card to your collection.
+
+![Adding Form](./formAdd.PNG)
+
+There is different options : 
+* You can add a card by choosing one of the default card. Once the choice done, the form will automaticaly be filled. Then you will be uncapable to modify the fields unless you click on the empty form button.
+* Otherwise you can create your own card by choosing the item you want in the combobox  components and typing the right word in the text fields components. But the first combobox, the default card proposal, must remained unchoosen. It means the first item ("choisissez une carte") must be selected.
 
 
