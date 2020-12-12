@@ -82,8 +82,13 @@ There is different options :
 #### IGotFocusComponent
 #### IGotTextFieldKeyListening
 ### b - The Classes
-#### PanelWelcomForm
+#### FormPanelWelcome
+##### RoundedJTextField
+##### RoundedBorderCorner
 #### PanelMainPage
+##### PanelSideBar
+##### PanelCollectionCard
+##### PanelDetailCard
 
 ## 2 - The Controller - Package
 ### The Classes
