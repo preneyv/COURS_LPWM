@@ -49,9 +49,8 @@ Each card will be set with a respective image and a name.
 
 ![Collection Card](./collectionCard.PNG)
 
-By hovering one of these card, a dustbin icon will pop just on the left of the card image so you can remove the card from you're collection.
+By hovering one of these card, a dustbin icon will pop ![Dustbin Icon](./dustbinIcon.PNG)just on the left of the card image so you can remove the card from you're collection.
 
-![Dustbin Icon](./dustbinIcon.PNG)
 
 ### c - The detail Panel
 
@@ -59,10 +58,9 @@ By clicking on one of these card you set the top-right panel : detail Panel. Her
 
 ![Empty Detail](./detailEmpty.PNG) ![Detail](./detail.PNG)
 
-By hovering each property value on the right of the image, a pen icon will pop so you can set the property that belong to the icon.
+By hovering each property value on the right of the image, a pen icon will pop ![Edit Prop](./edit.png) so you can set the property that belong to the icon.
 JLabel will turn into JTextField or JComboBox. Depending on the nature of the property you're setting.
 
-![Edit Prop](./edit.png)
 
 ### d - The adding form
 
