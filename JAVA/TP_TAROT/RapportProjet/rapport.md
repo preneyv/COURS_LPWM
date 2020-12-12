@@ -39,6 +39,10 @@ break down into segments.
 
 First you’ve got the side bar with a little icon, the name and at save
 profil button at the bottom.
+
 ![Side Bar](./icoUser.png) ![Save Btn](./saveBtn.PNG)
+
+Then you can see a central panel. Here released a search bar and the card collection of the user.
+Each card will be set with a respective image and a name.
 
 
