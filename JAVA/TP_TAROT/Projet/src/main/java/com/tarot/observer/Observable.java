@@ -6,7 +6,7 @@ import com.tarot.model.Player;
  */
 public interface Observable {
 
-    public void addObserver(Observer obs);
-    public void removeObserver();
-    public void notifyObserver(Player p);
+    void addObserver(Observer obs);
+    void removeObserver();
+    void notifyObserver(Player p);
 }

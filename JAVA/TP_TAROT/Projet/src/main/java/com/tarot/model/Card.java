@@ -59,8 +59,7 @@ public abstract class Card {
     {
        ImageIcon imgToResize = new ImageIcon(getClass().getResource("/images/").getPath()+this.picture);
        Image img = imgToResize.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-       ImageIcon imgToReturn = new ImageIcon(img);
-       return imgToReturn;
+        return new ImageIcon(img);
     }
 
     /**

@@ -9,21 +9,21 @@ import java.awt.*;
  */
 public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
 
-    private GridBagLayout bL = new GridBagLayout();
-    private GridBagConstraints gbC = new GridBagConstraints();
+    private final GridBagLayout bL = new GridBagLayout();
+    private final GridBagConstraints gbC = new GridBagConstraints();
 
-    private JLabel nameLabel = new JLabel("Entrez votre prénom");
-    private JPanel panelForRoundedTextField = new JPanel();
-    private JPanel panelForRadioButton = new JPanel();
-    private RoundedJTextField roundedJTextField = new RoundedJTextField(40);
-    private ButtonGroup radioButtonGroup = new ButtonGroup();
-    private JRadioButton radioButtonMan = new JRadioButton();
-    private JRadioButton radioButtonWoman = new JRadioButton();
-    private JLabel labelForRadioButtonTitle = new JLabel();
-    private JButton validForm = new JButton();
-    private JLabel errorSubmit = new JLabel();
+    private final JLabel nameLabel = new JLabel("Entrez votre prénom");
+    private final JPanel panelForRoundedTextField = new JPanel();
+    private final JPanel panelForRadioButton = new JPanel();
+    private final RoundedJTextField roundedJTextField = new RoundedJTextField(40);
+    private final ButtonGroup radioButtonGroup = new ButtonGroup();
+    private final JRadioButton radioButtonMan = new JRadioButton();
+    private final JRadioButton radioButtonWoman = new JRadioButton();
+    private final JLabel labelForRadioButtonTitle = new JLabel();
+    private final JButton validForm = new JButton();
+    private final JLabel errorSubmit = new JLabel();
 
-    private Component panelToListen;
+    private final Component panelToListen;
 
 
     /**

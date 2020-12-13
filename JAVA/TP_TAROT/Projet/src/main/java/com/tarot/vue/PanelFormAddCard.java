@@ -25,60 +25,60 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
     GridBagLayout gbL = new GridBagLayout();
     GridBagConstraints gbCCurrentPanel = new GridBagConstraints();//constraints for this
 
-    private JLabel titleAddCard = new JLabel("Ajoutez une carte ici");
-    private JPanel panelForTitleAddCard = new JPanel(new BorderLayout());
+    private final JLabel titleAddCard = new JLabel("Ajoutez une carte ici");
+    private final JPanel panelForTitleAddCard = new JPanel(new BorderLayout());
 
     GridBagConstraints gbC = new GridBagConstraints();//constraint for form panel
-    private JPanel form = new JPanel();
+    private final JPanel form = new JPanel();
 
         private JComboBox comboBoxDefaultCard;
 
-            private JLabel labelArcanesType = new JLabel("Types d'arcane : ");
-            private JComboBox comboBoxArcanesType = new JComboBox();
+            private final JLabel labelArcanesType = new JLabel("Types d'arcane : ");
+            private final JComboBox comboBoxArcanesType = new JComboBox();
                 String labelsArcanesType[] = {"Choisissez...","Arcanes Majeures", "Arcanes Mineures", "Arcanes Majestueuses"};
                 private final DefaultComboBoxModel modelArcanesType = new DefaultComboBoxModel(labelsArcanesType);
 
-        private GridBagConstraints gbCPanelSwitched = new GridBagConstraints();//constraint for the panel that can be switch
-        private JPanel switchedPanel = new JPanel(new CardLayout());
+        private final GridBagConstraints gbCPanelSwitched = new GridBagConstraints();//constraint for the panel that can be switch
+        private final JPanel switchedPanel = new JPanel(new CardLayout());
 
-            private JPanel majeurePropertiesPanel = new JPanel(new GridBagLayout());
-                private JLabel labelElement = new JLabel("Element : ");
-                private JComboBox comboBoxElement = new JComboBox();
+            private final JPanel majeurePropertiesPanel = new JPanel(new GridBagLayout());
+                private final JLabel labelElement = new JLabel("Element : ");
+                private final JComboBox comboBoxElement = new JComboBox();
                     String elementsModel[] = {"Choisissez...","Feu", "Terre", "Air","Eau","Tous"};
                     private final DefaultComboBoxModel modelElement = new DefaultComboBoxModel(elementsModel);
-                private JLabel labelSortOf = new JLabel("Genre  :");
-                private JComboBox comboBoxSortOf = new JComboBox();
+                private final JLabel labelSortOf = new JLabel("Genre  :");
+                private final JComboBox comboBoxSortOf = new JComboBox();
                     String sortOfModel[] = {"Choisissez...","Masculin", "Féminin", "Androgine","Neutre"};
                     private final DefaultComboBoxModel modelSortOf = new DefaultComboBoxModel(sortOfModel);
 
             private JPanel mineurePropertiesPanel = new JPanel(new GridBagLayout());
-                private JLabel labelDomain = new JLabel("Domaine : ");
-                private JComboBox comboBoxDomain = new JComboBox();
+                private final JLabel labelDomain = new JLabel("Domaine : ");
+                private final JComboBox comboBoxDomain = new JComboBox();
                     String domainModel[] = {"Choisissez...","Coupes", "Epées", "Batons","Deniers"};
                     private final DefaultComboBoxModel modelDomain = new DefaultComboBoxModel(domainModel);
-                private JLabel labelNumber = new JLabel("Numèro : ");
-                private JComboBox comboBoxNumber = new JComboBox();
+                private final JLabel labelNumber = new JLabel("Numèro : ");
+                private final JComboBox comboBoxNumber = new JComboBox();
                     String numberModel[] = {"Choisissez...", "As", "2", "3", "4", "5", "6", "7", "8", "9","10", "Valet", "Cavalier", "Reine", "Roi"};
                     private final DefaultComboBoxModel modelNumber = new DefaultComboBoxModel(numberModel);
 
-            private JPanel majestueusesPropertiesPanel = new JPanel(new GridBagLayout());
-                private JLabel labelPlanet = new JLabel("Planéte : ");
-                private JComboBox comboBoxPlanet = new JComboBox();
+            private final JPanel majestueusesPropertiesPanel = new JPanel(new GridBagLayout());
+                private final JLabel labelPlanet = new JLabel("Planéte : ");
+                private final JComboBox comboBoxPlanet = new JComboBox();
                     String planetModel[] = {"Choisissez...", "Terre", "Mars", "Uranus", "Jupiter", "Mercure", "Venus", "Saturne", "Neptune"};
                     private final DefaultComboBoxModel modelPlanet = new DefaultComboBoxModel(planetModel);
 
-        private JLabel name = new JLabel("Nom :");
-        private JTextField textFieldName = new JTextField("Nom de la carte");
-        private JLabel num = new JLabel("Numéro :");
-        private JTextField textFieldNum= new JTextField("Numéro de la carte");
+        private final JLabel name = new JLabel("Nom :");
+        private final JTextField textFieldName = new JTextField("Nom de la carte");
+        private final JLabel num = new JLabel("Numéro :");
+        private final JTextField textFieldNum= new JTextField("Numéro de la carte");
 
-        private JLabel addImageLabel = new JLabel("Ajouter une image");
-        private JTextField textFieldAddImage = new JTextField("URL de l'image");
-        private JButton btnAddImage = new JButton("Ouvrir l'explorateur de fichier");
-        private JButton btnSubmit = new JButton("Ajouter la carte");
-        private JButton btnEmpty = new JButton("Réinitialiser le formulaire");
+        private final JLabel addImageLabel = new JLabel("Ajouter une image");
+        private final JTextField textFieldAddImage = new JTextField("URL de l'image");
+        private final JButton btnAddImage = new JButton("Ouvrir l'explorateur de fichier");
+        private final JButton btnSubmit = new JButton("Ajouter la carte");
+        private final JButton btnEmpty = new JButton("Réinitialiser le formulaire");
 
-    private JLabel errorFormField = new JLabel();
+    private final JLabel errorFormField = new JLabel();
 
 
     public PanelFormAddCard(){
@@ -385,7 +385,7 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
         String infoErreur ="<html>Il y a différentes erreurs de saisie : <br>";
         Card cToAdd=null;
         String nameFilToAdd="";
-        Boolean readyToAdd = false;
+        boolean readyToAdd = false;
 
         System.out.println(this.comboBoxDefaultCard.getSelectedIndex());
         if(this.comboBoxDefaultCard.getSelectedIndex() == 0)
@@ -446,7 +446,6 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
                 infoErreur += "- Type de la carte <br>";
             }
         }else{
-            readyToAdd = false;
             infoErreur += "- Nom ou numéro de la carte<br>";
         }
 
@@ -475,8 +474,8 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
     {
         java.lang.reflect.Type listType = new TypeToken<ArrayList<ArcanesMajeures>>(){}.getType();
         java.lang.reflect.Type o_listType = new TypeToken<ArrayList<ArcanesMineures>>(){}.getType();
-        ArrayList<Card> alCardArcMajeures=null;
-        ArrayList<Card> alCardArcMineures=null;
+        ArrayList<Card> alCardArcMajeures;
+        ArrayList<Card> alCardArcMineures;
         ArrayList<Card> alCard = new ArrayList<Card>();
         Gson profile = new Gson();
         try{
@@ -527,10 +526,9 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
 
     private void comboBoxArcaneChoice(String ch) {
 
-        String choice = ch;
-        if("Arcanes Majeures".equals(choice)){this.majeurePropertiesPanel.setVisible(true);this.majestueusesPropertiesPanel.setVisible(false);this.mineurePropertiesPanel.setVisible(false);}
-        if("Arcanes Mineures".equals(choice)){this.mineurePropertiesPanel.setVisible(true);this.majeurePropertiesPanel.setVisible(false);this.majestueusesPropertiesPanel.setVisible(false);this.textFieldNum.setEnabled(false);}
-        if("Arcanes Majestueuses".equals(choice)){this.majestueusesPropertiesPanel.setVisible(true);this.majeurePropertiesPanel.setVisible(false);this.mineurePropertiesPanel.setVisible(false);}
+        if("Arcanes Majeures".equals(ch)){this.majeurePropertiesPanel.setVisible(true);this.majestueusesPropertiesPanel.setVisible(false);this.mineurePropertiesPanel.setVisible(false);}
+        if("Arcanes Mineures".equals(ch)){this.mineurePropertiesPanel.setVisible(true);this.majeurePropertiesPanel.setVisible(false);this.majestueusesPropertiesPanel.setVisible(false);this.textFieldNum.setEnabled(false);}
+        if("Arcanes Majestueuses".equals(ch)){this.majestueusesPropertiesPanel.setVisible(true);this.majeurePropertiesPanel.setVisible(false);this.mineurePropertiesPanel.setVisible(false);}
 
     }
 
@@ -538,32 +536,31 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
 
 
         int indexChoice = this.comboBoxDefaultCard.getSelectedIndex();
-        Card src =c;
         if(indexChoice != 0)
         {
 
             this.comboBoxArcanesType.setEnabled(false);
-            if("ArcanesMajeures".equals(src.getClass().getSimpleName())){
+            if("ArcanesMajeures".equals(c.getClass().getSimpleName())){
                 this.comboBoxArcanesType.setSelectedIndex(1);
-                this.comboBoxElement.setSelectedItem(src.getElement());
+                this.comboBoxElement.setSelectedItem(c.getElement());
                 this.comboBoxElement.setEnabled(false);
-                this.comboBoxSortOf.setSelectedItem(src.getSortOf());
+                this.comboBoxSortOf.setSelectedItem(c.getSortOf());
                 this.comboBoxSortOf.setEnabled(false);
             }
-            if("ArcanesMineures".equals(src.getClass().getSimpleName())){
+            if("ArcanesMineures".equals(c.getClass().getSimpleName())){
                 this.comboBoxArcanesType.setSelectedIndex(2);
-                this.comboBoxDomain.setSelectedItem(src.getDom());
+                this.comboBoxDomain.setSelectedItem(c.getDom());
                 this.comboBoxDomain.setEnabled(false);
-                this.comboBoxNumber.setSelectedItem(src.getNumber());
+                this.comboBoxNumber.setSelectedItem(c.getNumber());
                 this.comboBoxNumber.setEnabled(false);
 
             }
 
-            this.textFieldName.setText(src.getNom());
+            this.textFieldName.setText(c.getNom());
             this.textFieldName.setEnabled(false);
-            this.textFieldNum.setText(src.getNumber());
+            this.textFieldNum.setText(c.getNumber());
             this.textFieldNum.setEnabled(false);
-            this.textFieldAddImage.setText((src.getPicture()));
+            this.textFieldAddImage.setText((c.getPicture()));
             this.textFieldAddImage.setEnabled(false);
             this.btnAddImage.setEnabled(false);
 

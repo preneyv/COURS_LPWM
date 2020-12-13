@@ -27,8 +27,8 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
     protected JTextField nameTextField = new JTextField();
     protected JTextField numberTextField = new JTextField();
 
-    protected HashMap<String, Component> fieldAndHisKey = new HashMap<String, Component>();
-    protected HashMap<String, JLabel> labelAndHisKey = new HashMap<String, JLabel>();
+    protected HashMap<String, Component> fieldAndHisKey = new HashMap<>();
+    protected HashMap<String, JLabel> labelAndHisKey = new HashMap<>();
 
 
     private Component compCurrentlyModifying = null;
@@ -96,7 +96,7 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
      */
     public boolean testValidityField(Component c)
     {
-        Boolean res = true;
+        boolean res = true;
         if(c.getClass() == JComboBox.class)
         {
             if(((JComboBox)c).getSelectedIndex()==0)
@@ -123,7 +123,7 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
      * When he wants valid his change, he clicks on the blue icon to validate the new value and the JTextField
      * and JComboBox turn back into JLabel with the new value.
      *
-     * @param c
+     * @param c Component that trigger the event
      */
     @Override
     public void pressBtn(Component c) {
@@ -157,8 +157,7 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
         {
 
             Component cToValid = parent.getComponent(0);
-            Boolean checkForm = true;
-            if(checkForm = this.testValidityField(cToValid)) {
+            if(this.testValidityField(cToValid)) {
 
                 Component compToBeAdd = this.labelAndHisKey.get(parent.getName());
 
@@ -201,9 +200,9 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
             ((JButton)(((JPanel)c).getComponent(1))).setOpaque(true);
             ((JButton)(((JPanel)c).getComponent(1))).setContentAreaFilled(false);
             ((JButton)(((JPanel)c).getComponent(1))).setBorderPainted(false);
-            ((JButton)(((JPanel)c).getComponent(1))).setSize(20,20);
+            ((JPanel)c).getComponent(1).setSize(20,20);
             ((JButton)(((JPanel)c).getComponent(1))).setMargin(new Insets(-2,0,0,0));
-            ((JButton)(((JPanel)c).getComponent(1))).setVisible(false);
+            ((JPanel)c).getComponent(1).setVisible(false);
         }
     }
 
@@ -228,9 +227,9 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
      */
     @Override
     public void hoverOut(Component c) {
-        ((JPanel)c.getParent()).getComponent(1).setVisible(false);
+        c.getParent().getComponent(1).setVisible(false);
         if(c.getParent() == this.compCurrentlyModifying)
-            ((JPanel)c.getParent()).getComponent(1).setVisible(true);
+            c.getParent().getComponent(1).setVisible(true);
     }
 
     /**
@@ -239,7 +238,7 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
      */
     @Override
     public void hoverIn(Component c) {
-        ((JPanel)c.getParent()).getComponent(1).setVisible(true);
+        c.getParent().getComponent(1).setVisible(true);
     }
 
 

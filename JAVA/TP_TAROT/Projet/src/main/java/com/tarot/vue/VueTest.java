@@ -21,13 +21,12 @@ public class VueTest extends JFrame{
     static HashMap<JTextField, IGotTextFieldKeyListening> mapTextFieldKeyPress = new HashMap<JTextField, IGotTextFieldKeyListening>();
     static HashMap<Component, IGotFocusComponent> mapFocusComponent = new HashMap<Component, IGotFocusComponent>();
     static ArrayList<AbstractControllerPlayer> listController = new ArrayList<AbstractControllerPlayer>();
-    private AbstractModel modelAbsract = new Player();
-    private AbstractControllerPlayer controller= new ControllerPlayer(modelAbsract);
+    private final AbstractModel modelAbsract = new Player();
+    private final AbstractControllerPlayer controller= new ControllerPlayer(modelAbsract);
     //Components
     //Main panel (Is a CardLayout so the user can switch with the panelFirstPage once he his name is set)
     private JPanel contentPane;
         //All the usefull components for Sign Up or start with his saved profile
-         private JPanel panelInscription;
          private FormPanelWelcome formPanelWelcome;
          private PanelMainPage mainPage;
 

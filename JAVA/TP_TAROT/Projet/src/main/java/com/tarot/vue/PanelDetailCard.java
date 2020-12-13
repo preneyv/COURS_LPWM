@@ -19,10 +19,10 @@ public class PanelDetailCard extends JPanel {
     GridBagConstraints gbC = new GridBagConstraints();
 
     private Card cardInUse;
-    private JPanel panelForTitleDetail = new JPanel(new BorderLayout());
-    private JLabel titleDetail = new JLabel("Carte en cours de visualisation");
-    private JLabel labelIconCard = new JLabel();
-    private JPanel detailDependType = new JPanel();
+    private final JPanel panelForTitleDetail = new JPanel(new BorderLayout());
+    private final JLabel titleDetail = new JLabel("Carte en cours de visualisation");
+    private final JLabel labelIconCard = new JLabel();
+    private final JPanel detailDependType = new JPanel();
 
     private AbstractPanelForArcanesType panelForDetail;
 

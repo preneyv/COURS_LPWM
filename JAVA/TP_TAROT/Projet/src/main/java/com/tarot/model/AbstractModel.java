@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public abstract class AbstractModel implements Observable{
 
-    private ArrayList<Observer> listObserver = new ArrayList<Observer>();
+    private ArrayList<Observer> listObserver = new ArrayList<>();
 
     public abstract void addCard(Card c);
     public abstract void removeCard(Card c);
@@ -26,7 +26,7 @@ public abstract class AbstractModel implements Observable{
     /**
      * remove all the observer from the list
      */
-    public void removeObserver(){this.listObserver = new ArrayList<Observer>();}
+    public void removeObserver(){this.listObserver = new ArrayList<>();}
 
     /**
      * inform all the observer for any change

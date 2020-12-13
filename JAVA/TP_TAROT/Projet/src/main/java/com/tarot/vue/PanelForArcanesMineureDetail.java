@@ -12,19 +12,19 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
 
 
 
-    private JPanel panelDomain = new JPanel(new GridLayout(1,1));
-    private JLabel domain = new JLabel();
-    private JButton iconSetDomain = new JButton();
+    private final JPanel panelDomain = new JPanel(new GridLayout(1,1));
+    private final JLabel domain = new JLabel();
+    private final JButton iconSetDomain = new JButton();
 
-    private JComboBox comboBoxNumber = new JComboBox();
-        private String numberModel[] = {"Choisissez...", "As", "2", "3", "4", "5", "6", "7", "8", "9","10", "Valet", "Cavalier", "Reine", "Roi"};
+    private final JComboBox comboBoxNumber = new JComboBox();
+        private final String[] numberModel = {"Choisissez...", "As", "2", "3", "4", "5", "6", "7", "8", "9","10", "Valet", "Cavalier", "Reine", "Roi"};
         private final DefaultComboBoxModel modelNumber = new DefaultComboBoxModel(numberModel);
-    private JComboBox comboBoxDomain = new JComboBox();
-        private String domainModel[] = {"Choisissez...","Coupes", "Epées", "Batons","Deniers"};
+    private final JComboBox comboBoxDomain = new JComboBox();
+        private final String[] domainModel = {"Choisissez...","Coupes", "Epées", "Batons","Deniers"};
         private final DefaultComboBoxModel modelDomain = new DefaultComboBoxModel(domainModel);
 
 
-    private GridLayout gbL = new GridLayout(3,1);
+    private final GridLayout gbL = new GridLayout(3,1);
 
     /**
      * Constructor
@@ -96,8 +96,7 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
      */
     @Override
     public Card modifyCardAfterValidForm() {
-        Card cToAdd = new ArcanesMineures(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.domain.getText());
-        return cToAdd;
+        return new ArcanesMineures(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.domain.getText());
     }
 
 

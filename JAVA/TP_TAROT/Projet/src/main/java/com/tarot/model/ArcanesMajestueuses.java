@@ -8,7 +8,7 @@ public class ArcanesMajestueuses extends Card{
     /**
      * planet value of the choosen planet
      */
-    private String planet;
+    private final String planet;
 
     /**
      * constructor

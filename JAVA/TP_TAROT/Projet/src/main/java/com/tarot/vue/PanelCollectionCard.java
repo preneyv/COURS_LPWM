@@ -14,16 +14,16 @@ import java.awt.*;
  */
 public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListening, IGotFocusComponent {
 
-    private JPanel panelToListen;
+    private final JPanel panelToListen;
 
-    private GridBagLayout gbL = new GridBagLayout();
-    private GridBagConstraints gbC = new GridBagConstraints();
+    private final GridBagLayout gbL = new GridBagLayout();
+    private final GridBagConstraints gbC = new GridBagConstraints();
 
-    private JPanel panelForSearchBar = new JPanel();
-    private JTextField searchBar = new JTextField();
+    private final JPanel panelForSearchBar = new JPanel();
+    private final JTextField searchBar = new JTextField();
 
-    private JScrollPane scrollForCardList = new JScrollPane();
-    private JPanel panelInsideScroll = new JPanel();
+    private final JScrollPane scrollForCardList = new JScrollPane();
+    private final JPanel panelInsideScroll = new JPanel();
 
 
     /**
@@ -96,7 +96,7 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
 
     /**
      * Update the collection of the player if a change happened
-     * @param p
+     * @param p Player that has been set
      */
     public void update(Player p)
     {

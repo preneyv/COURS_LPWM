@@ -11,7 +11,7 @@ import java.awt.*;
  */
 public class CardIsJButton extends JButton {
 
-    private Card cardOfLabel;
+    private final Card cardOfLabel;
 
     /**
      * Constructor

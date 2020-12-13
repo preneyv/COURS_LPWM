@@ -1,13 +1,12 @@
 package com.tarot.model;
-import com.tarot.observer.Observable;
 
 /**
  * extented from Card. This is one of the three type of Card
  */
 public class ArcanesMajeures extends Card {
 
-    private String sortOf;
-    private String element;
+    private final String sortOf;
+    private final String element;
 
     /**
      * Constructor
@@ -37,7 +36,7 @@ public class ArcanesMajeures extends Card {
 
     /**
      * toString() what !
-     * @return
+     *
      */
     @Override
     public String toString(){return "<html>Nom de la carte : "+this.name+

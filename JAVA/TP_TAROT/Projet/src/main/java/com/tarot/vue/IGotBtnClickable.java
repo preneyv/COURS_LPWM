@@ -1,6 +1,5 @@
 package com.tarot.vue;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**

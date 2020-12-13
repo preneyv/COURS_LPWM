@@ -7,7 +7,7 @@ package com.tarot.model;
 
 public  class ArcanesMineures extends Card{
 
-    private String dom;
+    private final String dom;
 
     /**
      * Constructor
@@ -41,7 +41,7 @@ public  class ArcanesMineures extends Card{
      * but not so for other class inherited from card
      *
      */
-    public String getSortOf(){return null;};
-    public  String getElement(){return null;};
+    public String getSortOf(){return null;}
+    public  String getElement(){return null;}
     public String getPlanet() {return null;}
 }

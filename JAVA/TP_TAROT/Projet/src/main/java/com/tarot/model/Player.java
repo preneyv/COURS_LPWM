@@ -19,8 +19,8 @@ public class Player extends AbstractModel implements IsSustainable{
     private ArrayList<Card> collectionCard = new ArrayList();
 
     public Player()
-    {   Card c1 = new ArcanesMajeures("2","amoureux.jpg","L'amoureux","Andros","Feu");
-        Card c2 = new ArcanesMineures("5","cinqEpees.jpg","Cinq epees","Baton");
+    {   Card c1 = new ArcanesMajeures("2","amoureux.jpg","L'amoureux","Neutre","Air");
+        Card c2 = new ArcanesMineures("5","cinqEpees.jpg","Cinq epees","Epées");
         Card c3 = new ArcanesMajestueuses("2","deuxEpees.jpg","La majestuese","Terre");
         this.collectionCard.add(c1);
         this.collectionCard.add(c2);
@@ -36,7 +36,7 @@ public class Player extends AbstractModel implements IsSustainable{
     {
         this.firstname=f;
         this.sexuality =s;
-        this.imageIcon = s=="Homme" ?"avatar.png" : "avatar2.png";
+        this.imageIcon = s.equals("Homme") ?"avatar.png" : "avatar2.png";
         this.collectionCard = c;
     }
 
@@ -71,7 +71,7 @@ public class Player extends AbstractModel implements IsSustainable{
 
     /**
      *
-     * @param c
+     * @param c the card to remove
      */
     @Override
     public void removeCard(Card c)
@@ -84,7 +84,7 @@ public class Player extends AbstractModel implements IsSustainable{
     public void setPlayer(String f, String s, ArrayList<Card> c) {
        this.firstname = f;
        this.sexuality = s;
-        this.imageIcon = s=="Homme" ?"avatar.png" : "avatar2.png";
+        this.imageIcon = s.equals("Homme") ?"avatar.png" : "avatar2.png";
         this.collectionCard = c;
        notifyObserver(this);
     }
@@ -92,7 +92,7 @@ public class Player extends AbstractModel implements IsSustainable{
     public void setPlayer(String f, String s) {
         this.firstname = f;
         this.sexuality = s;
-        this.imageIcon = s=="Homme" ?"avatar.png" : "avatar2.png";
+        this.imageIcon = s.equals("Homme") ?"avatar.png" : "avatar2.png";
         notifyObserver(this);
     }
 

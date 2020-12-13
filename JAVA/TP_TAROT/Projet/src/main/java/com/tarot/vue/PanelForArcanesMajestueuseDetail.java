@@ -11,12 +11,12 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
 
 
 
-    private JPanel panelPlanet = new JPanel(new GridLayout(1,1));
-        private JLabel planet = new JLabel();
-        private JButton iconSetPlanet = new JButton();
+    private final JPanel panelPlanet = new JPanel(new GridLayout(1,1));
+        private final JLabel planet = new JLabel();
+        private final JButton iconSetPlanet = new JButton();
 
 
-    private JComboBox comboBoxPlanet = new JComboBox();
+    private final JComboBox comboBoxPlanet = new JComboBox();
         String planetModel[] = {"Choisissez...", "Terre", "Mars", "Uranus", "Jupiter", "Mercure", "Venus", "Saturne", "Neptune"};
         private final DefaultComboBoxModel modelPlanet = new DefaultComboBoxModel(planetModel);
 
@@ -105,8 +105,7 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
      */
     @Override
     public Card modifyCardAfterValidForm() {
-        Card cToAdd = new ArcanesMajestueuses(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.planet.getText());
-        return cToAdd;
+        return new ArcanesMajestueuses(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.planet.getText());
     }
 
 

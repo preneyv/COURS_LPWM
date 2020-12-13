@@ -10,8 +10,8 @@ import java.awt.*;
  */
 public class CardPanel extends JPanel implements IGotBtnHover{
 
-    private JPanel panelToListen;
-    private JButton btnDel ;
+    private final JPanel panelToListen;
+    private final JButton btnDel ;
     private final CardIsJButton cardToAdd;
 
     /**
@@ -67,7 +67,7 @@ public class CardPanel extends JPanel implements IGotBtnHover{
      */
     @Override
     public void hoverOut(Component c) {
-        if(((JButton)c)==this.cardToAdd || ((JButton)c)==this.btnDel)
+        if(c ==this.cardToAdd || c ==this.btnDel)
             this.btnDel.setVisible(false);
     }
 
@@ -78,7 +78,7 @@ public class CardPanel extends JPanel implements IGotBtnHover{
      */
     @Override
     public void hoverIn(Component c) {
-        if(((JButton)c)==this.cardToAdd || ((JButton)c)==this.btnDel)
+        if(c ==this.cardToAdd || c ==this.btnDel)
             this.btnDel.setVisible(true);
     }
 

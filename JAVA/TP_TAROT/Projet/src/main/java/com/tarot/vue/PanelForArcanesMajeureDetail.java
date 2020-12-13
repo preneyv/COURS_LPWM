@@ -9,18 +9,18 @@ import java.awt.*;
 public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
 
 
-    private JPanel panelSortOf = new JPanel(new GridLayout(1,1));
-        private JLabel sortOf = new JLabel();
-        private JButton iconSetSortOf = new JButton();
-    private JPanel panelElement = new JPanel(new GridLayout(1,1));
-     private JLabel element = new JLabel();
-        private JButton iconSetElement = new JButton();
+    private final JPanel panelSortOf = new JPanel(new GridLayout(1,1));
+        private final JLabel sortOf = new JLabel();
+        private final JButton iconSetSortOf = new JButton();
+    private final JPanel panelElement = new JPanel(new GridLayout(1,1));
+     private final JLabel element = new JLabel();
+        private final JButton iconSetElement = new JButton();
 
 
-    private JComboBox comboBoxElement = new JComboBox();
+    private final JComboBox comboBoxElement = new JComboBox();
         String elementsModel[] = {"Choisissez...","Feu", "Terre", "Air","Eau", "Tous"};
         private final DefaultComboBoxModel modelElement = new DefaultComboBoxModel(elementsModel);
-    private JComboBox comboBoxSortOf = new JComboBox();
+    private final JComboBox comboBoxSortOf = new JComboBox();
         String sortOfModel[] = {"Choisissez...","Masculin", "Feminin", "Androgine","Neutre"};
         private final DefaultComboBoxModel modelSortOf = new DefaultComboBoxModel(sortOfModel);
 
@@ -123,8 +123,7 @@ public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
      */
     @Override
     public Card modifyCardAfterValidForm() {
-         Card cToAdd = new ArcanesMajeures(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.sortOf.getText(), this.element.getText());
-        return cToAdd;
+        return new ArcanesMajeures(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.sortOf.getText(), this.element.getText());
     }
 
     /**

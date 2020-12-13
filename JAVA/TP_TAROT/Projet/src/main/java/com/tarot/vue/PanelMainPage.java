@@ -17,16 +17,16 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
     private PanelSideBar sideBar;
     //top of the sidebar
 
-    private JPanel rightMain = new JPanel();
+    private final JPanel rightMain = new JPanel();
         private PanelCollectionCard collectionCard;
-        private JPanel detailAndAddCard = new JPanel();
+        private final JPanel detailAndAddCard = new JPanel();
             //
             private PanelDetailCard panelDetail;
-            private PanelFormAddCard panelFormAddCard = new PanelFormAddCard();
+            private final PanelFormAddCard panelFormAddCard = new PanelFormAddCard();
 
 
-    private GridBagLayout bL = new GridBagLayout();
-    private GridBagConstraints gbC = new GridBagConstraints();
+    private final GridBagLayout bL = new GridBagLayout();
+    private final GridBagConstraints gbC = new GridBagConstraints();
 
     /**
      * Constructor
@@ -108,7 +108,7 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
 
     /**
      * This method comes from the observer interface - will update when a change has been observed
-     * @param p
+     * @param p Player has been set
      */
     @Override
     public void update(Player p) {
@@ -120,11 +120,11 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
      * This method comes from the IGotBtnClickable interface - btnDel(CardJButton) linked to this panel
      * so the panelDetail can reset in case the deleted card is displayed in panelDetail. Unpossible from
      * panelCollectionCard
-     * @param c
+     * @param c Component triggered the event
      */
     @Override
     public void pressBtn(Component c) {
-        if(c.getName() == "btnDel")
+        if(c.getName().equals("btnDel"))
         {
             Card cardToDel = ((CardIsJButton)c.getParent().getComponent(1)).getCard();
             if(cardToDel == this.panelDetail.getCardInUse())
@@ -132,7 +132,7 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
 
             VueTest.listController.get(0).removeCollectionCardPlayer(cardToDel);
         }
-        if(c.getName() == "cardToAdd")
+        if(c.getName().equals("cardToAdd"))
         {
             CardIsJButton cardClicked = (CardIsJButton)c;
             this.panelDetail.setPanelDetail(cardClicked.getCard());

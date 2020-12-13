@@ -9,12 +9,12 @@ import java.awt.*;
 
 public class PanelSideBar extends JPanel implements IGotBtnClickable {
 
-    private JPanel infoPlayerPanel = new JPanel();
+    private final JPanel infoPlayerPanel = new JPanel();
 
-    private JLabel iconPlayer = new JLabel();
-    private JLabel playerName = new JLabel();
+    private final JLabel iconPlayer = new JLabel();
+    private final JLabel playerName = new JLabel();
 
-    private JButton saveProfileButton = new JButton();
+    private final JButton saveProfileButton = new JButton();
 
     /**
      * Constructor
