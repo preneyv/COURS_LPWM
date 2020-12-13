@@ -14,6 +14,7 @@ public abstract class AbstractModel implements Observable{
     public abstract void addCard(Card c);
     public abstract void removeCard(Card c);
     public abstract void setPlayer(String f, String s);
+    public abstract void setPlayer(String f, String s, ArrayList<Card> c);
     public abstract void setCard(Card cToRm,Card cToAdd);
 
     /**

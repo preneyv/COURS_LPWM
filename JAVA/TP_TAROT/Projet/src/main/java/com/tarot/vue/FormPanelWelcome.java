@@ -12,6 +12,7 @@ public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
     private GridBagLayout bL = new GridBagLayout();
     private GridBagConstraints gbC = new GridBagConstraints();
 
+    private JLabel nameLabel = new JLabel("Entrez votre prénom");
     private JPanel panelForRoundedTextField = new JPanel();
     private JPanel panelForRadioButton = new JPanel();
     private RoundedJTextField roundedJTextField = new RoundedJTextField(40);
@@ -48,13 +49,11 @@ public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
         this.setMaximumSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
 
         this.setSize(new Dimension(500, 500));
-        this.setBackground(new Color(59,68,174));
-
-
-        panelForRoundedTextField.setBackground(new Color(59,68,174));
+        this.setBackground(new Color(54,54,58));
+        this.nameLabel.setForeground(Color.white);
+        this.nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        panelForRoundedTextField.setBackground(new Color(54,54,58));
         panelForRoundedTextField.add(roundedJTextField);
-
-
 
         radioButtonMan.setText("Homme");
         radioButtonMan.setActionCommand("Homme");
@@ -64,14 +63,14 @@ public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
         radioButtonWoman.setForeground(Color.WHITE);
         radioButtonGroup.add(radioButtonWoman);
         radioButtonGroup.add(radioButtonMan);
-        radioButtonMan.setBackground(new Color(59,68,174));
-        radioButtonWoman.setBackground(new Color(59,68,174));
+        radioButtonMan.setBackground(new Color(54,54,58));
+        radioButtonWoman.setBackground(new Color(54,54,58));
         labelForRadioButtonTitle.setText("Genre : ");
         labelForRadioButtonTitle.setForeground(Color.WHITE);
         panelForRadioButton.add(labelForRadioButtonTitle);
         panelForRadioButton.add(radioButtonMan);
         panelForRadioButton.add(radioButtonWoman);
-        panelForRadioButton.setBackground(new Color(59,68,174));
+        panelForRadioButton.setBackground(new Color(54,54,58));
 
         validForm.setBackground(new Color(60,63,65));
         validForm.setText("Valider");
@@ -88,12 +87,14 @@ public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
         gbC.gridheight = 1;
         gbC.gridx =0;
         gbC.gridy =0;
-        this.add(panelForRoundedTextField,gbC);
+        this.add(this.nameLabel,gbC);
         gbC.gridy =1;
-        this.add(panelForRadioButton,gbC);
+        this.add(panelForRoundedTextField,gbC);
         gbC.gridy =2;
-        this.add(validForm,gbC);
+        this.add(panelForRadioButton,gbC);
         gbC.gridy =3;
+        this.add(validForm,gbC);
+        gbC.gridy =4;
         this.add(errorSubmit,gbC);
 
 

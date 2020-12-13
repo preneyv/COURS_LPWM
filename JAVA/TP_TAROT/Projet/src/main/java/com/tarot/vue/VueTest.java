@@ -11,7 +11,10 @@ import java.util.HashMap;
 
 public class VueTest extends JFrame{
 
-
+    /*
+    These, the hashMap for the event. Each hashmap has a very specific goal
+    The link is made between a component and a panel that implements the corresponding interface
+     */
     static HashMap<Component, IGotBtnClickable> mapBtnClickAction = new HashMap<Component, IGotBtnClickable>();
     static HashMap<Component, IGotBtnHover> mapBtnHoverAction = new HashMap<Component, IGotBtnHover>();
     static HashMap<JComboBox, IGotComboxChange> mapBtnComboBoxItemChange = new HashMap<JComboBox, IGotComboxChange>();
@@ -58,6 +61,7 @@ public class VueTest extends JFrame{
         this.contentPane.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
         this.contentPane.setMaximumSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
         this.contentPane.setLayout(new CardLayout());
+        this.contentPane.setBackground(new Color(54,54,58));
         this.contentPane.add(this.formPanelWelcome);
         this.contentPane.add(mainPage);
 

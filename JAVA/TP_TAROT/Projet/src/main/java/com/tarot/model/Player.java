@@ -81,12 +81,19 @@ public class Player extends AbstractModel implements IsSustainable{
 
     }
 
-    public void setPlayer(String f, String s) {
+    public void setPlayer(String f, String s, ArrayList<Card> c) {
        this.firstname = f;
        this.sexuality = s;
         this.imageIcon = s=="Homme" ?"avatar.png" : "avatar2.png";
-
+        this.collectionCard = c;
        notifyObserver(this);
+    }
+
+    public void setPlayer(String f, String s) {
+        this.firstname = f;
+        this.sexuality = s;
+        this.imageIcon = s=="Homme" ?"avatar.png" : "avatar2.png";
+        notifyObserver(this);
     }
 
     /**
