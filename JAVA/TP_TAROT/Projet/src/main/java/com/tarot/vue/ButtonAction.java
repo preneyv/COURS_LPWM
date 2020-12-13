@@ -4,6 +4,10 @@ package com.tarot.vue;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Button Action Listener
+ * The method will be activeted thanks to the hashmap (see vueMain)
+ */
 public class ButtonAction implements MouseListener {
 
 

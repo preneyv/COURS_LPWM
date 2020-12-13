@@ -9,6 +9,9 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * This panel contains all the components after the user has validate the welcome form
+ */
 public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer {
 
     private PanelSideBar sideBar;
@@ -24,6 +27,10 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
 
     private GridBagLayout bL = new GridBagLayout();
     private GridBagConstraints gbC = new GridBagConstraints();
+
+    /**
+     * Constructor
+     */
     public PanelMainPage()
     {
 
@@ -32,6 +39,9 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         this.setVisible(true);
     }
 
+    /**
+     * Init the components
+     */
     private void initComponent()
     {
         /*Init required properties of this panel*/
@@ -96,12 +106,22 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
 
     }
 
+    /**
+     * This method comes from the observer interface - will update when a change has been observed
+     * @param p
+     */
     @Override
     public void update(Player p) {
         this.sideBar.update(p);
         this.collectionCard.update(p);
     }
 
+    /**
+     * This method comes from the IGotBtnClickable interface - btnDel(CardJButton) linked to this panel
+     * so the panelDetail can reset in case the deleted card is displayed in panelDetail. Unpossible from
+     * panelCollectionCard
+     * @param c
+     */
     @Override
     public void pressBtn(Component c) {
         if(c.getName() == "btnDel")

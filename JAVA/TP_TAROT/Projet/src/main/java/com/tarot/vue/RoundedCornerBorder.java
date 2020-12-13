@@ -6,6 +6,9 @@ import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 
+/**
+ * To make a rounded JTextField. Useless here, but interesting to learn
+ */
 public class RoundedCornerBorder extends AbstractBorder {
     private static final Color ALPHA_ZERO = new Color(59,68,174);
     @Override

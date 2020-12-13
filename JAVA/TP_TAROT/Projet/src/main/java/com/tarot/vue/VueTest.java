@@ -50,8 +50,14 @@ public class VueTest extends JFrame{
 
     private void initComponents(){
 
-       this.formPanelWelcome = new FormPanelWelcome(this);
+
+        this.formPanelWelcome = new FormPanelWelcome(this);
         this.mainPage = new PanelMainPage();
+        this.contentPane = new JPanel();
+        this.contentPane.setSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
+        this.contentPane.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
+        this.contentPane.setMaximumSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
+        this.contentPane.setLayout(new CardLayout());
         this.contentPane.add(this.formPanelWelcome);
         this.contentPane.add(mainPage);
 

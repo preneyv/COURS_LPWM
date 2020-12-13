@@ -5,7 +5,9 @@ import com.tarot.model.Card;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ * In the PanelFormAddCard, the first ComboBox is a formated one. Cause each item has an icon.
+ */
 public class ListRenderer  extends DefaultListCellRenderer  {
 
     public ListRenderer() {

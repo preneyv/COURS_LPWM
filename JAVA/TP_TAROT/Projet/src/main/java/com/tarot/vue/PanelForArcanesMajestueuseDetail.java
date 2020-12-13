@@ -16,7 +16,6 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
         private JButton iconSetPlanet = new JButton();
 
 
-
     private JComboBox comboBoxPlanet = new JComboBox();
         String planetModel[] = {"Choisissez...", "Terre", "Mars", "Uranus", "Jupiter", "Mercure", "Venus", "Saturne", "Neptune"};
         private final DefaultComboBoxModel modelPlanet = new DefaultComboBoxModel(planetModel);
@@ -25,13 +24,14 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
     GridLayout gbL = new GridLayout(3,1);
 
 
+    /**
+     * Constructor
+     * @param c the currently card detailPanel shows
+     */
     public PanelForArcanesMajestueuseDetail(ArcanesMajestueuses c)
     {
         super();
 
-        this.setLayout(gbL);
-        this.setOpaque(false);
-        this.setBackground(new Color(3,3,32));
         initComponent();
         this.currentCard = c;
         this.name.setText(c.getNom());
@@ -44,11 +44,16 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
     }
 
 
-
+    /**
+     * init Component and add button to a listener and the correct hashmap
+     */
     public void initComponent() {
 
 
         super.initComponent();
+        this.setLayout(gbL);
+        this.setOpaque(false);
+        this.setBackground(new Color(3,3,32));
         this.panelPlanet.setName("panelPlanet");
         this.comboBoxPlanet.setModel(this.modelPlanet);
         this.setPreferredSize(new Dimension(100,30));
@@ -69,6 +74,12 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
 
     }
 
+    /**
+     * To set the properties the labels components turn into JtextField or JComboBox
+     * a HashMap is created to link JLabel and JTextField/JComboBox that are in the same panel
+     * (panel planet)
+     * after a super one
+     */
     public void fillHashMap()
     {
         super.fillHashMap();
@@ -77,6 +88,9 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
 
     }
 
+    /**
+     * set differents style to the components after a super one
+     */
     public void setStyleComponent() {
 
         super.setStyleComponent();
@@ -85,6 +99,10 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
     }
 
 
+    /**
+     *
+     * @return the new card that will replace the old one in the collection card
+     */
     @Override
     public Card modifyCardAfterValidForm() {
         Card cToAdd = new ArcanesMajestueuses(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.planet.getText());
@@ -92,7 +110,9 @@ public class PanelForArcanesMajestueuseDetail extends AbstractPanelForArcanesTyp
     }
 
 
-
+    /**
+     * reset the state of panel planet
+     */
     public void resetStateField()
     {
         super.resetStateField();

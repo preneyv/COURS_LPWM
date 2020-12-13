@@ -10,6 +10,9 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * this panel is used to display the details of the selected card (CardJButton)
+ */
 public class PanelDetailCard extends JPanel {
 
     GridBagLayout gbL = new GridBagLayout();
@@ -24,21 +27,22 @@ public class PanelDetailCard extends JPanel {
     private AbstractPanelForArcanesType panelForDetail;
 
 
+    /**
+     * Constructor
+     */
     public PanelDetailCard()
     {
-
-
         this.gbC.insets = new Insets(1,0,0,1);
         this.setBackground(new Color(50,51,50));
         this.setLayout(gbL);
         initComponent();
-
     }
 
 
+    /**
+     * Initialize the components
+     */
     private void initComponent() {
-
-
 
         this.titleDetail.setForeground(Color.WHITE);
         this.titleDetail.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -78,6 +82,11 @@ public class PanelDetailCard extends JPanel {
 
 
     }
+
+    /**
+     * Set all components with the properties of the card
+     * @param c card from which the components will be set
+     */
     public void setPanelDetail(Card c){
 
         this.detailDependType.removeAll();
@@ -107,6 +116,10 @@ public class PanelDetailCard extends JPanel {
         this.detailDependType.validate();
     }
 
+    /**
+     * remove all components inside
+     * Ready to set with a new card
+     */
     public void clearPanel()
     {
         this.panelForDetail.removeAll();

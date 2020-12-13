@@ -32,12 +32,12 @@ public class Player extends AbstractModel implements IsSustainable{
      * @param f firstname of the player
      * @param s sexuality of the player
      */
-    public Player(String f, String s)
+    public Player(String f, String s, ArrayList<Card> c)
     {
         this.firstname=f;
         this.sexuality =s;
         this.imageIcon = s=="Homme" ?"avatar.png" : "avatar2.png";
-        this.collectionCard = new ArrayList<Card>();
+        this.collectionCard = c;
     }
 
     /**
@@ -116,8 +116,8 @@ public class Player extends AbstractModel implements IsSustainable{
         Gson profile = new Gson();
         try{
             FileWriter fw = new FileWriter("profile.json");
-            //Player playerToSave = new Player(this.firstname, this.sexuality, this.collectionCard);
-            String jSonRes = profile.toJson(this);
+            Player playerToSave = new Player(this.firstname, this.sexuality, this.collectionCard);
+            String jSonRes = profile.toJson(playerToSave);
             fw.write(jSonRes);
             fw.flush();
             fw.close();

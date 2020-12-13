@@ -16,6 +16,9 @@ public class PanelSideBar extends JPanel implements IGotBtnClickable {
 
     private JButton saveProfileButton = new JButton();
 
+    /**
+     * Constructor
+     */
     public PanelSideBar()
     {
         super();
@@ -27,6 +30,9 @@ public class PanelSideBar extends JPanel implements IGotBtnClickable {
 
     }
 
+    /**
+     * Init Components
+     */
     private void initComponent()
     {
         this.playerName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -60,11 +66,19 @@ public class PanelSideBar extends JPanel implements IGotBtnClickable {
         VueTest.listController.get(0).savePlayerProfile();
     }
 
+    /**
+     *
+     * @param p the new player
+     */
     public void update(Player p) {
         this.playerName.setText(p.getFirstname());
         this.iconPlayer.setIcon(new ImageIcon(getClass().getResource("/images/").getPath()+p.getImageIcon()));
     }
 
+    /**
+     * Save profile
+     * @param c Component to check (In case there is more)
+     */
     @Override
     public void pressBtn(Component c) {
         if(c == this.saveProfileButton)

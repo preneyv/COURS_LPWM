@@ -14,7 +14,7 @@ public class PlayerTest extends TestCase {
     @Override
     protected void setUp() throws Exception{
         super.setUp();
-        pl = new Player("prenom","homme");
+        pl = new Player("prenom","homme", new ArrayList<Card>());
     }
 
     @Override

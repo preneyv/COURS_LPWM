@@ -26,14 +26,14 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
 
     private GridLayout gbL = new GridLayout(3,1);
 
+    /**
+     * Constructor
+     * @param c the currently card detailPanel shows
+     */
     public PanelForArcanesMineureDetail(ArcanesMineures c)
     {
         super();
-        this.setLayout(gbL);
-        this.setOpaque(false);
-        this.setBackground(new Color(3,3,32));
         initComponent();
-
         this.currentCard = c;
         this.name.setText(c.getNom());
         this.number.setText(c.getNumber());
@@ -44,10 +44,15 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
     }
 
 
-
+    /**
+     * init Component and add button to a listener and the correct hashmap
+     */
     public void initComponent() {
 
         super.initComponent();
+        this.setLayout(gbL);
+        this.setOpaque(false);
+        this.setBackground(new Color(3,3,32));
         this.panelDomain.setName("panelDomain");
         this.comboBoxDomain.setModel(this.modelDomain);
         this.comboBoxNumber.setModel(this.modelNumber);
@@ -68,6 +73,12 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
 
     }
 
+    /**
+     * To set the properties the labels components turn into JtextField or JComboBox
+     * a HashMap is created to link JLabel and JTextField/JComboBox that are in the same panel
+     * (panel planet)
+     * after a super one
+     */
     public void fillHashMap()
     {
         super.fillHashMap();
@@ -79,6 +90,10 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
 
 
 
+    /**
+     *
+     * @return the new card that will replace the old one in the collection card
+     */
     @Override
     public Card modifyCardAfterValidForm() {
         Card cToAdd = new ArcanesMineures(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.domain.getText());
@@ -86,6 +101,9 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
     }
 
 
+    /**
+     * set differents style to the components after a super one
+     */
     public void setStyleComponent() {
 
         super.setStyleComponent();
@@ -94,7 +112,9 @@ public class PanelForArcanesMineureDetail extends AbstractPanelForArcanesType {
 
 
 
-
+    /**
+     * reset the state of domain panel
+     */
     public void resetStateField()
     {
         super.resetStateField();

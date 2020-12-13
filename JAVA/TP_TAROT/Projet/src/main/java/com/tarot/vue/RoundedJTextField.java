@@ -3,6 +3,9 @@ package com.tarot.vue;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * To make a rounded JTextField. Useless here, but interesting to learn
+ */
 public class RoundedJTextField extends JTextField {
 
     public RoundedJTextField(int size)

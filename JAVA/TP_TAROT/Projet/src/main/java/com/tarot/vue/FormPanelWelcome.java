@@ -3,7 +3,10 @@ package com.tarot.vue;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ * First panel to be displayed
+ * Sign up form
+ */
 public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
 
     private GridBagLayout bL = new GridBagLayout();
@@ -22,6 +25,10 @@ public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
     private Component panelToListen;
 
 
+    /**
+     * constructor
+     * @param pnl panel to listen (VueTest - so the Panel can be switched when the welcome form is validate
+     */
     public FormPanelWelcome(Component pnl)
     {
         super();
@@ -33,6 +40,9 @@ public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
 
     }
 
+    /**
+     * Initialize the components
+     */
     private void initComponent() {
         this.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
         this.setMaximumSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width - 500, Toolkit.getDefaultToolkit().getScreenSize().height - 100));
@@ -92,6 +102,10 @@ public class FormPanelWelcome extends JPanel implements IGotBtnClickable{
 
     }
 
+    /**
+     * To validate the welcome form
+     * @param c component that triggered the event
+     */
     @Override
     public void pressBtn(Component c) {
         if (!("").equals(this.roundedJTextField.getText()) && (this.radioButtonWoman.isSelected() || this.radioButtonMan.isSelected())) {

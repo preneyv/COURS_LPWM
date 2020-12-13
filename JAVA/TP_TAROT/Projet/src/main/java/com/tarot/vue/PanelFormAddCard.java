@@ -467,7 +467,7 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
 
     }
     /**
-     * This méthod fill the special combobox that contains all Default Card ( this.comboBoxDefaultCard)
+     * This method fill the special combobox that contains all Default Card ( this.comboBoxDefaultCard)
      * With two JSON files with each a list of Arcanes Majeure and Arcanes Mineure.
      * Due to the image display for each line this is a special ComboBox => see ListRenderer class
      */

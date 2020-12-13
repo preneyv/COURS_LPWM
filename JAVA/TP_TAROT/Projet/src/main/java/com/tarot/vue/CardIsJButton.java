@@ -6,10 +6,17 @@ import javax.swing.*;
 import java.awt.*;
 
 
+/**
+ * Represents a card of the collection. It's a formated button so the panel detail can be set.
+ */
 public class CardIsJButton extends JButton {
 
     private Card cardOfLabel;
 
+    /**
+     * Constructor
+     * @param c card linked to the button
+     */
     public CardIsJButton(Card c)
     {
         this.cardOfLabel = c;
@@ -27,6 +34,10 @@ public class CardIsJButton extends JButton {
         this.setForeground(Color.WHITE);
     }
 
+    /**
+     *
+     * @return the card linked to the button
+     */
     public Card getCard(){return this.cardOfLabel;}
 
 

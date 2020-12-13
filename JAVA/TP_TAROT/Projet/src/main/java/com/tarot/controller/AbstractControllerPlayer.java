@@ -1,6 +1,7 @@
 package com.tarot.controller;
 import com.tarot.model.AbstractModel;
 import com.tarot.model.Card;
+import com.tarot.model.Player;
 
 /**
  *This Abstract  class is usefull in case we create several classes inherited from this one. Here there is only
@@ -79,7 +80,7 @@ public abstract class AbstractControllerPlayer {
      * save the profil
      */
     public void savePlayerProfile(){
-        this.absModel.objToJson();
+        ((Player)this.absModel).objToJson();
     }
 
     abstract void controlAddCard();

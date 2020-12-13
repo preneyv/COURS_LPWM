@@ -7,6 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 
+/**
+ * In the detail panel, on the right top, the detail set different whether it's Arcanes Majeure, Mineure or
+ * Majestueuse. So a mother class has been created in order to set the identical properties doesn't matter the type
+ * of the current card
+ */
 public abstract class AbstractPanelForArcanesType extends JPanel implements IGotBtnHover, IGotBtnClickable{
 
 
@@ -28,11 +33,17 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
 
     private Component compCurrentlyModifying = null;
 
+    /**
+     * Constructor
+     */
     public AbstractPanelForArcanesType()
     {
         super();
     }
 
+    /**
+     * initialize all the components
+     */
     public void initComponent()
     {
         this.panelName.setName("panelName");
@@ -65,6 +76,11 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
         this.add(this.panelNumber);
     }
 
+    /**
+     * To set the properties the labels components turn into JtextField or JComboBox
+     * a HashMap is created to link JLabel and JTextField/JComboBox that are in the same panel
+     * (panel name - panel number)
+     */
     public void fillHashMap()
     {
         this.fieldAndHisKey.put(this.panelName.getName(),this.nameTextField);
@@ -73,6 +89,11 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
         this.labelAndHisKey.put(this.panelNumber.getName(),this.number);
     }
 
+    /**
+     * check if the new value is correct. Turn the background component in red if not.
+     * @param c Component to test
+     * @return true if all is well, false otherwise.
+     */
     public boolean testValidityField(Component c)
     {
         Boolean res = true;
@@ -96,6 +117,14 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
 
         return res;
     }
+
+    /**
+     * When the user clicks on the blue icon to edit the property, JLabel turn into JTextField or JComboBox
+     * When he wants valid his change, he clicks on the blue icon to validate the new value and the JTextField
+     * and JComboBox turn back into JLabel with the new value.
+     *
+     * @param c
+     */
     @Override
     public void pressBtn(Component c) {
 
@@ -160,6 +189,9 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
         parent.validate();
     }
 
+    /**
+     * set differents style to the components
+     */
     public void setStyleComponent()
     {
         this.name.setForeground(Color.WHITE);
@@ -175,6 +207,9 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
         }
     }
 
+    /**
+     * reset the state of panel name and number name)
+     */
     public void resetStateField()
     {
         this.panelName.remove(0);
@@ -187,6 +222,10 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
         ((JButton)this.panelNumber.getComponent(1)).setIcon((new ImageIcon(getClass().getResource("/images/").getPath() + "edit.png")));
     }
 
+    /**
+     * to set unvisible the edit button linked to the component c
+     * @param c component linked to the button
+     */
     @Override
     public void hoverOut(Component c) {
         ((JPanel)c.getParent()).getComponent(1).setVisible(false);
@@ -194,10 +233,15 @@ public abstract class AbstractPanelForArcanesType extends JPanel implements IGot
             ((JPanel)c.getParent()).getComponent(1).setVisible(true);
     }
 
+    /**
+     * to set visible the edit button linked to the component c
+     * @param c component linked to the button
+     */
     @Override
     public void hoverIn(Component c) {
         ((JPanel)c.getParent()).getComponent(1).setVisible(true);
     }
+
 
     abstract public Card modifyCardAfterValidForm();
 

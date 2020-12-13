@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
+/**
+ * This Panel display the collection of card and the search bar
+ */
 public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListening, IGotFocusComponent {
 
     private JPanel panelToListen;
@@ -23,6 +26,11 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
     private JPanel panelInsideScroll = new JPanel();
 
 
+    /**
+     * Constructor
+     * @param pnlToListen the panel to listen (here PanelMainPage) cause a click on delBtn must be listen by
+     *                    PanelMainPage
+     */
     public PanelCollectionCard(JPanel pnlToListen)
     {
         super();
@@ -33,6 +41,9 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
         this.initComponent();
     }
 
+    /**
+     * Initialize the components
+     */
     private void initComponent()
     {
         //Define PanelSearchBar properties
@@ -83,6 +94,10 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
 
     }
 
+    /**
+     * Update the collection of the player if a change happened
+     * @param p
+     */
     public void update(Player p)
     {
         this.panelInsideScroll.removeAll();
@@ -102,6 +117,10 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
     }
 
 
+    /**
+     * This remove the cards that not matching the JTextField text
+     * @param c JTextField triggered the event
+     */
     @Override
     public void keyPress(JTextField c) {
         for (Component crd:this.panelInsideScroll.getComponents())
@@ -119,6 +138,11 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
         }
     }
 
+    /**
+     *
+     * @param c Component that triggered the event - of course it's component so the interface can be used
+     *          by several classes. A if must be set to recognize the component triggered
+     */
     @Override
     public void focusOn(Component c) {
         String textDefaultSearchField = (!(("Rechercher une carte").equals(((JTextField)c).getText())) ) ? ((JTextField)c).getText() : "";

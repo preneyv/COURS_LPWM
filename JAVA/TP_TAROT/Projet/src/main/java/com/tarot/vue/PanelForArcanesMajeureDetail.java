@@ -27,13 +27,13 @@ public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
     GridLayout gbL = new GridLayout(4,1);
 
 
+    /**
+     * Constructor
+     * @param c the currently card detailPanel shows
+     */
     public PanelForArcanesMajeureDetail(ArcanesMajeures c)
     {
         super();
-
-        this.setLayout(gbL);
-        this.setOpaque(false);
-        this.setBackground(new Color(3,3,32));
         initComponent();
         this.currentCard = c;
         this.name.setText(this.currentCard.getNom());
@@ -46,10 +46,16 @@ public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
 
     }
 
+    /**
+     * init Component and add button to a listener and the correct hashmap
+     */
     public void initComponent() {
 
 
         super.initComponent();
+        this.setLayout(gbL);
+        this.setOpaque(false);
+        this.setBackground(new Color(3,3,32));
         this.panelElement.setName("panelElement");
         this.comboBoxElement.setModel(this.modelElement);
         this.setPreferredSize(new Dimension(100,30));
@@ -84,6 +90,12 @@ public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
         this.add(this.panelSortOf);
     }
 
+    /**
+     * To set the properties the labels components turn into JtextField or JComboBox
+     * a HashMap is created to link JLabel and JTextField/JComboBox that are in the same panel
+     * (panel planet)
+     * after a super one
+     */
     public void fillHashMap()
     {
         super.fillHashMap();
@@ -93,6 +105,9 @@ public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
         this.labelAndHisKey.put(this.panelElement.getName(),this.element);
     }
 
+    /**
+     * set differents style to the components after a super one
+     */
     public void setStyleComponent(){
 
         super.setStyleComponent();
@@ -102,13 +117,19 @@ public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
     }
 
 
+    /**
+     *
+     * @return the new card that will replace the old one in the collection card
+     */
     @Override
     public Card modifyCardAfterValidForm() {
          Card cToAdd = new ArcanesMajeures(this.number.getText(), this.currentCard.getPicture(), this.name.getText(), this.sortOf.getText(), this.element.getText());
         return cToAdd;
     }
 
-
+    /**
+     * reset the state of panel planet and sortOf panel
+     */
     public void resetStateField()
     {
         super.resetStateField();

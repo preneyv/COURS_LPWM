@@ -5,12 +5,21 @@ import com.tarot.model.Card;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This Panel let's watch the Card, her name and a delete icon.
+ */
 public class CardPanel extends JPanel implements IGotBtnHover{
 
     private JPanel panelToListen;
     private JButton btnDel ;
     private final CardIsJButton cardToAdd;
 
+    /**
+     * Constructor
+     * @param crd card of the CardButton
+     * @param pnl the panel to listen, here the detailPanel. The link will be make with the hashmap, the cardButton
+     *            will be linked with it , the del button either.
+     */
     public CardPanel(Card crd,JPanel pnl)
     {
 
@@ -21,6 +30,9 @@ public class CardPanel extends JPanel implements IGotBtnHover{
         initComponent();
     }
 
+    /**
+     * inits the components
+     */
     private void initComponent()
     {
         this.setBackground(null);
@@ -48,17 +60,31 @@ public class CardPanel extends JPanel implements IGotBtnHover{
     }
 
 
+    /**
+     * To set unvisble the del button
+     * @param c Component that has triggered the event
+     *
+     */
     @Override
     public void hoverOut(Component c) {
         if(((JButton)c)==this.cardToAdd || ((JButton)c)==this.btnDel)
             this.btnDel.setVisible(false);
     }
 
+    /**
+     * To set visble the del button
+     * @param c Component that has triggered the event
+     *
+     */
     @Override
     public void hoverIn(Component c) {
         if(((JButton)c)==this.cardToAdd || ((JButton)c)==this.btnDel)
             this.btnDel.setVisible(true);
     }
 
+    /**
+     *
+     * @return the card Button
+     */
     public CardIsJButton getCardToAdd(){return this.cardToAdd;}
 }

@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * KeyPressed Action Listener
+ * The method will be activeted thanks to the hashmap (see vueMain)
+ */
 public class KeyPressedAction implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
