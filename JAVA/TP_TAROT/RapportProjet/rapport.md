@@ -3,7 +3,7 @@
 
 Before begin any typing, I’ve made some research in order to know more
 about this "practice". And I’ve found all of what I needed here :
-https://www.apprendre-tarotdemarseille.com/ (All the images I used for
+[lien_tarot] https://www.apprendre-tarotdemarseille.com/ (All the images I used for
 the card are from this website by the way). The I’ve decided to start
 with Arcanes Mineures and Arcanes Majeures. And as I thought two classes
 were not enought for basis of the project, I added one own-maded class.
@@ -75,28 +75,32 @@ There is different options :
 
 # The Project Structure
 ## 1 - The View - Package
+This package contains all what's important for the user interface. 
 ### a - The Interfaces
+These interfaces are required when the user trigger the event by using the linked component.
+To do so, I've been thinking like that : there is one component that trigger the event and the event listener calls the corresponding method in the linked Panel which implements the needed interface. The bound between both component (component trigger, (interface)panel calling method) is created in a static HashMap set in the View Page. Most of the time the panel linked to the trigger component is the panel that contains the trigger component. But not for one time where the panel needed to be listen is send to the class that contains the trigger component. By doing like this you have juste two lines of code to write into the EventListener Classes. It doesn't matter which component add an event to his listener.
 #### IGotBtnClickable
 #### IGotBtnHover
 #### IGotComboxChange
 #### IGotFocusComponent
 #### IGotTextFieldKeyListening
 ### b - The Classes
-* FormPanelWelcome
-  * RoundedJTextField
-  * RoundedBorderCorner
-* PanelMainPage
-  * PanelSideBar
-  * PanelCollectionCard
-    * CardPanel
-    * CardIsJButton
-  * PanelDetailCard
-    * AsbtractPanelForArcanesType
-    * PanelForArcanesMajestueuseDetail
-    * PanelForArcanesMajeureDetail
-    * PanelForArcanesMineureDetail
-  * PanelFormAddCard
-    * ListRenderer
+* View Page
+ * FormPanelWelcome
+   * RoundedJTextField
+   * RoundedBorderCorner
+ * PanelMainPage
+   * PanelSideBar
+   * PanelCollectionCard
+     * CardPanel
+     * CardIsJButton
+   * PanelDetailCard
+     * AsbtractPanelForArcanesType
+     * PanelForArcanesMajestueuseDetail
+     * PanelForArcanesMajeureDetail
+     * PanelForArcanesMineureDetail
+   * PanelFormAddCard
+     * ListRenderer
 * EventListenerClasses
   * ButtonAction
   * ComboBoxAction
@@ -104,6 +108,7 @@ There is different options :
   * KeyPressedAction
 
 ## 2 - The Controller - Package
+This package is like a ferryman. Every change triggered in the view package (by the user) will be set in the classes model package.
 ### The Classes
 #### AbstractControllerPlayer
 #### ControllerPlayer
@@ -121,6 +126,7 @@ There is different options :
 
 
 ## The Observer - Package
+This package well carrying his name. Every changement observed in th model will reset the view. Once the change is set into the corresponding model class, the observable classes call the method ``notifyObserver(Player p)`` that inform all the observers.
 ### The Interfaces
 #### Observable
 #### Observer
