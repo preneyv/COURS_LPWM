@@ -43,7 +43,7 @@ break down into segments.
 First you’ve got the side bar with a little icon, the name and at save
 profil button at the bottom.
 
-![Side Bar](./Images/icoUser.png) ![Save Btn](./Images/saveBtn.PNG)
+![Male Icon](./Images/avatar.png) ![Female Icon](./Images/avatar2.png) ![Save Btn](./Images/saveBtn.PNG)
 
 ### b - The central panel - collection card and search bar
 Then you can see a central panel. Here released a search bar and the card collection of the user.
