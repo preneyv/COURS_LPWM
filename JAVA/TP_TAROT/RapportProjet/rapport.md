@@ -3,7 +3,7 @@
 
 Before begin any typing, I’ve made some research in order to know more
 about this "practice". And I’ve found all of what I needed here :
-[lien_tarot] https://www.apprendre-tarotdemarseille.com/ (All the images I used for
+[lien_tarot]https://www.apprendre-tarotdemarseille.com/ (All the images I used for
 the card are from this website by the way). The I’ve decided to start
 with Arcanes Mineures and Arcanes Majeures. And as I thought two classes
 were not enought for basis of the project, I added one own-maded class.
@@ -86,26 +86,26 @@ To do so, I've been thinking like that : there is one component that trigger the
 #### IGotTextFieldKeyListening
 ### b - The Classes
 * View Page
- * FormPanelWelcome
-   * RoundedJTextField
-   * RoundedBorderCorner
- * PanelMainPage
-   * PanelSideBar
-   * PanelCollectionCard
-     * CardPanel
-     * CardIsJButton
-   * PanelDetailCard
-     * AsbtractPanelForArcanesType
-     * PanelForArcanesMajestueuseDetail
-     * PanelForArcanesMajeureDetail
-     * PanelForArcanesMineureDetail
-   * PanelFormAddCard
-     * ListRenderer
-* EventListenerClasses
-  * ButtonAction
-  * ComboBoxAction
-  * FocusAction
-  * KeyPressedAction
+   * FormPanelWelcome
+     * RoundedJTextField
+     * RoundedBorderCorner
+   * PanelMainPage
+     * PanelSideBar
+     * PanelCollectionCard
+       * CardPanel
+       * CardIsJButton
+     * PanelDetailCard
+       * AsbtractPanelForArcanesType
+       * PanelForArcanesMajestueuseDetail
+       * PanelForArcanesMajeureDetail
+       * PanelForArcanesMineureDetail
+     * PanelFormAddCard
+       * ListRenderer
+  * EventListenerClasses
+    * ButtonAction
+    * ComboBoxAction
+    * FocusAction
+    * KeyPressedAction
 
 ## 2 - The Controller - Package
 This package is like a ferryman. Every change triggered in the view package (by the user) will be set in the classes model package.
@@ -115,6 +115,7 @@ This package is like a ferryman. Every change triggered in the view package (by 
 
 ## 3 - The Model - Package
 ### a - The Interfaces
+This interface takes care of the sustainability of the essentials data and as for it, Player is the only class to implements the interface.
 #### IsSustainable
 ### b - The Classes
 #### AbstractModel
@@ -126,7 +127,7 @@ This package is like a ferryman. Every change triggered in the view package (by 
 
 
 ## The Observer - Package
-This package well carrying his name. Every changement observed in th model will reset the view. Once the change is set into the corresponding model class, the observable classes call the method ``notifyObserver(Player p)`` that inform all the observers.
+This package well carrying his name. Every oberved change in th model will reset the view. Once the change is set into the corresponding model class, the observable classes call the method ``notifyObserver(Player p)`` that inform all the observers.
 ### The Interfaces
 #### Observable
 #### Observer
