@@ -4,7 +4,7 @@
 Before begin any typing, I’ve made some research in order to know more
 about this "practice". And I’ve found all of what I needed here :
 https://www.apprendre-tarotdemarseille.com/ (All the images I used for
-the card are from this website by the way). The I’ve decided to start
+the card are from this website by the way). Then I’ve decided to start
 with Arcanes Mineures and Arcanes Majeures. And as I thought two classes
 were not enought for basis of the project, I added one own-maded class.
 Arcanes Majestueuse is it.(More details in this report below - Classes
