@@ -44,7 +44,7 @@ public class PanelFormAddCard extends JPanel implements IGotBtnClickable, IGotCo
             private JPanel majeurePropertiesPanel = new JPanel(new GridBagLayout());
                 private JLabel labelElement = new JLabel("Element : ");
                 private JComboBox comboBoxElement = new JComboBox();
-                    String elementsModel[] = {"Choisissez...","Feu", "Terre", "Air","Eau"};
+                    String elementsModel[] = {"Choisissez...","Feu", "Terre", "Air","Eau","Tous"};
                     private final DefaultComboBoxModel modelElement = new DefaultComboBoxModel(elementsModel);
                 private JLabel labelSortOf = new JLabel("Genre  :");
                 private JComboBox comboBoxSortOf = new JComboBox();

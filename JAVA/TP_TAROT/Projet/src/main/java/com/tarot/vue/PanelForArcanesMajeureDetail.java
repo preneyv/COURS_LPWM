@@ -18,7 +18,7 @@ public class PanelForArcanesMajeureDetail extends AbstractPanelForArcanesType{
 
 
     private JComboBox comboBoxElement = new JComboBox();
-        String elementsModel[] = {"Choisissez...","Feu", "Terre", "Air","Eau"};
+        String elementsModel[] = {"Choisissez...","Feu", "Terre", "Air","Eau", "Tous"};
         private final DefaultComboBoxModel modelElement = new DefaultComboBoxModel(elementsModel);
     private JComboBox comboBoxSortOf = new JComboBox();
         String sortOfModel[] = {"Choisissez...","Masculin", "Feminin", "Androgine","Neutre"};
