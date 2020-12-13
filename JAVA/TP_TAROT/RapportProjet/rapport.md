@@ -3,7 +3,7 @@
 
 Before begin any typing, I’ve made some research in order to know more
 about this "practice". And I’ve found all of what I needed here :
-[lien_tarot]https://www.apprendre-tarotdemarseille.com/ (All the images I used for
+https://www.apprendre-tarotdemarseille.com/ (All the images I used for
 the card are from this website by the way). The I’ve decided to start
 with Arcanes Mineures and Arcanes Majeures. And as I thought two classes
 were not enought for basis of the project, I added one own-maded class.
@@ -28,38 +28,39 @@ Once the user has started the program, he has got to fill a welcome
 form. He must enter his name and choose betwin two choices of a two
 radioButton couple. Then he press enter and go into in.
 
-![Form Welcom Panel](./welcomeForm.PNG)
+![Form Welcom Panel](./Images/welcomeForm.PNG)
 
 ## 2 - Main Window 
 
 Then, once it’s done, the user can see the program
 break down into segments.
 
-![Main Page](./mainPage.png)
+![Main Page](./Images/mainPage.png)
 
 ### a - The SideBar
 First you’ve got the side bar with a little icon, the name and at save
 profil button at the bottom.
 
-![Side Bar](./icoUser.png) ![Save Btn](./saveBtn.PNG)
+![Side Bar](./Images/icoUser.png) ![Save Btn](./saveBtn.PNG)
 
 ### b - The central panel - collection card and search bar
 Then you can see a central panel. Here released a search bar and the card collection of the user.
 Each card will be set with a respective image and a name.
 
-![Collection Card](./collectionCard.PNG)
+![Collection Card](./Images/collectionCard.PNG)
 
-By hovering one of these card, a dustbin icon will pop ![Dustbin Icon](./dustbinIcon.PNG)just on the left of the card image so you can remove the card from you're collection.
+By hovering one of these card, a dustbin icon will pop ![Dustbin Icon](./Images/dustbinIcon.PNG)just on the left of the card image so you can remove the card from you're collection.
 
 
 ### c - The detail Panel
 
 By clicking on one of these card you set the top-right panel : detail Panel. Here you will see the detail of the card you've just clicked on before.
 
-![Empty Detail](./detailEmpty.PNG) ![Detail](./detail.PNG)
+![Empty Detail](./Images/detailEmpty.PNG) ![Detail](./Images/detail.PNG)
 
-By hovering each property value on the right of the image, a pen icon will pop ![Edit Prop](./edit.png) so you can set the property that belong to the icon.
+By hovering each property value on the right of the image, a pen icon will pop ![Edit Prop](./Images/edit.png) so you can set the property that belong to the icon.
 JLabel will turn into JTextField or JComboBox. Depending on the nature of the property you're setting.
+To validate your change, where the edit icon was a validate icon ![Valid Change](./Images/valid.png) is instead.
 
 
 ### d - The adding form
@@ -67,7 +68,7 @@ JLabel will turn into JTextField or JComboBox. Depending on the nature of the pr
 And finally the adding form there is. 
 With this, you will can add new card to your collection.
 
-![Adding Form](./formAdd.PNG)
+![Adding Form](./Images/formAdd.PNG)
 
 There is different options : 
 * You can add a card by choosing one of the default card. Once the choice done, the form will automaticaly be filled. Then you will be uncapable to modify the fields unless you click on the empty form button.
