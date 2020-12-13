@@ -20,6 +20,8 @@ components of the application (Also more details in the report below)
 
 # UML Diagram
 
+See the Class Diagram png in RapportProjet directory
+
 # How to use it
 
 ## 1 - Form Welcome Panel
