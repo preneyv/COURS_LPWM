@@ -1,0 +1,10 @@
+[
+    {
+        "theme" : "themeValue",
+        "titre" : "titreValue",
+        "description" : "descValue",
+        "date" : "dateValue",
+        "ecrit_par" : "idUser",
+        "publication_parent" : "idParent"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "nom": "nomValue",
+        "prenom" : "prenomValue",
+        "age" : "ageValue",
+        "pseudo" : "pseudoValue",
+        "email" : "emailPseudo",
+        "password" : "passwordValue",
+        "epeluche" : [
+            {"2014" : ["12/01","12/03", "12/04"]},
+            {"2015" : ["12/01","12/03", "12/04"]},
+            {"2016" : ["12/01","12/03", "12/04"]},
+            {"2017" : ["12/01","12/03", "12/04"]}
+        ]
+    }
+]

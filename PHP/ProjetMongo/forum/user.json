@@ -1,0 +1,10 @@
+[
+    {
+        "nom": "nomValue",
+        "prenom" : "prenomValue",
+        "age" : "ageValue",
+        "pseudo" : "pseudoValue",
+        "email" : "emailPseudo",
+        "password" : "passwordValue"
+    }
+]
