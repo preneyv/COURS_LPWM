@@ -18,7 +18,6 @@ public class PanelDetailCard extends JPanel {
     GridBagLayout gbL = new GridBagLayout();
     GridBagConstraints gbC = new GridBagConstraints();
 
-    private Card cardInUse;
     private final JPanel panelForTitleDetail = new JPanel(new BorderLayout());
     private final JLabel titleDetail = new JLabel("Carte en cours de visualisation");
     private final JLabel labelIconCard = new JLabel();
@@ -90,25 +89,25 @@ public class PanelDetailCard extends JPanel {
     public void setPanelDetail(Card c){
 
         this.detailDependType.removeAll();
-        this.cardInUse = c;
         this.setVisible(true);
         this.labelIconCard.setIcon(c.resizeImage(90,172));
         if(c.getClass() == ArcanesMajeures.class)
         {
-            panelForDetail = new PanelForArcanesMajeureDetail((ArcanesMajeures)this.cardInUse);
+            panelForDetail = new PanelForArcanesMajeureDetail((ArcanesMajeures)c);
         }
 
         if(c.getClass() == ArcanesMineures.class)
         {
-            panelForDetail = new PanelForArcanesMineureDetail((ArcanesMineures)this.cardInUse);
+            panelForDetail = new PanelForArcanesMineureDetail((ArcanesMineures)c);
 
         }
 
         if(c.getClass() == ArcanesMajestueuses.class)
         {
-            panelForDetail = new PanelForArcanesMajestueuseDetail((ArcanesMajestueuses)this.cardInUse);
+            panelForDetail = new PanelForArcanesMajestueuseDetail((ArcanesMajestueuses)c);
 
         }
+
 
         this.detailDependType.add(panelForDetail);
         this.panelForDetail.setVisible(true);
@@ -130,7 +129,7 @@ public class PanelDetailCard extends JPanel {
         this.detailDependType.validate();
     }
 
-    public Card getCardInUse(){return this.cardInUse;}
+    public Card getCardInUse(){return this.panelForDetail.currentCard;}
 
 
 
