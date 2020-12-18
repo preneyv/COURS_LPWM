@@ -67,7 +67,7 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         this.rightMain.setLayout(bL);
         this.gbC.gridx = 1;
         this.gbC.gridy= 0;
-        this.gbC.weightx = 0.7;
+        this.gbC.weightx = 0.8;
         this.gbC.weighty = 1;
         this.gbC.fill = GridBagConstraints.BOTH;
         this.rightMain.add(this.collectionCard,this.gbC);
@@ -85,14 +85,14 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         this.gbC.gridx = 0;
         this.gbC.gridy= 1;
         this.gbC.weightx = 1;
-        this.gbC.weighty = 0.8;
+        this.gbC.weighty = 0.9;
         this.gbC.fill = GridBagConstraints.BOTH;
         this.detailAndAddCard.add(this.panelFormAddCard,this.gbC);
 
         /*Set Constraints of the detail and add card Panel*/
         this.gbC.gridx = 2;
         this.gbC.gridy= 0;
-        this.gbC.weightx = 0.3;
+        this.gbC.weightx = 0.1;
         this.gbC.weighty = 1;
         this.rightMain.setBorder(new EmptyBorder(5,5,5,5));
         this.rightMain.add(this.detailAndAddCard,this.gbC);
