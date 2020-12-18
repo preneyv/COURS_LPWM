@@ -43,6 +43,8 @@ public class VueTest extends JFrame{
         this.setResizable(true);
         initComponents();
         this.controllerApplicationHanddler();
+        this.setTitle("Mystique Tarot");
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/logo.png").getPath()).getImage());
         this.setContentPane(this.contentPane);
         this.validate();
         this.setVisible(true);
