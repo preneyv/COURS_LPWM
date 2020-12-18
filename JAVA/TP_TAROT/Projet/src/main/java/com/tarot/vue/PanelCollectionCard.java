@@ -68,8 +68,8 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
 
             this.panelInsideScroll.setBackground(new Color(50,51,50));
             this.panelInsideScroll.setLayout(new FlowLayout(FlowLayout.LEFT));
-            this.panelInsideScroll.setMaximumSize(new Dimension(500,this.panelInsideScroll.getComponentCount()/3*172 ));
-            this.panelInsideScroll.setPreferredSize(new Dimension(500,this.panelInsideScroll.getComponentCount()/3*172 ));
+            //this.panelInsideScroll.setMaximumSize(new Dimension(600,1000 ));
+            //this.panelInsideScroll.setPreferredSize(new Dimension(600,1000 ));
 
 
         //Define gridBagConstraints before adding panelSearchBar to his parent panel
@@ -112,6 +112,8 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
         JViewport vw = new JViewport();
         vw.add("View",this.panelInsideScroll);
         this.scrollForCardList.setViewport(vw);
+        this.panelInsideScroll.setMaximumSize(new Dimension(600,this.panelInsideScroll.getComponentCount() /4*190 ));
+        this.panelInsideScroll.setPreferredSize(new Dimension(600,this.panelInsideScroll.getComponentCount() /4*190 ));
         this.scrollForCardList.validate();
 
     }
