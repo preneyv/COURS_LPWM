@@ -1,5 +1,5 @@
 <?php
-class connexion{
+class Connexion{
 
     private $_collection;
     private $_identifiant;

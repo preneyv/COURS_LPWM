@@ -21,25 +21,39 @@
                     <h2 class="mb-0">S'inscrire</h2>
                     <?php
                     //si l'utilisateur n'existe pas et que l'inscription s'est bien passé
-                    if(isset($_SESSION['user'])){echo "<h6 style='color:green;float : right'>Vous etes connecté</h6>";}  
+                    var_dump($_SESSION['userStateLogUp']);
+                    if(isset($_SESSION['userStateLogUp'])){echo "<h6 style='color:{$_SESSION['userStateLogUp']['couleur']};float : right'>{$_SESSION['userStateLogUp']['res']}</h6>";}  
                     //si l'utilisateur existe déjà
-                    if(isset($_SESSION['notConnected'])){echo "<h6 style='color:red;float : right'>Ce compte n'existe pas</h6>";}    
+                    if(isset($_SESSION['notConnected'])){echo "<h6 style='color:red;float : right'>Vérifiez le formulaire</h6>";}    
                         
-                        unset($_SESSION['notConnected']);               
+                        unset($_SESSION['notConnected']);      
+                        unset($_SESSION['userStateLogUp']);         
                     ?>
                   </div>
 
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
-                        <form action="./connexion.php" method="post" id="formula" name="formula">
+                        <form action="../controller/controller.php?ctrl=user&fc=logup" method="post" id="formula" name="formula">
                             <div class="form-group row">
-                              <label for="inputFirstName" class="col-sm-2 col-form-label">Pseudo</label>
+                              <label for="inputPseudo" class="col-sm-2 col-form-label">Pseudo</label>
                               <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputPseudo" name="inputPseudo" placeholder="Pseudo">
                               </div>
                             </div>
                             <div class="form-group row">
-                              <label for="inputFirstName" class="col-sm-2 col-form-label">Mot de passe</label>
+                              <label for="inputFirstName" class="col-sm-2 col-form-label">Prénom</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" placeholder="Prénom">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputLastName" class="col-sm-2 col-form-label">Nom</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputLastName" name="inputLastName" placeholder="Nom">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputPassword" class="col-sm-2 col-form-label">Mot de passe</label>
                               <div class="col-sm-10">
                                 <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Mot de passe">
                               </div>

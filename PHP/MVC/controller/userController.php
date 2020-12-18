@@ -5,8 +5,8 @@ class userController{
 
     public function __construct($collect)
     {
-        require('../model/User.class.php');
-        require_once('../model/Usermanager.class.php');
+        require('../model/user.php');
+        require_once('../model/usermanager.php');
         $this->_userManager = new Usermanager($collect);
 
     }
@@ -36,6 +36,26 @@ class userController{
 
     public function doLogup()
     {
+        $user=array(
+            'email' => $_POST['staticEmail'],
+            'firstname' => $_POST['inputFirstName'],
+            'lastname' => $_POST['inputLastName'],
+            'password' => $_POST['inputPassword'],
+            'pseudo' => $_POST['inputPseudo'],
+        );
+        var_dump($user);
+
+        if(isset($user['email']) && isset($user['firstname']) && isset($user['lastname']) && isset($user['password']) && isset($user['pseudo']))
+        {
+            $idNewAdd = $this->_userManager->addUser($user);
+            $user = $this->_userManager->createUser($idNewAdd,$user);
+            $_SESSION['userStateLogUp'] = $idNewAdd == 'null' ? ['res'=>'Echec à la création','couleur' => 'red']:['res'=>'Inscription réussie','couleur' => 'green'];
+            header('Location : ../vue/form.php');
+
+        }else{
+            $_SESSION['notConnected'] = true;
+            header("Location : ../vue/form.php");
+        }
         
     }
 }
