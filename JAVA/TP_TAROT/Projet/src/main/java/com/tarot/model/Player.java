@@ -22,9 +22,42 @@ public class Player extends AbstractModel implements IsSustainable{
     {   Card c1 = new ArcanesMajeures("2","amoureux.jpg","L'amoureux","Neutre","Air");
         Card c2 = new ArcanesMineures("5","cinqEpees.jpg","Cinq epees","Epées");
         Card c3 = new ArcanesMajestueuses("2","deuxEpees.jpg","La majestuese","Terre");
+        Card c4 = new ArcanesMajeures("2","amoureux.jpg","L'amoureux","Neutre","Air");
+        Card c5 = new ArcanesMineures("5","cinqEpees.jpg","Cinq epees","Epées");
+        Card c6 = new ArcanesMajestueuses("2","deuxEpees.jpg","La majestuese","Terre");
+        Card c7 = new ArcanesMajeures("2","amoureux.jpg","L'amoureux","Neutre","Air");
+        Card c8 = new ArcanesMineures("5","cinqEpees.jpg","Cinq epees","Epées");
+        Card c9 = new ArcanesMajestueuses("2","deuxEpees.jpg","La majestuese","Terre");
+        Card c10 = new ArcanesMajeures("2","amoureux.jpg","L'amoureux","Neutre","Air");
+        Card c11 = new ArcanesMineures("5","cinqEpees.jpg","Cinq epees","Epées");
+        Card c12 = new ArcanesMajestueuses("2","deuxEpees.jpg","La majestuese","Terre");
+        Card c13 = new ArcanesMajeures("2","amoureux.jpg","L'amoureux","Neutre","Air");
+        Card c14 = new ArcanesMineures("5","cinqEpees.jpg","Cinq epees","Epées");
+        Card c15 = new ArcanesMajestueuses("2","deuxEpees.jpg","La majestuese","Terre");
         this.collectionCard.add(c1);
         this.collectionCard.add(c2);
         this.collectionCard.add(c3);
+        this.collectionCard.add(c4);
+        this.collectionCard.add(c5);
+        this.collectionCard.add(c6);
+        this.collectionCard.add(c7);
+        this.collectionCard.add(c8);
+        this.collectionCard.add(c9);
+        this.collectionCard.add(c10);
+        this.collectionCard.add(c11);
+        this.collectionCard.add(c12);
+        this.collectionCard.add(c13);
+        this.collectionCard.add(c14);
+        this.collectionCard.add(c15);
+        this.collectionCard.add(c1);
+        this.collectionCard.add(c2);
+        this.collectionCard.add(c3);
+        this.collectionCard.add(c4);
+        this.collectionCard.add(c5);
+        this.collectionCard.add(c6);
+        this.collectionCard.add(c7);
+        this.collectionCard.add(c8);
+        this.collectionCard.add(c9);
     }
 
     /**
