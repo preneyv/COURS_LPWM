@@ -67,7 +67,7 @@ public class PanelCollectionCard extends JPanel implements IGotTextFieldKeyListe
         //Define properties of the panelScrollBar
 
             this.panelInsideScroll.setBackground(new Color(50,51,50));
-            this.panelInsideScroll.setLayout(new FlowLayout(FlowLayout.LEFT, 10,10));
+            this.panelInsideScroll.setLayout(new FlowLayout(FlowLayout.LEFT, 15,10));
 
 
         //Define gridBagConstraints before adding panelSearchBar to his parent panel

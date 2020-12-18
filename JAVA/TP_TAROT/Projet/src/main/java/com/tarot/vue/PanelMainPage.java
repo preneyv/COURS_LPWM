@@ -81,14 +81,14 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         this.gbC.gridx = 0;
         this.gbC.gridy= 0;
         this.gbC.weightx = 1;
-        this.gbC.weighty = 0.2;
+        this.gbC.weighty = 0.1;
         this.gbC.fill = GridBagConstraints.BOTH;
         this.detailAndAddCard.add(this.panelDetail,this.gbC);
 
         this.gbC.gridx = 0;
         this.gbC.gridy= 1;
         this.gbC.weightx = 1;
-        this.gbC.weighty = 0.8;
+        this.gbC.weighty = 0.9;
         this.gbC.fill = GridBagConstraints.BOTH;
         this.detailAndAddCard.add(this.panelFormAddCard,this.gbC);
 
