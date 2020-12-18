@@ -12,10 +12,13 @@ class userController{
     }
 
     public function doLogin(){
-        
-        $pass = $_POST['password'];
-        $mail = $_POST['email'];
-        if($result = $this->_userManager->getUserByPassAndEmail($pass,$mail))
+        $userTabFilter=array(
+            '$and' => [
+                'email' => $_POST['staticEmail'],
+                'password' => $_POST['inputPassword']
+                ]
+        );
+        if($result = $this->_userManager->getUserByPassAndEmail($userTabFilter) != null)
         {
             $user= array(
                 'id' => $result['_id'],
@@ -25,13 +28,14 @@ class userController{
                 'lastname' => $result['lastname'],
                 'pseudo' => $result['pseudo']
             );
-            $this->_user = $this->_userManager->createUser($user);
-            $_SESSION['user'] = $this->_user;
+            $this->_user = $this->_userManager->createUser($result['_id'],$user);
+            $_SESSION['userStateLogIn'] = $this->_user == 'null' ? ['res'=>'Echec à la connexion','couleur' => 'red']:['res'=>'Connexion réussie','couleur' => 'green'];
+        
         }else{
-            $_SESSION['notConnected'] = true;
+            $_SESSION['userStateLogIn'] = ['res'=>'Echec à la connexion','couleur' => 'red'];
         }
 
-        header('../vue/connectForm.php');
+        //header("Location : ../vue/form.php");
     }
 
     public function doLogup()
@@ -53,7 +57,7 @@ class userController{
             header('Location : ../vue/form.php');
 
         }else{
-            $_SESSION['notConnected'] = true;
+            $_SESSION['userStateLogUp'] = ['res'=>'Echec à la création','couleur' => 'red'];
             header("Location : ../vue/form.php");
         }
         

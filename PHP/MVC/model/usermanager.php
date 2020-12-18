@@ -23,23 +23,15 @@ class userManager{
         }
     }
 
-    public function getUserByPassAndEmail($pass, $email){
+    public function getUserByPassAndEmail($tabFilter){
 
-        $filter = ['password' => $pass, 'email'=> $email];
-        $option = [];
-        $read = new MongoDB\Driver\Query($filter, $option);
-        //Exécution de la requête
-        $cursor =  $this->_managerDb->executeQuery('CollectUser.users', $read);
-        foreach($cursor as $user)
-        {
-                return $user;
-        }
+        return $user = $this->testExistUser($tabFilter);
     }
 
     public function addUser($tabUser)
     {
         //On insère le nouvel uilisateur
-        if($this->testExistUser($tabUser) == false)
+        if($this->testExistUser($tabUser) == null)
         {
             $single_insert = new MongoDB\Driver\BulkWrite();
             $newAddId = $single_insert->insert($tabUser);
@@ -71,8 +63,10 @@ class userManager{
             //On vérifie si le resultat de la requete existe
             foreach($cursor as $user)
             {
-                $userExist = $user ? 'true' : 'false';
+                
+                $userExist = $user ? $user : null;
             }
+            var_dump($userExist);
             return $userExist;
     }
 }

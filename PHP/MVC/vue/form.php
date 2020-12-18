@@ -21,13 +21,8 @@
                     <h2 class="mb-0">S'inscrire</h2>
                     <?php
                     //si l'utilisateur n'existe pas et que l'inscription s'est bien passé
-                    var_dump($_SESSION['userStateLogUp']);
                     if(isset($_SESSION['userStateLogUp'])){echo "<h6 style='color:{$_SESSION['userStateLogUp']['couleur']};float : right'>{$_SESSION['userStateLogUp']['res']}</h6>";}  
-                    //si l'utilisateur existe déjà
-                    if(isset($_SESSION['notConnected'])){echo "<h6 style='color:red;float : right'>Vérifiez le formulaire</h6>";}    
-                        
-                        unset($_SESSION['notConnected']);      
-                        unset($_SESSION['userStateLogUp']);         
+                    unset($_SESSION['userStateLogUp']);         
                     ?>
                   </div>
 
@@ -66,6 +61,35 @@
                             </div>
                              <button type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-primary">Valider</button>
                           </form>
+                    </div>
+                  </div>
+               </div>
+               <div class="card" style="border-bottom : 1px solid rgb(0,0,0,.125)">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">Se connecter</h2>
+                    <?php
+                    //si l'utilisateur n'existe pas et que l'inscription s'est bien passé
+                    if(isset($_SESSION['userStateLogIn'])){echo "<h6 style='color:{$_SESSION['userStateLogIn']['couleur']};float : right'>{$_SESSION['userStateLogIn']['res']}</h6>";}  
+                    unset($_SESSION['userStateLogIn']);         
+                    ?>
+                  </div>
+                  <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <form action="../controller/controller.php?ctrl=user&fc=login" method="post" id="formula" name="formula">
+                            <div class="form-group row">
+                              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                              <div class="col-sm-10">
+                                <input type="email" class="form-control" id="staticEmail" name="staticEmail" placeholder="email@example.com">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="inputPassword" class="col-sm-2 col-form-label">Mot de passe</label>
+                              <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Mot de passe">
+                              </div>
+                            </div>
+                             <button type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-primary">Valider</button>
+                        </form>
                     </div>
                   </div>
                </div>
