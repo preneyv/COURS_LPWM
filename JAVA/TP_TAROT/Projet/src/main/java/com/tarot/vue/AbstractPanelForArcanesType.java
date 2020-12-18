@@ -15,7 +15,7 @@ import java.util.HashMap;
 public abstract class AbstractPanelForArcanesType extends JPanel implements IGotBtnHover, IGotBtnClickable{
 
 
-    protected Card currentCard;
+    protected Card currentCard = null;
     protected JPanel panelName = new JPanel(new GridLayout(1,1));
         protected JLabel name = new JLabel();
         protected JButton iconSetName = new JButton();

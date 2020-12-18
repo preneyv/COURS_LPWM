@@ -129,7 +129,7 @@ public class PanelDetailCard extends JPanel {
         this.detailDependType.validate();
     }
 
-    public Card getCardInUse(){return this.panelForDetail.currentCard;}
+    public Card getCardInUse(){return this.panelForDetail != null ? this.panelForDetail.currentCard : null ;}
 
 
 

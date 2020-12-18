@@ -54,6 +54,9 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         this.collectionCard =  new PanelCollectionCard(this);
         this.panelDetail =  new PanelDetailCard();
 
+        this.collectionCard.setMaximumSize(new Dimension(8*95,-1 ));
+        this.collectionCard.setPreferredSize(new Dimension(8*95,-1 ));
+
         /*Set Constraints of the sideBAr*/
 
         this.gbC.gridx = 1;
@@ -67,7 +70,7 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         this.rightMain.setLayout(bL);
         this.gbC.gridx = 1;
         this.gbC.gridy= 0;
-        this.gbC.weightx = 0.8;
+        this.gbC.weightx = 0.6;
         this.gbC.weighty = 1;
         this.gbC.fill = GridBagConstraints.BOTH;
         this.rightMain.add(this.collectionCard,this.gbC);
@@ -78,21 +81,21 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         this.gbC.gridx = 0;
         this.gbC.gridy= 0;
         this.gbC.weightx = 1;
-        this.gbC.weighty = 0.1;
+        this.gbC.weighty = 0.2;
         this.gbC.fill = GridBagConstraints.BOTH;
         this.detailAndAddCard.add(this.panelDetail,this.gbC);
 
         this.gbC.gridx = 0;
         this.gbC.gridy= 1;
         this.gbC.weightx = 1;
-        this.gbC.weighty = 0.9;
+        this.gbC.weighty = 0.8;
         this.gbC.fill = GridBagConstraints.BOTH;
         this.detailAndAddCard.add(this.panelFormAddCard,this.gbC);
 
         /*Set Constraints of the detail and add card Panel*/
         this.gbC.gridx = 2;
         this.gbC.gridy= 0;
-        this.gbC.weightx = 0.1;
+        this.gbC.weightx = 0.4;
         this.gbC.weighty = 1;
         this.rightMain.setBorder(new EmptyBorder(5,5,5,5));
         this.rightMain.add(this.detailAndAddCard,this.gbC);
@@ -127,7 +130,7 @@ public class PanelMainPage extends JPanel implements IGotBtnClickable, Observer 
         if(c.getName().equals("btnDel"))
         {
             Card cardToDel = ((CardIsJButton)c.getParent().getComponent(1)).getCard();
-            if(cardToDel == this.panelDetail.getCardInUse())
+            if(cardToDel == this.panelDetail.getCardInUse() && this.panelDetail.getCardInUse()!=null)
                 this.panelDetail.clearPanel();
 
             VueTest.listController.get(0).removeCollectionCardPlayer(cardToDel);
