@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sintony&display=swap');
 
 body{
     background-color: #003567;
@@ -41,7 +41,7 @@ body{
 }
 #mainGrid{
     display: grid;
-    grid-template-columns: minmax(300px, 20%) minmax(500px, 90%);
+    grid-template-columns: minmax(300px, 20%) minmax(400px, 90%);
     grid-gap: 70px;
     width : 90vw;
     margin : auto;
@@ -57,13 +57,40 @@ body{
     border-radius: 10px;
 }
 
+#_colTitleCalendar{
+   font-family: 'Sintony', sans-serif;
+   padding : 20px 0 0 0;
+   color : white;
+   font-size : 1rem;
+   display: grid;
+   grid-template-columns: repeat(4,minmax(200px,25%));
+}
+#_colTitleCalendar > *{
+    text-align:center;
+}
+
+#_contentCalendar{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(200px,25%));
+    height : 90%;
+    min-height: 400px;
+}
+
+._weekTile{
+    background-color: aqua;
+    width : 100px;
+    height : 100px;
+    align-self: center;
+    justify-self: center;
+}
+
 
 /*Animations transitions css*/
 .year-leave-left-enter-active{
     transition: all .5s ease;
   }
 
-  .year-leave-left-enter, .year-leave-left-leave-to
+.year-leave-left-enter, .year-leave-left-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
     transform: translateX(-10px);
     opacity: 0;

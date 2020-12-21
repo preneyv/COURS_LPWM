@@ -23,7 +23,33 @@
             </div>
             <div id="mainGrid">
                 <div id="_panelSetWeek"><bar-chart></bar-chart></div>
-                <div id="_calendar"></div>
+                <div id="_calendar">
+                    <div id=_colTitleCalendar>
+                        <div class="_weekTitle" id="_weekOneTitle">Sem 1 </div>
+                        <div class="_weekTitle" id="_weekTwoTitle">Sem 2</div>
+                        <div class="_weekTitle" id="_weekThreeTitle">Sem 3</div>
+                        <div class="_weekTitle" id="_weekFourTitle">Sem 4</div>
+                    </div>
+                    <div id="_contentCalendar">
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                        <div class="_weekTile"></div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </body>
@@ -42,19 +68,44 @@ Vue.component('bar-chart',{
                             backgroundColor: ['rgba(42, 165, 20,0.5)','rgba(234, 133, 18,0.5)','rgba(221, 234, 18,0.5)','rgba(18, 34, 234,0.5)'],
                             borderColor: ['rgba(42, 165, 20,1)','rgba(234, 133, 18,1)','rgba(221, 234, 18,1)','rgba(18, 34, 234,1)'],
                             borderWidth : 2,
-                            borderSkipped:'bottom'
+                            borderSkipped:'bottom',
+                            
                         }]
             },
             options: {
+                legend: {
+                    labels: {
+                        fontColor: "white",
+                        fontSize: 12
+                    }
+                },
                 scales :{
                     yAxes:[{
                         ticks:{
                             beginAtZero:true,
                             min:0,
                             max:20,
-                            stepSize:5
-                        }
+                            stepSize:5,
+                            fontColor : 'rgba(255, 255, 255, 1)'
+                            
+                        },
+                    }],
+                    xAxes:[{
+                        ticks:{
+                            fontColor : 'rgba(255, 255, 255, 1)'
+                        }  
                     }]
+                },
+                
+                animations:{
+                    tension:{
+                        duration : 500,
+                        easing:'linear',
+                        from:1,
+                        to:0,
+                        loop : true
+                    }
+
                 },
                 responsive: true,
 				maintainAspectRatio: true,
