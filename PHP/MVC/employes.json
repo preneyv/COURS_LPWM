@@ -1,0 +1,18 @@
+[
+    {
+        "prenom" : "Vincent",
+        "couleur" : "#orange"
+    },
+    {
+        "prenom" : "Christophe",
+        "couleur" : "#green"
+    },
+    {
+        "prenom" : "Thomas",
+        "couleur" : "#yellow"
+    },
+    {
+        "prenom" : "David",
+        "couleur" : "#blue"
+    }
+]

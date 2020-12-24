@@ -69,5 +69,6 @@ class userManager{
             var_dump($userExist);
             return $userExist;
     }
+
 }
 ?>

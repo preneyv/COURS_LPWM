@@ -1,3 +1,9 @@
+<?php if(!isset($_SESSION))
+	{
+		session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,22 +37,44 @@
                         <div class="_weekTitle" id="_weekFourTitle">Sem 4</div>
                     </div>
                     <div id="_contentCalendar">
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
-                        <div class="_weekTile"></div>
+                        <?php 
+                        if(isset($_SESSION['listeEmployes']) && isset($_SESSION['listeSemaine']))
+                        {
+                            
+                            foreach($_SESSION['listeSemaine']['2017'][0] as $key =>$value)
+                            {?>
+                                <div class="_weekTile">
+                                    <span ><p v-on:click="setDisplayTile"><?php echo $_SESSION['listeSemaine']['2017'][0][$key]->{'weekDate'}?></p></span>
+                                    <div style="display:none" class="_contentWeekTile">
+                                        <p><?php echo $_SESSION['listeSemaine']['2017'][0][$key]->{'weekDate'}?></p>
+                                        <i v-on:click="unsetDisplayTile" style="color:red" class="fas fa-times fa-sm"></i>
+                                            <?php 
+                                                    $chuncks = array_chunk($_SESSION['listeEmployes'],2);
+                                                    
+                                                    foreach($chuncks as $key=>$value)
+                                                    {
+                                            ?>
+                                            <ul>
+                                                <?php 
+                                                            foreach($value as $val)
+                                                            {
+                                                ?>
+                                                                <li class="fas fa-circle colored"><?php echo $val->{'prenom'} ?></li>
+                                                <?php
+                                                            }
+                                                ?>
+                                            </ul>
+                                            <?php
+                                                    }  
+                                            ?>
+                                        
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        }
+                        ?>
+
                     </div>
 
                 </div>
@@ -122,9 +150,21 @@ Vue.component('bar-chart',{
  new Vue({
         el:"#app",
         data : {
-            yearList : ['2014', '2015', '2016', '2017'],
+            yearList : ['2017', '2018', '2019','2020'],
             i : 0
+            
         },
+        methods: {
+            setDisplayTile: function(event){
+                event.target.parentNode.style.display='none';
+                event.target.parentNode.parentNode.children[1].style.display='grid';
+            },
+            unsetDisplayTile: function(event){
+                event.target.parentNode.style.display='none';
+                event.target.parentNode.parentNode.children[0].style.display='grid';
+            
+            }
+        }
         
     })
     </script>

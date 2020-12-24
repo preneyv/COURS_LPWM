@@ -13,10 +13,9 @@ class userController{
 
     public function doLogin(){
         $userTabFilter=array(
-            '$and' => [
-                'email' => $_POST['staticEmail'],
-                'password' => $_POST['inputPassword']
-                ]
+            '$and' =>array(
+                    ['email' => $_POST['staticEmail']],
+                      ['password' => $_POST['inputPassword']])
         );
         if($result = $this->_userManager->getUserByPassAndEmail($userTabFilter) != null)
         {
@@ -29,7 +28,14 @@ class userController{
                 'pseudo' => $result['pseudo']
             );
             $this->_user = $this->_userManager->createUser($result['_id'],$user);
-            $_SESSION['userStateLogIn'] = $this->_user == 'null' ? ['res'=>'Echec à la connexion','couleur' => 'red']:['res'=>'Connexion réussie','couleur' => 'green'];
+            if($_SESSION['userStateLogIn'] = $this->_user == 'null'){
+                ['res'=>'Echec à la connexion','couleur' => 'red'];
+                header('Location : ../vue/form.php');
+            }else{
+                ['res'=>'Connexion réussie','couleur' => 'green'];
+                header('Location : ./controller.php?ctrl=calendar&fc=start');
+                $_SESSION['user'] =$this->_user;
+            }
         
         }else{
             $_SESSION['userStateLogIn'] = ['res'=>'Echec à la connexion','couleur' => 'red'];
@@ -52,9 +58,18 @@ class userController{
         if(isset($user['email']) && isset($user['firstname']) && isset($user['lastname']) && isset($user['password']) && isset($user['pseudo']))
         {
             $idNewAdd = $this->_userManager->addUser($user);
-            $user = $this->_userManager->createUser($idNewAdd,$user);
-            $_SESSION['userStateLogUp'] = $idNewAdd == 'null' ? ['res'=>'Echec à la création','couleur' => 'red']:['res'=>'Inscription réussie','couleur' => 'green'];
-            header('Location : ../vue/form.php');
+            $this->_user = $this->_userManager->createUser($idNewAdd,$user);
+            if($_SESSION['userStateLogUp'] = $idNewAdd == 'null')
+            {
+                ['res'=>'Echec à la création','couleur' => 'red'];
+                header('Location : ../vue/form.php');
+            }else{
+                ['res'=>'Inscription réussie','couleur' => 'green'];
+                header('Location : ./controller.php?ctrl=calendar&fc=start');
+                $_SESSION['user'] = $this->_user;
+
+            }
+            
 
         }else{
             $_SESSION['userStateLogUp'] = ['res'=>'Echec à la création','couleur' => 'red'];
@@ -62,5 +77,7 @@ class userController{
         }
         
     }
+
+
 }
 ?>

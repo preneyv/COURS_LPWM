@@ -8,7 +8,11 @@
            'user' => array(
                             'login'=>'doLogin',
                             'logup'=>'doLogup'
-                        ) 
+            ),
+            'calendar' => array(
+                            'start' => 'startCalendar'
+            )
+
            );
     
 

@@ -2,6 +2,7 @@
 
 body{
     background-color: #003567;
+    font-family: 'Sintony', sans-serif;
 }
 
 
@@ -28,7 +29,7 @@ body{
 }
 
 #_headCalendar #_year {
-    font-family: 'Hammersmith One', sans-serif;
+
     font-size: 1.5rem;
 }
 
@@ -38,6 +39,7 @@ body{
     border-radius: 100%;
     border : none;
     padding : 9px 12px;
+    cursor: pointer;
 }
 #mainGrid{
     display: grid;
@@ -58,8 +60,8 @@ body{
 }
 
 #_colTitleCalendar{
-   font-family: 'Sintony', sans-serif;
-   padding : 20px 0 0 0;
+
+   padding : 10px;
    color : white;
    font-size : 1rem;
    display: grid;
@@ -72,16 +74,111 @@ body{
 #_contentCalendar{
     display: grid;
     grid-template-columns: repeat(4,minmax(200px,25%));
-    height : 90%;
+    grid-auto-rows: calc(100%/13);
+    height : 93%;
     min-height: 400px;
+    margin-top : 10px;
+    padding: 0 10px;
 }
 
 ._weekTile{
-    background-color: aqua;
-    width : 100px;
-    height : 100px;
+    font-size : 12px;
     align-self: center;
     justify-self: center;
+    /*padding:0 34%;*/
+    border-radius : 10px;
+    cursor : pointer;
+    transition: all .5s ease;
+    width : 70%;
+    height : 100%;
+}
+
+._weekTile:hover{
+    background-color: rgb(0,69,133);
+    transition: all .5s ease-in;
+}
+._weekTile:hover > span{
+    background-color: #003567;
+    transition: all .5s ease-in;
+}
+
+._weekTile > span{
+    font-weight: bold;
+    color: white;
+    background-color: rgb(0,69,133);
+    border-radius : 10px;
+    display : flex;
+    justify-content: center;
+    width : 72px;
+    margin : 10px auto;
+    transition: all .5s ease-in;
+}
+
+._contentWeekTile{
+    width : 100%;
+    height : 100%;
+    display: grid;
+    grid-template-areas: 'x c'
+                         'y z';
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 80%; 
+    border-radius : 10px;
+    background-color : #003567;                    
+}
+._contentWeekTile > p{
+    grid-area: x;
+    margin : 7px 0 0 23px;
+    font-family: 'Sintony', sans-serif;
+    font-weight: bold;
+    color:#BFCCD9;
+
+}
+
+._contentWeekTile > i{
+    grid-area : c;
+    justify-self: end;
+    padding: 8px 12px;
+}
+
+
+
+._contentWeekTile ul li{
+    width:100%;
+    font-family: 'Sintony', sans-serif;
+    color : white;
+}
+._contentWeekTile ul li::before{
+    font-family: "Font Awesome 5 Free";
+    padding-right : 9px;
+}
+._contentWeekTile ul:nth-child(3) {
+    grid-area: y;
+    list-style-type: none;
+    padding-left : 22px;
+
+}
+
+._contentWeekTile ul:nth-child(4) {
+    grid-area: z;
+    list-style-type: none;
+    padding-left : 16px;
+}
+._contentWeekTile ul:nth-child(3) li .colored:nth-child(1)::before{
+    color : orange;
+    font-size : 9px;
+}
+._contentWeekTile ul:nth-child(3) li .colored:nth-child(2)::before{
+    color : green;
+    font-size : 9px;
+}
+._contentWeekTile ul:nth-child(4) li .colored:nth-child(1)::before{
+    color : yellow;
+    font-size : 9px;
+    margin-left : -1px;
+}
+._contentWeekTile ul:nth-child(4) li .colored:nth-child(2)::before{
+    color : blue;
+    font-size : 9px;
 }
 
 
@@ -95,3 +192,4 @@ body{
     transform: translateX(-10px);
     opacity: 0;
   }
+
