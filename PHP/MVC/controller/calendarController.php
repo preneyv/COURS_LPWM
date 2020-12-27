@@ -24,12 +24,14 @@ class CalendarController{
     public function getAllWeek()
     {
         $_SESSION['listeSemaine'] = $this->_calendarManager->getListWeek();
+      
     }
 
     public function setEmployeToNull($tabArgs)
     {
+        
         $this->_calendarManager->setEmployeToNull( $tabArgs[0], $tabArgs[1]);
-        $this->startCalendar();
+       $this->startCalendar();
     }
 
     public function setEmployeOfWeek($tabArgs)
@@ -40,6 +42,6 @@ class CalendarController{
     }
 
     public function getStatistics(){
-        echo $this->_calendarManager->getStatistics();
+         echo(json_encode($this->_calendarManager->getStatistics()));
     }
 }

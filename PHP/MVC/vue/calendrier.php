@@ -14,6 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
         <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
     </head>
     <body>
         <div id="app">
@@ -42,7 +43,7 @@
                             if(isset($_SESSION['listeEmployes']) && isset($_SESSION['listeSemaine']))
                             {
                             ?>
-                                    <div v-for="(week,index) in sessionWeek[name][0]"  class="_weekTile">
+                                    <div v-for="(week,index) in sessionWeek[name]"  class="_weekTile">
                                         <span ><p v-on:click="setDisplayTile">{{ week['weekDate'] }}</p></span>
                                         <div style="display:none" class="_contentWeekTile">
                                             <p>{{ week['weekDate'] }}</p>
@@ -50,13 +51,13 @@
                                                 
                                                 <ul>
                                                     <span v-for="ul in sessionEmploye.slice(0,Math.ceil(sessionEmploye.length/2))">
-                                                                <li  v-if="ul._id.$oid == week.user"class="liEmp fas fa-circle" v-on:click="setWeekEmpToNull( week ,index, name ,$event)" v-bind:style="beforeStyle(ul)">{{ ul.prenom }}</li>
+                                                                <li  v-if="ul._id.$oid == week.user.$oid"class="liEmp fas fa-circle" v-on:click="setWeekEmpToNull( week ,index, name ,$event)" v-bind:style="beforeStyle(ul)">{{ ul.prenom }}</li>
                                                                 <li  v-else class="liEmp fas fa-circle" v-on:click="setWeekEmp(ul._id, week ,index, name ,$event)">{{ ul.prenom }}</li>
                                                     </span>
                                                 </ul>
                                                 <ul>
                                                     <span v-for="ul in sessionEmploye.slice(Math.ceil(sessionEmploye.length/2))">
-                                                                <li  v-if="ul._id.$oid == week.user" class="liEmp fas fa-circle" v-on:click="setWeekEmpToNull( week ,index, name ,$event)" v-bind:style="beforeStyle(ul)">{{ ul.prenom }}</li>
+                                                                <li  v-if="ul._id.$oid == week.user.$oid" class="liEmp fas fa-circle" v-on:click="setWeekEmpToNull( week ,index, name ,$event)" v-bind:style="beforeStyle(ul)">{{ ul.prenom }}</li>
                                                                 <li  v-else class="liEmp fas fa-circle" v-on:click="setWeekEmp(ul._id, week ,index, name ,$event)">{{ ul.prenom }}</li>
                                                     </span>
                                                 
@@ -79,21 +80,52 @@
 
 Vue.component('bar-chart',{
     extends : VueChartJs.Bar,
-    data : function(){
+    mounted(){
+        
+        this.fillData();  
+    },
+    data (){
         return {
-            datacollection :{
-                        labels: ['Thomas','Vincent','Christophe', 'David'],
+            labelsName :[],
+            rows :[],
+            colorBorder:[],
+            colorBackground:[]    
+        }
+    },
+    methods:{
+        fillData : function(){
+            axios.get('../controller/controller.php?ctrl=calendar&fc=statistics')
+            .then(response =>{
+                this.labelsName.splice(0);
+                this.rows.splice(0);
+                this.colorBorder.splice(0);
+                this.colorBackground.splice(0);
+                
+                for(el of response.data[this.$parent.yearList[this.$parent.i]])
+                {     
+                    this.labelsName.push(el.prenom);
+                    this.rows.push(el.nbDayOfWork);
+                    this.colorBorder.push('rgb('+el.couleur+')');
+                    this.colorBackground.push('rgb('+el.couleur+',0.5)');
+                }
+                this.setChart();
+            }).catch(error=>{
+                        
+            });
+        },
+        setChart : function(){ 
+            this.renderChart({
+                        labels: this.labelsName,
                         datasets: [{
                             label: 'Nombre de semaines travaillées',
-                            data: ['5','12','2','11'],
-                            backgroundColor: ['rgba(42, 165, 20,0.5)','rgba(234, 133, 18,0.5)','rgba(221, 234, 18,0.5)','rgba(18, 34, 234,0.5)'],
-                            borderColor: ['rgba(42, 165, 20,1)','rgba(234, 133, 18,1)','rgba(221, 234, 18,1)','rgba(18, 34, 234,1)'],
+                            data: this.rows,
+                            backgroundColor: this.colorBackground,
+                            borderColor: this.colorBorder,
                             borderWidth : 2,
                             borderSkipped:'bottom',
                             
                         }]
-            },
-            options: {
+            }, {
                 legend: {
                     labels: {
                         fontColor: "white",
@@ -131,13 +163,10 @@ Vue.component('bar-chart',{
                 responsive: true,
 				maintainAspectRatio: true,
 				height: 200
-            }
-        }
-    },
-    mounted(){
-        this.renderChart(this.datacollection, this.options)
-    }
+            });
 
+        }
+    }
 })
 
  new Vue({
@@ -146,7 +175,8 @@ Vue.component('bar-chart',{
             yearList : ['2017', '2018', '2019','2020'],
             i : 0,
             sessionWeek :"",
-            sessionEmploye:""
+            sessionEmploye:"",
+          
             
         },
         created (){
@@ -155,15 +185,20 @@ Vue.component('bar-chart',{
             console.log(this._data.sessionEmploye);
             
         },
+        updated(){
+            this.$children[0].fillData();
+            console.log(this.$children[0]);
+        },
         methods: {
             initVar : function(){
                 this._data.sessionWeek = <?php echo json_encode($_SESSION['listeSemaine']) ?>;
                 this._data.sessionEmploye = <?php echo json_encode($_SESSION['listeEmployes']) ?>;
+
             },
             beforeStyle:function(ul)
             {
                 return{
-                    '--clLi':ul.couleur
+                    '--clLi':'rgb('+ul.couleur+')'
                 }
             },
             setDisplayTile: function(event){
@@ -178,48 +213,24 @@ Vue.component('bar-chart',{
             },
             setWeekEmp:function(emp, week,indexWeek, year,event)
             {
-                console.log(this.sessionWeek[year][0][indexWeek]['user'] );
-                let xhr = new XMLHttpRequest();
-                xhr.open('GET', '../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp.$oid+'&week='+week._id.$oid+'&year='+year);
+         
+                axios.get('../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp.$oid+'&week='+week._id.$oid+'&year='+year)
+                    .then(response=>{
+                        this.sessionWeek[year][indexWeek]['user'] = emp;
+                    }).catch(error=>{
+                        
+                    });;
                 
-                xhr.send();
-                xhr.onload = () => {
-                    //Si le statut HTTP n'est pas 200...
-                    if (xhr.status != 200){ 
-                        //...On affiche le statut et le message correspondant
-                        console.log("Erreur " + xhr.status + " : " + xhr.statusText);
-                    //Si le statut HTTP est 200, on affiche le nombre d'octets téléchargés et la réponse
-                    }else{ 
-                        this.sessionWeek[year][0][indexWeek]['user'] = emp.$oid;
-                    }
-                };
-                
-               // window.location.reload(true);
-                //window.location.href= '../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp+'&week='+week+'&year='+year;
-
             },
             setWeekEmpToNull:function(week,indexWeek,year,event)
             {
                 
-                let xhr = new XMLHttpRequest();
-                xhr.open('GET', '../controller/controller.php?ctrl=calendar&fc=setToNull&week='+week._id.$oid+'&year='+year);
-                
-                xhr.send();
-                xhr.onload = () => {
-                    //Si le statut HTTP n'est pas 200...
-                    if (xhr.status != 200){ 
-                        //...On affiche le statut et le message correspondant
-                        console.log("Erreur " + xhr.status + " : " + xhr.statusText);
-                    //Si le statut HTTP est 200, on affiche le nombre d'octets téléchargés et la réponse
-                    }else{ 
-                        this.sessionWeek[year][0][indexWeek]['user'] = "";
-                    }
-                };
-                //window.location.reload(true);
-                
-                //window.location.href= '../controller/controller.php?ctrl=calendar&fc=setToNull&week='+week+'&year='+year;
+                axios.get('../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp.$oid+'&week='+week._id.$oid+'&year='+year)
+                    .then(response=>{
+                        this.sessionWeek[year][indexWeek]['user'] = "";
+                    }).catch(error=>{
 
-                
+                    });
             }
 
         }

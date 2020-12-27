@@ -15,7 +15,7 @@
             'calendar' => array(
                             'start' => array('method'=>'startCalendar','args'=>""),
                             'setToNull' => array('method'=>'setEmployeToNull','args'=>array($empToAct['week'],$empToAct['year'])),
-                            'setEmpOfWeek' => array('method'=>'setEmployeOfWeek','args'=>array($empToAct['emp'],$empToAct['week'],$empToAct['year']))
+                            'setEmpOfWeek' => array('method'=>'setEmployeOfWeek','args'=>array($empToAct['emp'],$empToAct['week'],$empToAct['year'])),
                             'statistics' => array("method"=>'getStatistics', 'args'=>"")
                             )
 
@@ -23,7 +23,7 @@
     
 
     
- 
+   
     require_once('./'.$src.'Controller.php');
     $curControler = $src.'Controller';
     $curControler = new $curControler($collection);
