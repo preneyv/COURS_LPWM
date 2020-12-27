@@ -36,46 +36,39 @@
                         <div class="_weekTitle" id="_weekThreeTitle">Sem 3</div>
                         <div class="_weekTitle" id="_weekFourTitle">Sem 4</div>
                     </div>
-                    <div id="_contentCalendar">
-                        <?php 
-                        if(isset($_SESSION['listeEmployes']) && isset($_SESSION['listeSemaine']))
-                        {
-                            
-                            foreach($_SESSION['listeSemaine']['2017'][0] as $key =>$value)
-                            {?>
-                                <div class="_weekTile">
-                                    <span ><p v-on:click="setDisplayTile"><?php echo $_SESSION['listeSemaine']['2017'][0][$key]->{'weekDate'}?></p></span>
-                                    <div style="display:none" class="_contentWeekTile">
-                                        <p><?php echo $_SESSION['listeSemaine']['2017'][0][$key]->{'weekDate'}?></p>
-                                        <i v-on:click="unsetDisplayTile" style="color:red" class="fas fa-times fa-sm"></i>
-                                            <?php 
-                                                    $chuncks = array_chunk($_SESSION['listeEmployes'],2);
-                                                    
-                                                    foreach($chuncks as $key=>$value)
-                                                    {
-                                            ?>
-                                            <ul>
-                                                <?php 
-                                                            foreach($value as $val)
-                                                            {
-                                                ?>
-                                                                <li class="fas fa-circle colored"><?php echo $val->{'prenom'} ?></li>
-                                                <?php
-                                                            }
-                                                ?>
-                                            </ul>
-                                            <?php
-                                                    }  
-                                            ?>
-                                        
+                    <transition-group name="yearChange" tag="div">
+                        <div v-for="(name) in yearList" v-bind:key="name" v-if="yearList[i]==name" id="_contentCalendar">
+                            <?php 
+                            if(isset($_SESSION['listeEmployes']) && isset($_SESSION['listeSemaine']))
+                            {
+                            ?>
+                                    <div v-for="(week,index) in sessionWeek[name][0]"  class="_weekTile">
+                                        <span ><p v-on:click="setDisplayTile">{{ week['weekDate'] }}</p></span>
+                                        <div style="display:none" class="_contentWeekTile">
+                                            <p>{{ week['weekDate'] }}</p>
+                                            <i v-on:click="unsetDisplayTile" style="color:red" class="fas fa-times fa-sm"></i>
+                                                
+                                                <ul>
+                                                    <span v-for="ul in sessionEmploye.slice(0,Math.ceil(sessionEmploye.length/2))">
+                                                                <li  v-if="ul._id.$oid == week.user"class="liEmp fas fa-circle" v-on:click="setWeekEmpToNull( week ,index, name ,$event)" v-bind:style="beforeStyle(ul)">{{ ul.prenom }}</li>
+                                                                <li  v-else class="liEmp fas fa-circle" v-on:click="setWeekEmp(ul._id, week ,index, name ,$event)">{{ ul.prenom }}</li>
+                                                    </span>
+                                                </ul>
+                                                <ul>
+                                                    <span v-for="ul in sessionEmploye.slice(Math.ceil(sessionEmploye.length/2))">
+                                                                <li  v-if="ul._id.$oid == week.user" class="liEmp fas fa-circle" v-on:click="setWeekEmpToNull( week ,index, name ,$event)" v-bind:style="beforeStyle(ul)">{{ ul.prenom }}</li>
+                                                                <li  v-else class="liEmp fas fa-circle" v-on:click="setWeekEmp(ul._id, week ,index, name ,$event)">{{ ul.prenom }}</li>
+                                                    </span>
+                                                
+                                                </ul>
+                                        </div>
                                     </div>
-                                </div>
-                        <?php
+                            <?php
+                                
                             }
-                        }
-                        ?>
-
-                    </div>
+                            ?>
+                        </div>
+                    </transition-group>
 
                 </div>
             </div>
@@ -151,21 +144,86 @@ Vue.component('bar-chart',{
         el:"#app",
         data : {
             yearList : ['2017', '2018', '2019','2020'],
-            i : 0
+            i : 0,
+            sessionWeek :"",
+            sessionEmploye:""
+            
+        },
+        created (){
+            this.initVar();
+            console.log(this._data.sessionWeek);
+            console.log(this._data.sessionEmploye);
             
         },
         methods: {
+            initVar : function(){
+                this._data.sessionWeek = <?php echo json_encode($_SESSION['listeSemaine']) ?>;
+                this._data.sessionEmploye = <?php echo json_encode($_SESSION['listeEmployes']) ?>;
+            },
+            beforeStyle:function(ul)
+            {
+                return{
+                    '--clLi':ul.couleur
+                }
+            },
             setDisplayTile: function(event){
                 event.target.parentNode.style.display='none';
                 event.target.parentNode.parentNode.children[1].style.display='grid';
+                
             },
             unsetDisplayTile: function(event){
                 event.target.parentNode.style.display='none';
                 event.target.parentNode.parentNode.children[0].style.display='grid';
             
+            },
+            setWeekEmp:function(emp, week,indexWeek, year,event)
+            {
+                console.log(this.sessionWeek[year][0][indexWeek]['user'] );
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', '../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp.$oid+'&week='+week._id.$oid+'&year='+year);
+                
+                xhr.send();
+                xhr.onload = () => {
+                    //Si le statut HTTP n'est pas 200...
+                    if (xhr.status != 200){ 
+                        //...On affiche le statut et le message correspondant
+                        console.log("Erreur " + xhr.status + " : " + xhr.statusText);
+                    //Si le statut HTTP est 200, on affiche le nombre d'octets téléchargés et la réponse
+                    }else{ 
+                        this.sessionWeek[year][0][indexWeek]['user'] = emp.$oid;
+                    }
+                };
+                
+               // window.location.reload(true);
+                //window.location.href= '../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp+'&week='+week+'&year='+year;
+
+            },
+            setWeekEmpToNull:function(week,indexWeek,year,event)
+            {
+                
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', '../controller/controller.php?ctrl=calendar&fc=setToNull&week='+week._id.$oid+'&year='+year);
+                
+                xhr.send();
+                xhr.onload = () => {
+                    //Si le statut HTTP n'est pas 200...
+                    if (xhr.status != 200){ 
+                        //...On affiche le statut et le message correspondant
+                        console.log("Erreur " + xhr.status + " : " + xhr.statusText);
+                    //Si le statut HTTP est 200, on affiche le nombre d'octets téléchargés et la réponse
+                    }else{ 
+                        this.sessionWeek[year][0][indexWeek]['user'] = "";
+                    }
+                };
+                //window.location.reload(true);
+                
+                //window.location.href= '../controller/controller.php?ctrl=calendar&fc=setToNull&week='+week+'&year='+year;
+
+                
             }
+
         }
         
-    })
+    });
     </script>
 </html>

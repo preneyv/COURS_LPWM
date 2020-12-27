@@ -48,4 +48,26 @@ class CalendarManager{
       
         return $listeSemaine; 
     }
+
+    public function setEmployeToNull($week, $year)
+    {
+        $week=new MongoDB\BSON\ObjectId($week);
+        $filter=array('_id'=>$week);
+        $maj = array('$set'=>['user'=>'']);
+        $updates = new MongoDB\Driver\BulkWrite();
+        $updates->update($filter,$maj);
+        $result = $this->_managerDb->executeBulkWrite('CollectUser.year'.$year, $updates) ;
+        
+    }
+
+    public function setEmployeOfWeek($emp, $week, $year)
+    {
+        $week=new MongoDB\BSON\ObjectId($week);
+        $filter=['_id'=>$week];
+        $maj = ['$set'=>['user'=>$emp]];
+        $updates = new MongoDB\Driver\BulkWrite();
+        $updates->update($filter,$maj);
+        $result = $this->_managerDb->executeBulkWrite('CollectUser.year'.$year, $updates) ;
+
+    }
 }
