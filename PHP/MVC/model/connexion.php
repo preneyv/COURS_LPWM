@@ -7,8 +7,8 @@ class Connexion{
     private $_manager;
 
     public function __construct(){
-        $this->_identifiant = "valereAdmin";
-        $this->_password = "bm58ot05";
+        $this->_identifiant = "";
+        $this->_password = "";
    }
 
    public function doConnect(){
