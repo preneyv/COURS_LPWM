@@ -14,7 +14,7 @@ class CalendarManager{
         $option = [];
         $read = new MongoDB\Driver\Query($filter, $option);
         //Exécution de la requête
-        $cursor =  $this->_managerDb->executeQuery('CollectUser.employes', $read);
+        $cursor =  $this->_managerDb->executeQuery('CollectPlanning.employes', $read);
         $employe = [];
         foreach($cursor as $emp)
         {
@@ -33,7 +33,7 @@ class CalendarManager{
         //Exécution de la requête
         foreach($listeSemaine as $key=>$value)
         {
-            $cursor =  $this->_managerDb->executeQuery('CollectUser.year'.$key, $read);
+            $cursor =  $this->_managerDb->executeQuery('CollectPlanning.year'.$key, $read);
           
             
             foreach($cursor as $sem)
@@ -55,7 +55,7 @@ class CalendarManager{
         $maj = array('$set'=>['user'=>'']);
         $updates = new MongoDB\Driver\BulkWrite();
         $updates->update($filter,$maj);
-        $result = $this->_managerDb->executeBulkWrite('CollectUser.year'.$year, $updates) ;
+        $result = $this->_managerDb->executeBulkWrite('CollectPlanning.year'.$year, $updates) ;
         
     }
 
@@ -68,7 +68,7 @@ class CalendarManager{
         $maj = ['$set'=>['user'=>$emp]];
         $updates = new MongoDB\Driver\BulkWrite();
         $updates->update($filter,$maj);
-        $result = $this->_managerDb->executeBulkWrite('CollectUser.year'.$year, $updates) ;
+        $result = $this->_managerDb->executeBulkWrite('CollectPlanning.year'.$year, $updates) ;
 
     }
 
@@ -110,7 +110,7 @@ class CalendarManager{
                 ],
                 'cursor' => new stdClass,
             ]);
-            $cursor =  $this->_managerDb->executeCommand('CollectUser', $command);
+            $cursor =  $this->_managerDb->executeCommand('CollectPlanning', $command);
            
         
             foreach($cursor as $res)
