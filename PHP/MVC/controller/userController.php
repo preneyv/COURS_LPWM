@@ -33,15 +33,16 @@ class userController{
                 header('Location : ../vue/form.php');
             }else{
                 ['res'=>'Connexion réussie','couleur' => 'green'];
-                header('Location : ./controller.php?ctrl=calendar&fc=start');
+                header('Location : ../vue/calendrier.php');
                 $_SESSION['user'] =$this->_user;
             }
         
         }else{
             $_SESSION['userStateLogIn'] = ['res'=>'Echec à la connexion','couleur' => 'red'];
+            header("Location : ../vue/form.php");
         }
 
-        //header("Location : ../vue/form.php");
+        
     }
 
     public function doLogup()
@@ -65,7 +66,7 @@ class userController{
                 header('Location : ../vue/form.php');
             }else{
                 ['res'=>'Inscription réussie','couleur' => 'green'];
-                header('Location : ./controller.php?ctrl=calendar&fc=start');
+                header('Location : ../vue/calendrier.php');
                 $_SESSION['user'] = $this->_user;
 
             }

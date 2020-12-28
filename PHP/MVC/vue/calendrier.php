@@ -22,14 +22,15 @@
                 <div id="_headPanelSetWeek"></div>
                 <div id="_headCalendar">
                     <span  v-on:click="i = i-1 <0 ? i : i-1" id="_prevBtn" class="_changeYear fas fa-angle-left"></span>
-                    <transition name="year-leave-left" mode="out-in">
                         <span v-bind:key="yearList[i]" id="_year">{{ yearList[i] }}</span>
-                    </transition>
                     <span v-on:click="i = i+1 >=yearList.length ? i : i+1" id="_nextBtn" class="_changeYear fas fa-angle-right"></span>
                 </div>
             </div>
             <div id="mainGrid">
-                <div id="_panelSetWeek"><bar-chart></bar-chart></div>
+                <div id="_panelSetWeek">
+                    <div></div>
+                    <bar-chart v-bind:style="width='100%', height='100%'"></bar-chart>
+                </div>
                 <div id="_calendar">
                     <div id=_colTitleCalendar>
                         <div class="_weekTitle" id="_weekOneTitle">Sem 1 </div>
@@ -38,13 +39,12 @@
                         <div class="_weekTitle" id="_weekFourTitle">Sem 4</div>
                     </div>
                     <transition-group name="yearChange" tag="div">
-                        <div v-for="(name) in yearList" v-bind:key="name" v-if="yearList[i]==name" id="_contentCalendar">
-                            <?php 
-                            if(isset($_SESSION['listeEmployes']) && isset($_SESSION['listeSemaine']))
-                            {
-                            ?>
+                        <div v-for="(name) in yearList" v-bind:key="yearList[i]" v-if="yearList[i]==name" id="_contentCalendar">
                                     <div v-for="(week,index) in sessionWeek[name]"  class="_weekTile">
-                                        <span ><p v-on:click="setDisplayTile">{{ week['weekDate'] }}</p></span>
+        
+                                        <span v-if="week.user.$oid != null" v-bind:style="{ border:'none'}"><p v-on:click="setDisplayTile">{{ week['weekDate'] }}</p></span>
+                                        <span v-else v-bind:style="{ border: 'solid 1px', borderColor : '#F59B9B' }"><p v-on:click="setDisplayTile">{{ week['weekDate'] }}</p></span>
+                                       
                                         <div style="display:none" class="_contentWeekTile">
                                             <p>{{ week['weekDate'] }}</p>
                                             <i v-on:click="unsetDisplayTile" style="color:red" class="fas fa-times fa-sm"></i>
@@ -64,10 +64,6 @@
                                                 </ul>
                                         </div>
                                     </div>
-                            <?php
-                                
-                            }
-                            ?>
                         </div>
                     </transition-group>
 
@@ -94,6 +90,10 @@ Vue.component('bar-chart',{
     },
     methods:{
         fillData : function(){
+
+            this.$refs.canvas.style.width ="100%";
+            this.$refs.canvas.style.height ="100%";
+
             axios.get('../controller/controller.php?ctrl=calendar&fc=statistics')
             .then(response =>{
                 this.labelsName.splice(0);
@@ -137,7 +137,7 @@ Vue.component('bar-chart',{
                         ticks:{
                             beginAtZero:true,
                             min:0,
-                            max:20,
+                            max:55,
                             stepSize:5,
                             fontColor : 'rgba(255, 255, 255, 1)'
                             
@@ -161,7 +161,7 @@ Vue.component('bar-chart',{
 
                 },
                 responsive: true,
-				maintainAspectRatio: true,
+				maintainAspectRatio: false,
 				height: 200
             });
 
@@ -179,21 +179,22 @@ Vue.component('bar-chart',{
           
             
         },
-        created (){
+        created(){
             this.initVar();
-            console.log(this._data.sessionWeek);
-            console.log(this._data.sessionEmploye);
-            
         },
         updated(){
             this.$children[0].fillData();
-            console.log(this.$children[0]);
         },
         methods: {
             initVar : function(){
-                this._data.sessionWeek = <?php echo json_encode($_SESSION['listeSemaine']) ?>;
-                this._data.sessionEmploye = <?php echo json_encode($_SESSION['listeEmployes']) ?>;
-
+                axios.get('../controller/controller.php?ctrl=calendar&fc=start')
+                    .then(response=>{
+                        console.log(response);
+                        this.sessionWeek = response.data.sessionWeek;
+                        this.sessionEmploye = response.data.sessionEmploye;
+                    }).catch(error=>{
+                        
+                    });
             },
             beforeStyle:function(ul)
             {
@@ -216,6 +217,7 @@ Vue.component('bar-chart',{
          
                 axios.get('../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp.$oid+'&week='+week._id.$oid+'&year='+year)
                     .then(response=>{
+                        console.log(response);
                         this.sessionWeek[year][indexWeek]['user'] = emp;
                     }).catch(error=>{
                         
@@ -225,8 +227,9 @@ Vue.component('bar-chart',{
             setWeekEmpToNull:function(week,indexWeek,year,event)
             {
                 
-                axios.get('../controller/controller.php?ctrl=calendar&fc=setEmpOfWeek&emp='+emp.$oid+'&week='+week._id.$oid+'&year='+year)
+                axios.get('../controller/controller.php?ctrl=calendar&fc=setToNull&week='+week._id.$oid+'&year='+year)
                     .then(response=>{
+                        console.log(response);
                         this.sessionWeek[year][indexWeek]['user'] = "";
                     }).catch(error=>{
 

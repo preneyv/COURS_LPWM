@@ -11,19 +11,19 @@ class CalendarController{
     }
 
     public function startCalendar(){
-        $this->getAllEmploye();
-        $this->getAllWeek();
-        header('Location : ../vue/calendrier.php');
+        
+        
+        echo(json_encode(array('sessionEmploye'=>$this->getAllEmploye(),'sessionWeek'=>$this->getAllWeek())));
     }
 
     public function getAllEmploye()
     {
-        $_SESSION['listeEmployes'] = $this->_calendarManager->getListEmploye();
+        return $this->_calendarManager->getListEmploye();
     }
 
     public function getAllWeek()
     {
-        $_SESSION['listeSemaine'] = $this->_calendarManager->getListWeek();
+        return $this->_calendarManager->getListWeek();
       
     }
 
@@ -31,14 +31,14 @@ class CalendarController{
     {
         
         $this->_calendarManager->setEmployeToNull( $tabArgs[0], $tabArgs[1]);
-       $this->startCalendar();
+        //$this->startCalendar();
     }
 
     public function setEmployeOfWeek($tabArgs)
     {
         
         $this->_calendarManager->setEmployeOfWeek($tabArgs[0], $tabArgs[1], $tabArgs[2]);
-        $this->startCalendar();
+        //$this->startCalendar();
     }
 
     public function getStatistics(){
