@@ -1,7 +1,9 @@
-import {Picker, ScrollView, Text, TextInput, View} from "react-native";
+import {Picker, ScrollView, Text, TextInput, View, FlatList} from "react-native";
 import React, {useState, useEffect, useRef} from 'react';
 import {form, styles} from "../../style";
 import { RadioButton } from 'react-native-paper';
+
+import ListItem from './listItem'
 
 const ListFilm = ({navigation, list, handleChangeMovie, handleFilterList}) => {
 
@@ -72,25 +74,15 @@ const ListFilm = ({navigation, list, handleChangeMovie, handleFilterList}) => {
                     </View>
                 </View>
             </View>
-            <ScrollView style={styles.container}>
-                {
-                    list.map((el, key) => {
-                        if(el.titre.toLowerCase().startsWith(search.toLowerCase()) || search === "")
-                        {
-                            return (
-                                <View style={styles.unitFilm} key={key} onStartShouldSetResponder={() => handleMovie(el)}>
-                                    <Text style={styles.titreFilm}>{el.titre}</Text>
-                                    <View style={styles.ctnBtm}>
-                                        <Text style={styles.date}>{el.date}</Text>
-                                        <Text style={styles.note}>{el.note}</Text>
-                                    </View>
-                                </View>
-                            )
-                        }
-                        return null
-                    })
-                }
-            </ScrollView>
+            <FlatList 
+            data={list.filter(el => {
+               
+               if(el.titre.toLowerCase().startsWith(search.toLowerCase()) || search === "")
+                    return el
+            })}
+            keyExtractor={(item) => item.id}
+            renderItem={({item}) => <ListItem film={item} changeMovie={handleMovie}/>}
+            />
         </View>
     );
 }

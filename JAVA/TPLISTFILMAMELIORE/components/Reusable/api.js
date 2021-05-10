@@ -2,7 +2,7 @@
 
 const api = {
     getFilms : async function() {
-        let films = ["Harry Potter", "Batman", "Star Wars", "x-men", "Superman"]
+        let films = ["Harry Potter", "Batman", "Star Wars", "x-men", "Superman", "Big Fish", "Man of steel", "Revenge of the sith"]
         let listFilm = []
 
         for (let f of films) {
