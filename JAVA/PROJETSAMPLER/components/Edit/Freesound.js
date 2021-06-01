@@ -30,7 +30,7 @@ const ItemSong = ({item, color}) => {
         let newFile = await downloadSong(songFreesound.req, songFreesound.id)
         console.log(newFile)
         console.log(songFreesound)
-        dispatch(add({name:songFreesound.name, type:"DOWNLOAD",req:newFile+'.mp3' }))
+        dispatch(add({name:songFreesound.name, type:"DOWNLOAD",req:newFile }))
     }
 
     return (
