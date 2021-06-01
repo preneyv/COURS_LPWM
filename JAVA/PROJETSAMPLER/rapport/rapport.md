@@ -1,8 +1,5 @@
 # Main screen 
-![Soundboard page](./assets/soundboard.jpg)
-![Edit Page - LocalLib](./assets/localLib.jpg)
-![Edit Page - Micro](./assets/micro.jpg)
-![Edit Page - Freesound](./assets/freesound.jpg)
+![Soundboard page](./assets/soundboard.jpg) ![Edit Page - LocalLib](./assets/localLib.jpg) ![Edit Page - Micro](./assets/micro.jpg) ![Edit Page - Freesound](./assets/freesound.jpg)
 
 # The Project Structure
     ## components
