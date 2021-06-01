@@ -1,5 +1,9 @@
 # Main screen 
-![Soundboard page](./assets/soundboard.jpg) ![Edit Page - LocalLib](./assets/localLib.jpg) ![Edit Page - Micro](./assets/micro.jpg) ![Edit Page - Freesound](./assets/freesound.jpg)
+<img src="./assets/soundboard.jpg" alt="Soundboard page" width="50" height="100">
+<img src="./assets/localLib.jpg" alt="Soundboard page" width="50" height="100">
+<img src="./assets/micro.jpg" alt="Soundboard page" width="50" height="100">
+<img src="./assets/freesound.jpg" alt="Soundboard page" width="50" height="100">
+
 
 # The Project Structure
     ## components
