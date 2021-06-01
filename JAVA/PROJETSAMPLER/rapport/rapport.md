@@ -1,8 +1,8 @@
 # Main screen 
-<img src="./assets/soundboard.jpg" alt="Soundboard page" width="50" height="100">
-<img src="./assets/localLib.jpg" alt="Soundboard page" width="50" height="100">
-<img src="./assets/micro.jpg" alt="Soundboard page" width="50" height="100">
-<img src="./assets/freesound.jpg" alt="Soundboard page" width="50" height="100">
+<img src="./assets/soundboard.jpg" alt="Soundboard page" width="150" height="300"> <img src="./assets/localLib.jpg" alt="Soundboard page" width="150" height="300"> <img src="./assets/micro.jpg" alt="Soundboard page" width="150" height="300"> <img src="./assets/freesound.jpg" alt="Soundboard page" width="150" height="300">
+
+
+
 
 
 # The Project Structure
