@@ -1,5 +1,5 @@
 # Main screen 
-<div><h3>Welcome Page / Soundboard</h3><img src="./assets/soundboard.jpg" alt="Soundboard page" width="200" height="300"></div> <img src="./assets/localLib.jpg" alt="Soundboard page" width="200" height="300"> <img src="./assets/micro.jpg" alt="Soundboard page" width="200" height="300"> <img src="./assets/freesound.jpg" alt="Soundboard page" width="200" height="300">
+<div><h3>Welcome Page / Soundboard</h3><img src="./assets/soundboard.jpg" alt="Soundboard page" width="200" height="300"></div><div><h3>Edit Button SoundBoard / Local Library</h3><img src="./assets/localLib.jpg" alt="Soundboard page" width="200" height="300"></div><div><h3>Edit Button SoundBoard / Record sound</h3><img src="./assets/micro.jpg" alt="Soundboard page" width="200" height="300"></div><div><h3>Edit Button SoundBoard / Download freesound</h3><img src="./assets/freesound.jpg" alt="Soundboard page" width="200" height="300"></div>
 
 
 
