@@ -1,8 +1,8 @@
 import {View, Text, StyleSheet, TextInput, FlatList, TouchableOpacity} from "react-native"
 import React, { useEffect, useState } from 'react'
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import Ionicons from "react-native-vector-icons/Ionicons"
-import {add, librairieSelector} from '../../reducers/librairieSlice'
+import {add} from '../../reducers/librairieSlice'
 import listSon from '../../style/listSon'
 import PlaySong from '../../services/playSong'
 

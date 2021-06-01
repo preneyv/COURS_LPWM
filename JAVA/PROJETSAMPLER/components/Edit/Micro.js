@@ -7,7 +7,7 @@ import {getAudioPermission} from '../../services/requestPermissions'
 import {add} from '../../reducers/librairieSlice'
 
 import Ionicons from "react-native-vector-icons/Ionicons"
-import InsetShadow from 'react-native-inset-shadow'
+import InsetShadow from "react-native-inset-shadow"
 import PlaySong from "../../services/playSong";
 
 
@@ -21,7 +21,7 @@ const startRecording = async () => {
 const Micro = ({selectedColor}) => {
     const dispatch = useDispatch()
     const [recordingState, setRecordingState] = useState("NOT_STARTED")
-    const [recording, setRecording] = useState()
+    const [recording, setRecording] = useState(undefined)
     const [newSongName, setNewSongName] = useState("")
 
     const handleStartRecording = async () => {
@@ -61,10 +61,20 @@ const Micro = ({selectedColor}) => {
     return (
         <View style={styles.mainCtn}>
             <View style={styles.container}>
-                <InsetShadow shadowOpacity={1} shadowRadius={12} shadowColor={`rgb(${R},${G},${B})`} containerStyle={{borderWidth: 10, borderRadius:100, borderColor:`rgba(${R},${G},${B},0.7)`,height:"auto", marginLeft: 30, borderWidth:1}} >
-                        <TouchableOpacity onPress={recording ? handleStopRecording : handleStartRecording}>
-                            <Ionicons name="pulse-outline" size={75} color="white" style={{padding:30}}/>
-                        </TouchableOpacity>
+                <InsetShadow shadowOpacity={1} shadowRadius={12} shadowColor={`rgb(${R},${G},${B})`} containerStyle={{borderWidth: 10, borderRadius:100, borderColor:`rgba(${R},${G},${B},0.7)`,height:"auto", marginLeft: 0, borderWidth:1}} >
+                        { recordingState !== "OVER" &&
+                            <TouchableOpacity onPress={recording ? handleStopRecording : handleStartRecording}>
+                                <Ionicons name="pulse-outline" size={75} color="white" style={{padding:30}}/>
+                            </TouchableOpacity>
+                        }
+                        
+                        {
+                            recordingState === "OVER" &&
+                        <TouchableOpacity onPress={resetStateRecord}>
+                            <Ionicons name="refresh-outline" size={75} color="white" style={{padding:30}}/>
+                        </TouchableOpacity>    
+                        }
+                        
                 </InsetShadow>
                 {
                     (recordingState === "OVER" || recordingState === "VALIDATE") &&

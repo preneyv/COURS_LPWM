@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux"
-import React, { useState } from 'react'
-import { Button, Touchable, TouchableOpacity, View, Text, StyleSheet } from "react-native"
+import React from 'react'
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native"
 import {setFilter, filterSelector} from "../../reducers/filterSlice"
 
 

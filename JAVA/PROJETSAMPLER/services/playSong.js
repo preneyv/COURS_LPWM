@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { Audio } from "expo-av";
 
 

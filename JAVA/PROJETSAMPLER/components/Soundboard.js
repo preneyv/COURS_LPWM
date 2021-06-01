@@ -1,7 +1,7 @@
 import {View, Image, StyleSheet, FlatList, Button, TouchableOpacity} from "react-native";
 import React from 'react';
 import Ionicons from "react-native-vector-icons/Ionicons";
-import {useDispatch, useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 
 import communs from "../style/communs";
 

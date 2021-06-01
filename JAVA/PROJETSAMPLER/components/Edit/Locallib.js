@@ -1,9 +1,9 @@
 import {View, Text, FlatList} from "react-native"
 import {RadioButton} from 'react-native-paper'
-import React, { useState } from 'react'
-import {useDispatch, useSelector} from "react-redux"
+import React from 'react'
+import {useSelector} from "react-redux"
 import Ionicons from "react-native-vector-icons/Ionicons"
-import { filteredLibrairieSelector ,librairieSelector} from '../../reducers/librairieSlice'
+import { filteredLibrairieSelector } from '../../reducers/librairieSlice'
 import PlaySong from '../../services/playSong'
 import Filter from "../Filter/filterComp"
 

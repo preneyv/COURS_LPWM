@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet, FlatList, TouchableOpacity} from "react-native";
 import React, { useEffect, useState } from 'react';
-import MultiSlider, {CustomLabel} from '@ptomasroos/react-native-multi-slider'
+import MultiSlider from '@ptomasroos/react-native-multi-slider'
 import { createMaterialTopTabNavigator  } from "@react-navigation/material-top-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {useDispatch, useSelector} from "react-redux"
