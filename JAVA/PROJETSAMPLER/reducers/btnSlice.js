@@ -24,7 +24,7 @@ const btnSoundBoardSlice = createSlice({
             })
         },
         editStartAt: (state, action) => {
-            console.log(state)
+
             return state.map((item) => {
                 if(item.idBtn === action.payload.idBtn) {
                     return {...item, startAt: action.payload.newStartAt}
@@ -34,7 +34,7 @@ const btnSoundBoardSlice = createSlice({
             })
         },
         editFinishAt: (state, action) => {
-            console.log(state)
+
             return state.map((item) => {
                 if(item.idBtn === action.payload.idBtn) {
                     return {...item, finishAt: action.payload.newFinishAt}

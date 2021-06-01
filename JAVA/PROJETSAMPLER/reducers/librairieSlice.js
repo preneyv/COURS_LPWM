@@ -38,7 +38,7 @@ export const filteredLibrairieSelector = (state) => {
     switch(state.filterLocalLib.filter) {
         case "all" : return state.librairieLocale
         case "default" : return state.librairieLocale.filter((item) => item.type === "DEFAULT")
-        case "download" : return state.librairieLocale.filter((item) => item.type === "DOWLOAD")
+        case "download" : return state.librairieLocale.filter((item) => item.type === "DOWNLOAD")
         case "recorded" : return state.librairieLocale.filter((item) => item.type === "RECORDED")
     }
 }
