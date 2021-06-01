@@ -35,32 +35,32 @@ There is two functions :
 
 # The Project Structure
 
-+-- components
-|   +-- Edit
-|   |   +-- Freesound.js
-|   |   +-- Locallib.js
-|   |   +-- Micro.js
-|   |   +-- Sample.js
-|   +-- Filter
-|   |   +-- filterComp.js
-|   +-- reusable
-|   |   +-- color.js
-|   |   +-- defaultBtn.js
-|   |   +-- defaultSong.js
-|   |   +-- freesoundAPI.js
-|   |   +-- songInfo.js
-|   +-- Soundboard.js
-+-- reducers
-|   +-- btnSlice.js
-|   +-- filterSlice.js
-|   +-- librairieSlice.js
-+-- services
-|   +-- downloadSong.js
-|   +-- playSong.js
-|   +-- requestPermission.js
-+-- store
-|   +-- store.js.js
-+-- style
-|   +-- communs.js
-|   +-- listSon.js
-+-- App.js
+    +-- components
+    |   +-- Edit
+    |   |   +-- Freesound.js
+    |   |   +-- Locallib.js
+    |   |   +-- Micro.js
+    |   |   +-- Sample.js
+    |   +-- Filter
+    |   |   +-- filterComp.js
+    |   +-- reusable
+    |   |   +-- color.js
+    |   |   +-- defaultBtn.js
+    |   |   +-- defaultSong.js
+    |   |   +-- freesoundAPI.js
+    |   |   +-- songInfo.js
+    |   +-- Soundboard.js
+    +-- reducers
+    |   +-- btnSlice.js
+    |   +-- filterSlice.js
+    |   +-- librairieSlice.js
+    +-- services
+    |   +-- downloadSong.js
+    |   +-- playSong.js
+    |   +-- requestPermission.js
+    +-- store
+    |   +-- store.js.js
+    +-- style
+    |   +-- communs.js
+    |   +-- listSon.js
+    +-- App.js
