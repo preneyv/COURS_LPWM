@@ -1,24 +1,30 @@
+
 import {View, Text, StyleSheet, FlatList, TouchableOpacity} from "react-native";
 import React, { useEffect, useState } from 'react';
 import MultiSlider from '@ptomasroos/react-native-multi-slider'
 import { createMaterialTopTabNavigator  } from "@react-navigation/material-top-tabs";
+import Toast from 'react-native-toast-message';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {useDispatch, useSelector} from "react-redux"
+
+//Slice Import
 import {editColor, editSound, editStartAt, editFinishAt} from '../../reducers/btnSlice'
 import {librairieSelector} from '../../reducers/librairieSlice'
 
+//Styles import
 import communs from "../../style/communs";
 
+//Components Imports
 import Micro from "./Micro";
 import Locallib from "./Locallib";
 import Freesound from "./Freesound";
+
+//Services Import
 import color from "../reusable/color"
 import getInfosSong from "../reusable/songInfo"
 
 
 const Tabs = createMaterialTopTabNavigator ();
-
-
 
 const Sample = ({navigation, route}) => {
     const sound = route.params.sound
@@ -99,7 +105,7 @@ const Sample = ({navigation, route}) => {
             <View style={styles.tabsEdit}>
                 <Tabs.Navigator
                     screenOptions={({ route }) => ({
-                        tabBarIcon: ({ focused, color, size }) => {
+                        tabBarIcon: ({ focused}) => {
                             let iconName;
                             switch (route.name) {
                                 case "Micro":
@@ -131,6 +137,7 @@ const Sample = ({navigation, route}) => {
                     </Tabs.Screen>
                 </Tabs.Navigator>
             </View>
+            <Toast ref={(ref) => Toast.setRef(ref)} />
         </View>
     )
 

@@ -5,6 +5,7 @@ import { Audio } from "expo-av";
 
 const PlaySong = ({children,song, goToSample, limitPlay}) => {
   const [sound, setSound] = useState();
+  const [isPlaying, setIsPlaying ] = useState(false)
 
   const songToPlay = song.type === "DEFAULT" ? song.req : {uri:song.req} 
   
@@ -13,31 +14,39 @@ const PlaySong = ({children,song, goToSample, limitPlay}) => {
   const playSound = async () => {
 
     try{
-      console.log(songToPlay)
+
+      let stateSound;
       const sound = new Audio.Sound()
       await sound.loadAsync(songToPlay);
       setSound(sound);
+      const {durationMillis} = await sound.getStatusAsync()
       
       if(limitPlay) {
-        const {durationMillis} = await sound.getStatusAsync()
         const start = (limitPlay.start * durationMillis) /100
-        sound.playFromPositionAsync(start)
+        stateSound =  await sound.playFromPositionAsync(start)
       }else{
-        await sound.playAsync();
+        stateSound = await sound.playAsync();
       }
-    
-      
-
+      setIsPlaying(!isPlaying)
+  
     }catch(err){
       console.error(err)
     }
 
   };
 
+  const stopSound = async () => {
+    await sound.stopAsync()
+    setIsPlaying(false)
+  }
+
   useEffect(() => {
+    setIsPlaying(false)
     return () => {
+      
       if (sound) {
         sound.unloadAsync();
+        
       }
     };
   }, [sound]);
@@ -45,7 +54,7 @@ const PlaySong = ({children,song, goToSample, limitPlay}) => {
   return (
 
 
-    <TouchableOpacity onPress={playSound} onLongPress={goToSample ? goToSample : undefined}> 
+    <TouchableOpacity onPress={ isPlaying ? stopSound : playSound} onLongPress={goToSample ? goToSample : undefined}> 
         {children}
     </TouchableOpacity>
 

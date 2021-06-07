@@ -1,3 +1,4 @@
+//React and ReactNatives import
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -5,6 +6,7 @@ import {Provider} from "react-redux"
 import persistStore from "redux-persist/es/persistStore";
 import { PersistGate } from "redux-persist/integration/react";
 
+//Components imports
 import Sample from "./components/Edit/Sample";
 import SoundBoard from "./components/Soundboard";
 

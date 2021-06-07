@@ -1,14 +1,22 @@
+//React and ReactNative Import
 import {View, Text, StyleSheet, TextInput, FlatList, TouchableOpacity} from "react-native"
 import React, { useEffect, useState } from 'react'
 import {useDispatch} from "react-redux"
+import Toast from 'react-native-toast-message';
 import Ionicons from "react-native-vector-icons/Ionicons"
+
+//Slices Import
 import {add} from '../../reducers/librairieSlice'
+
+//Styles import
 import listSon from '../../style/listSon'
-import PlaySong from '../../services/playSong'
 
+//Services import
 import {getListFreesound, getSound} from '../reusable/freesoundAPI'
-import downloadSong from '../../services/dowloadSong'
 
+//Components Import
+import downloadSong from '../../services/dowloadSong'
+import PlaySong from '../../services/playSong'
 
 const ItemSong = ({item, color}) => {
     const {R, G, B} = color
@@ -17,9 +25,8 @@ const ItemSong = ({item, color}) => {
     const getUrlSound = async () => {
         let res = await getSound(item.id)
         setSongFreesound({...songFreesound, req:res})
-        
-
     }
+
     useEffect(()=> {
         getUrlSound()
     },[])
@@ -28,9 +35,10 @@ const ItemSong = ({item, color}) => {
     const handleAddSong = async () => {
 
         let newFile = await downloadSong(songFreesound.req, songFreesound.id)
-        console.log(newFile)
-        console.log(songFreesound)
         dispatch(add({name:songFreesound.name, type:"DOWNLOAD",req:newFile }))
+        Toast.show({
+            text1: 'Son ajouté',
+        });
     }
 
     return (
@@ -54,7 +62,6 @@ const Freesound = ({selectedColor}) => {
         if(input !== "") {
             let data = await getListFreesound(input)
             setListFresound(data)
-            
         }
     }
 

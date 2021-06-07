@@ -1,6 +1,9 @@
+//React and ReactNative Import
 import {useDispatch, useSelector} from "react-redux"
 import React from 'react'
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native"
+
+//Slices import
 import {setFilter, filterSelector} from "../../reducers/filterSlice"
 
 

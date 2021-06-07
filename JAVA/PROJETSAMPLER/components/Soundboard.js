@@ -1,13 +1,17 @@
-import {View, Image, StyleSheet, FlatList, Button, TouchableOpacity} from "react-native";
+//React and ReactNative Import
+import {View, Image, StyleSheet, FlatList} from "react-native";
 import React from 'react';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useSelector } from "react-redux"
 
+//Styles import
 import communs from "../style/communs";
 
+//Slices import
 import { sdbSelector } from "../reducers/btnSlice";
 import { librairieSelector } from '../reducers/librairieSlice'
 
+//Services import
 import PlaySong from "../services/playSong";
 import color from './reusable/color'
 
@@ -79,9 +83,6 @@ const styles = StyleSheet.create({
     sonsBtn: {
 
         flexDirection:"row",
-        /*borderColor:'red',
-        borderWidth:1,*/
-
     },
     btnBoard: {
         borderRadius:5,

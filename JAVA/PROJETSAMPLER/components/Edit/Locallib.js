@@ -1,12 +1,18 @@
+//React and ReactNative Import
 import {View, Text, FlatList} from "react-native"
 import {RadioButton} from 'react-native-paper'
 import React from 'react'
 import {useSelector} from "react-redux"
 import Ionicons from "react-native-vector-icons/Ionicons"
+
+//Slices Import
 import { filteredLibrairieSelector } from '../../reducers/librairieSlice'
+
+//Components Import
 import PlaySong from '../../services/playSong'
 import Filter from "../Filter/filterComp"
 
+//Styles import
 import listSon from '../../style/listSon'
 
 const ItemSong = ({item, idSong, color, editIdSon}) => {
@@ -26,7 +32,6 @@ const ItemSong = ({item, idSong, color, editIdSon}) => {
 
 const Locallib = ({selectedSong,selectedColor, handleChangeSon}) => {
     const lib = useSelector(filteredLibrairieSelector)
-    console.log(lib)
 
     return (
         <View style={listSon.container}>

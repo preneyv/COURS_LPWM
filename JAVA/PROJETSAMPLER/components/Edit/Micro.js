@@ -1,13 +1,19 @@
+//React and ReactNative Import
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, Button} from "react-native";
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from "react-redux";
 import { Audio } from 'expo-av';
-import {getAudioPermission} from '../../services/requestPermissions'
-
-import {add} from '../../reducers/librairieSlice'
-
+import Toast from 'react-native-toast-message';
 import Ionicons from "react-native-vector-icons/Ionicons"
 import InsetShadow from "react-native-inset-shadow"
+
+//Services import
+import {getAudioPermission} from '../../services/requestPermissions'
+
+//Slices import
+import {add} from '../../reducers/librairieSlice'
+
+//Components Import
 import PlaySong from "../../services/playSong";
 
 
@@ -50,6 +56,9 @@ const Micro = ({selectedColor}) => {
     
         const newSong = {name:newSongName, type:"RECORDED", req:recording.getURI()}
         dispatch(add(newSong))
+        Toast.show({
+            text1: 'Son ajouté',
+          });
         resetStateRecord()
     }
 
@@ -62,14 +71,20 @@ const Micro = ({selectedColor}) => {
         <View style={styles.mainCtn}>
             <View style={styles.container}>
                 <InsetShadow shadowOpacity={1} shadowRadius={12} shadowColor={`rgb(${R},${G},${B})`} containerStyle={{borderWidth: 10, borderRadius:100, borderColor:`rgba(${R},${G},${B},0.7)`,height:"auto", marginLeft: 0, borderWidth:1}} >
-                        { recordingState !== "OVER" &&
-                            <TouchableOpacity onPress={recording ? handleStopRecording : handleStartRecording}>
-                                <Ionicons name="pulse-outline" size={75} color="white" style={{padding:30}}/>
+                        { recordingState === "NOT_STARTED" &&
+                            <TouchableOpacity onPress={handleStartRecording}>
+                                <Ionicons name="ellipse" size={75} color="white" style={{padding:30}}/>
                             </TouchableOpacity>
                         }
-                        
+
+                        { recordingState === "BEGUN" &&
+                            <TouchableOpacity onPress={ handleStopRecording }>
+                                <Ionicons name="ellipse" size={75} color="red" style={{padding:30}}/>
+                            </TouchableOpacity>
+                        }
+
                         {
-                            recordingState === "OVER" &&
+                            (recordingState === "OVER" || recordingState === "VALIDATE") &&
                         <TouchableOpacity onPress={resetStateRecord}>
                             <Ionicons name="refresh-outline" size={75} color="white" style={{padding:30}}/>
                         </TouchableOpacity>    
@@ -90,6 +105,7 @@ const Micro = ({selectedColor}) => {
             </View>
             { recordingState === "VALIDATE" && <View style={styles.inputBox}><TextInput style={styles.input} value={newSongName} onChangeText={setNewSongName} placeholder="Nom de l'enregistrement"/><Button title="Valider" onPress={addRecordedSon}/></View>}
             { recordingState === "BEGUN" && <Text style={{color: "white"}}>Enregistrement en cours ...</Text>}
+
         </View>
         
     )
